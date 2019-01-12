@@ -1,5 +1,4 @@
 import os
-from version_2.New_manga import add_new_manga
 from version_2.Make_tables_as_csv import *
 
 
