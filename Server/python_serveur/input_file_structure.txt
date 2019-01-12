@@ -1,0 +1,9 @@
+"manga's name", "cover page link", "liste de lien" , "état du manga"
+
+
+
+"état du manga" : 3 états possibles :
+
+			- "COMPLETE" -> on ne touche plus à rien
+			- "UPDATE" -> manga pas encore terminé, on reprend depuis le dernier chapitre
+			- "NEW" -> ajout d'un nouveau manga, créé les chapitres et les pages, puis on le passe en "UPDATE"
