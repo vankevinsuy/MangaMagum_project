@@ -1,6 +1,13 @@
 import os
-from version_2.Make_tables_as_csv import *
+try:
+    from version_2.Make_tables_as_csv import *
+except Exception as e:
+    pass
 
+try:
+    from Make_tables_as_csv import *
+except Exception as e:
+    pass
 
 if os.path.exists("D:\\MangaMagum_project\\Server\\Python_make_csv_for_database\\version_2\\outpout\\manga.csv"):
   os.remove("D:\\MangaMagum_project\\Server\\Python_make_csv_for_database\\version_2\\outpout\\manga.csv")

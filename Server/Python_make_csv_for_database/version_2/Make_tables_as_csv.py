@@ -1,5 +1,13 @@
 import csv
-from version_2.URL_Checker import *
+try:
+    from version_2.URL_Checker import *
+except:
+    pass
+
+try:
+    from URL_Checker import *
+except:
+    pass
 
 
 #using the list of links we will ping all urls we can find by changing chapter and page number
