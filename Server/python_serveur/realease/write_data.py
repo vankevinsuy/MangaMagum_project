@@ -89,23 +89,58 @@ def write_page(dictionnary, id_book):
                 for i in range(len(urls_to_test)) :
                     if check_url(urls_to_test[i]):
                         good_url_base = list_of__base_link[i]
-                        pages = get_page(chapitre, good_url_base)
+                        pages = get_page(chapitre, list_of__base_link)
+                        # to_write = []
+                        # for j in range(len(pages)):
+                        #     to_write.append(good_url_base.format(str(chapitre), str(pages[j])))
                         page_csv_writer.writerow({'id_book': id_book, 'chapitre': chapitre, 'list_page': pages})
 
 
 
 
-def get_page(chapitre,good_url_base):
+def get_page(chapitre, list_of__base_link):
 # loop for finding all pages by chapter
     num_page = 1
     list_page = []
     while (True):
-        url = good_url_base.format(str(chapitre), str(num_page))
+        #mettre en forme les urls
+        url_on_test = []
+        for i in range(len(list_of__base_link)):
+            url = list_of__base_link[i].format(str(chapitre), str(num_page))
+            url_on_test.append(url)
 
-        if check_url(url):
-            print(url)
-            list_page.append(num_page)
-            num_page = num_page + 1
+        #verifier leurs états
+        url_res = []
+        for i in range(len(url_on_test)):
+            if check_url(url_on_test[i]):
+                url_res.append(True)
+                break
+            else:
+                url_res.append(False)
+
+        #récupérer la bonne url et l'ajouter à la liste
+        for i in range(len(url_res)):
+            if url_res[i] == True:
+                good_url = list_of__base_link[i].format(str(chapitre), str(num_page))
+                print(good_url)
+                list_page.append(good_url)
+#---------------------------------------------------
+        #vérifier si la prochaine page existe
+        url_on_test = []
+        for i in range(len(list_of__base_link)):
+            url = list_of__base_link[i].format(str(chapitre), str(num_page+1))
+            url_on_test.append(url)
+
+        #verifier les états
+        url_res = []
+        for i in range(len(url_on_test)):
+            if check_url(url_on_test[i]):
+                url_res.append(True)
+            else:
+                url_res.append(False)
+
+        #si il y a un true dans url_res on continue sinon break
+        if True in url_res:
+            num_page = num_page +1
         else:
-            break
-    return list_page
+            return list_page
