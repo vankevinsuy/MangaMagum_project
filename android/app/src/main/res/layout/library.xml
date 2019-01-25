@@ -1,7 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Library"/>
+    tools:context=".Library">
+
+    <RelativeLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <RelativeLayout
+            android:id="@+id/header_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ddd"/>
+
+            <EditText
+                android:id="@+id/search_bar"
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="@string/search_bar_initial"
+                android:importantForAutofill="no"
+                android:inputType=""
+                android:textAlignment="center" />
+
+            <ImageButton
+                android:id="@+id/update_database"
+                android:layout_width="29dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="11dp"
+                android:background="@drawable/update_image"
+                android:contentDescription="update" />
+        </RelativeLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/manga_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/navigation_bar"
+            android:layout_below="@id/header_layout" />
+
+        <RelativeLayout
+            android:id="@+id/navigation_bar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true">
+
+            <ImageButton
+                android:id="@+id/go_to_library_button"
+                android:layout_width="25dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="40dp"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/library_image" />
+
+            <TextView
+                android:id="@+id/textView_library"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/library"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="10dp"
+                />
+
+            <ImageButton
+                android:id="@+id/go_to_category_button"
+                android:layout_width="35dp"
+                android:layout_height="25dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/categoty_image"
+                />
+
+            <TextView
+                android:id="@+id/textview_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+
+                />
+
+            <ImageButton
+                android:id="@+id/go_to_favorite"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/favorite_image" />
+
+            <TextView
+                android:id="@+id/textview_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/favorite"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="10dp"/>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
