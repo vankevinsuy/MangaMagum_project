@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Chosen_manga"
+    android:background="#FFFF">
+
+    <RelativeLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/header_manga_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_text"
+                android:layout_centerInParent="true"
+                android:textSize="20sp"
+                android:textColor="@color/text_header"/>
+
+
+            <!--<ImageButton-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:background="@drawable/resume_button"-->
+                <!--android:layout_marginRight="30dp"/>-->
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/manga_cover"
+            android:layout_width="160dp"
+            android:layout_height="180dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/header"
+            android:layout_marginTop="10dp"
+            tools:srcCompat="@tools:sample/avatars[3]" />
+
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scrollbars="vertical"
+            android:layout_marginHorizontal="20dp"
+            android:layout_below="@id/manga_cover"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"/>
+
+
+        <!--resume layout-->
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:id="@+id/resume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description">
+
+            <ImageButton
+                android:id="@+id/play_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/resume_button"
+                android:layout_alignParentRight="true"/>
+
+            <TextView
+                android:id="@+id/resume_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="50dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:id="@+id/chapter_selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/resume">
+
+            <TextView
+                android:id="@+id/chapter_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp" />
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_below="@id/chapter_num"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginBottom="2dp"
+                android:progressBackgroundTint="@color/colorPrimary"
+                android:backgroundTint="@color/button_color"
+                android:progressTint="@color/button_color"
+                android:thumbTint="@color/button_color"/>
+
+            <ImageButton
+                android:id="@+id/plus_button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/chapter_num"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/plus_button"/>
+            <ImageButton
+                android:id="@+id/minus_button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/chapter_num"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/minus_button"/>
+        </RelativeLayout>
+
+
+        <!--navigation bar-->
+        <RelativeLayout
+            android:id="@+id/navigation_bar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true">
+
+            <ImageButton
+                android:id="@id/go_to_library_button"
+                android:layout_width="25dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/library_image" />
+
+            <TextView
+                android:id="@id/textView_library"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/library" />
+
+            <ImageButton
+                android:id="@id/go_to_category_button"
+                android:layout_width="35dp"
+                android:layout_height="25dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/categoty_image" />
+
+            <TextView
+                android:id="@id/textview_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:text="@string/category"
+
+                />
+
+            <ImageButton
+                android:id="@id/go_to_favorite"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/favorite_image" />
+
+            <TextView
+                android:id="@id/textview_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/favorite" />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
