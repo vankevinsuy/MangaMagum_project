@@ -54,11 +54,10 @@ def chapter_recursif(id_book, urls_base,chapitre, indice_liste, list_chapitre):
                 return chapter_recursif(id_book,urls_base, chapitre+1, indice_liste, list_chapitre)
             else:
                 list_chapitre.append(chapitre)
-<<<<<<< HEAD
-                chapter_csv_writer.writerow({'id_book':'"'+ str(id_book) + '"', 'liste_chapitre': '"'+ str(list_chapitre) + '"'})
-=======
-                chapter_csv_writer.writerow({'id_book': str(id_book), 'liste_chapitre': list_chapitre})
->>>>>>> 18598f5d37f37634a24f1c70f706d17eeaeeaa84
+
+                chapter_csv_writer.writerow({'id_book':'"'+ id_book + '"', 'liste_chapitre': '"'+ list_chapitre + '"'})
+
+                #chapter_csv_writer.writerow({'id_book': str(id_book), 'liste_chapitre': list_chapitre})
                 return None
 
         else:
@@ -102,11 +101,8 @@ def write_page(dictionnary, id_book):
                         # to_write = []
                         # for j in range(len(pages)):
                         #     to_write.append(good_url_base.format(str(chapitre), str(pages[j])))
-<<<<<<< HEAD
-                        page_csv_writer.writerow({'id_book':'"'+ str(id_book) + '"', 'chapitre': '"'+ str(chapitre) + '"', 'list_page':'"'+ str(pages) + '"'})
-=======
-                        page_csv_writer.writerow({'id_book': str(id_book), 'chapitre': str(chapitre), 'list_page': pages})
->>>>>>> 18598f5d37f37634a24f1c70f706d17eeaeeaa84
+                        page_csv_writer.writerow({'id_book':'"'+ id_book + '"', 'chapitre': '"'+ chapitre + '"', 'list_page':'"'+ pages + '"'})
+                        #page_csv_writer.writerow({'id_book': str(id_book), 'chapitre': str(chapitre), 'list_page': pages})
 
 
 
