@@ -204,7 +204,9 @@ public class DataBase extends SQLiteOpenHelper {
 
         String[] url = item.split(",");
         for (String i :url){
-            list_of_link_page.add(i);
+            if (i != "" || i!= null){
+                list_of_link_page.add(i);
+            }
         }
 
 

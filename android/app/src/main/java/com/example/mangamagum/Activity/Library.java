@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.mangamagum.Activity.Adapter.Library_Adapter;
+import com.example.mangamagum.Adapter.Library_Adapter;
 import com.example.mangamagum.Model.Book;
 import com.example.mangamagum.Model.DataBase;
 import com.example.mangamagum.R;
@@ -34,7 +34,6 @@ public class Library extends AppCompatActivity {
     public ImageButton update_button;
     private RecyclerView manga_recycler_view;
     private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
 
     private Context context;
     private Library activity;

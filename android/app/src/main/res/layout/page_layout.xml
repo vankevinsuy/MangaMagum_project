@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.Reading"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/page">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/page"
+        android:id="@+id/page_content"
         android:contentDescription="@string/no_value"
-        android:layout_marginTop="0dp"
         android:layout_marginHorizontal="5dp">
     </ImageView>
 

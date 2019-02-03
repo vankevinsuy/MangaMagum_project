@@ -1,4 +1,4 @@
-package com.example.mangamagum.Activity.Adapter;
+package com.example.mangamagum.Adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
