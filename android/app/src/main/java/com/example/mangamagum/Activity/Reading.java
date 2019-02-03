@@ -2,12 +2,15 @@ package com.example.mangamagum.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
+import android.view.Display;
 
 import com.example.mangamagum.Adapter.Page_adapter;
 import com.example.mangamagum.Model.DataBase;
@@ -30,6 +33,15 @@ public class Reading extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reading);
 
+
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
+
+
         this.dataBase = new DataBase(getApplicationContext());
         this.chapter = getIntent().getExtras().getString("chapter");
         this.id_book = getIntent().getExtras().getString("id_book");
@@ -41,7 +53,7 @@ public class Reading extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         LinearLayoutManager manager = new LinearLayoutManager(this.getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(manager);
-        Page_adapter page_adapter = new Page_adapter(this.list_urls, this.getApplicationContext());
+        Page_adapter page_adapter = new Page_adapter(this.list_urls, this.getApplicationContext(), width,height);
         mRecyclerView.setAdapter(page_adapter);
 
     }

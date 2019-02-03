@@ -1,8 +1,10 @@
 package com.example.mangamagum.Adapter;
 
 import android.content.Context;
+import android.graphics.Point;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +21,14 @@ public class Page_adapter extends RecyclerView.Adapter<Page_adapter.ViewHolder>{
 
     private ArrayList<String> List_urls;
     private Context context;
+    private int width;
+    private int height;
 
-    public Page_adapter(ArrayList<String> list_urls, Context context) {
+    public Page_adapter(ArrayList<String> list_urls, Context context, int width, int height) {
         this.List_urls = list_urls;
         this.context = context;
+        this.width = width;
+        this.height = height;
     }
 
 
@@ -39,8 +45,14 @@ public class Page_adapter extends RecyclerView.Adapter<Page_adapter.ViewHolder>{
     public void onBindViewHolder(@NonNull Page_adapter.ViewHolder viewHolder, int i) {
         String image_url = this.List_urls.get(i);
 
+
 //        Picasso.with(context).load(image_url).into(viewHolder.imageView);
-        Glide.with(context).load(image_url).diskCacheStrategy(DiskCacheStrategy.ALL).into(viewHolder.getImageView());
+        Glide
+                .with(context)
+                .load(image_url).override(this.width,this.height)
+                .fitCenter()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(viewHolder.getImageView());
     }
 
     @Override
