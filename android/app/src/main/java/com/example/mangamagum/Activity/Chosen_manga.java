@@ -128,7 +128,7 @@ public class Chosen_manga extends AppCompatActivity {
             public void onClick(View v) {
                 Intent reading_activity = new Intent(getApplicationContext(), Reading.class);
                 reading_activity.putExtra("id_book" , selected_manga_id);
-                reading_activity.putExtra("chapter", chapter_target);
+                reading_activity.putExtra("chapter", Integer.toString(chapter_target));
                 startActivity(reading_activity);
 
             }

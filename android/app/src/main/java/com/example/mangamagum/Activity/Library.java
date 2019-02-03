@@ -66,8 +66,11 @@ public class Library extends AppCompatActivity {
         activity = this;
         dataBase = new DataBase(this);
 
-        Server server = new Server(this,this,dataBase);
-        server.execute();
+
+        fill_library(context);
+
+//        Server server = new Server(this,this,dataBase);
+//        server.execute();
 
 
 //        internet_check = internetIsConnected();
@@ -80,12 +83,13 @@ public class Library extends AppCompatActivity {
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                fill_library(context);
+                update_button.animate().rotation(update_button.getRotation()-360).setDuration(1000).start();
+                fill_library(context);
                 update_button.setEnabled(false);
-//                Server server = new Server(context , activity, dataBase);
-//                server.execute();
-//                dataBase.close();
-//                fill_library(context);
+                Server server = new Server(context , activity, dataBase);
+                server.execute();
+                dataBase.close();
+                fill_library(context);
                 update_button.setEnabled(true);
             }
         });
@@ -194,7 +198,6 @@ class Server extends AsyncTask<Void,Void, Void> {
     //**** filling list with server's datas
     @Override
     protected Void doInBackground(Void... voids) {
-
         try {
             URL url = new URL(API_MANGA_URL);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -235,7 +238,6 @@ class Server extends AsyncTask<Void,Void, Void> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 //        -----------------------------------------------------
         try {
             URL url = new URL(API_PAGE_URL);
@@ -263,7 +265,6 @@ class Server extends AsyncTask<Void,Void, Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
         Library activity = this.activityReference.get();
-
         if (activity == null || activity.isFinishing()) {
             return;
         }
