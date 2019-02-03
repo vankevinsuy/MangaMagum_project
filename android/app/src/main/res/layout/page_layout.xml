@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="5dp"
     tools:context=".Activity.Reading"
     android:orientation="vertical"
-    android:id="@+id/page">
+    android:id="@+id/page"
+    android:background="@color/button_color">
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/page_content"
-        android:contentDescription="@string/no_value"
-        android:layout_marginHorizontal="5dp">
-    </ImageView>
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/page_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/no_value"
+            android:layout_centerInParent="true">
+
+        </ImageView>
+    </RelativeLayout>
 
 </LinearLayout>

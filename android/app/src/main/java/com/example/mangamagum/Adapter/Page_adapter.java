@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.mangamagum.R;
 import com.squareup.picasso.Picasso;
 
@@ -37,8 +39,8 @@ public class Page_adapter extends RecyclerView.Adapter<Page_adapter.ViewHolder>{
     public void onBindViewHolder(@NonNull Page_adapter.ViewHolder viewHolder, int i) {
         String image_url = this.List_urls.get(i);
 
-        Picasso.with(context).load(image_url).into(viewHolder.imageView);
-
+//        Picasso.with(context).load(image_url).into(viewHolder.imageView);
+        Glide.with(context).load(image_url).diskCacheStrategy(DiskCacheStrategy.ALL).into(viewHolder.getImageView());
     }
 
     @Override
@@ -55,6 +57,10 @@ public class Page_adapter extends RecyclerView.Adapter<Page_adapter.ViewHolder>{
             super(itemView);
 
             imageView = (ImageView) itemView.findViewById(R.id.page_content);
+        }
+
+        public ImageView getImageView() {
+            return imageView;
         }
     }
 }
