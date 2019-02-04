@@ -166,13 +166,9 @@ class Server extends AsyncTask<Void,Void, Void> {
     private WeakReference<Library> activityReference;
 
     //**** API URLs appart
-//    private final String API_MANGA_URL = "http://192.168.0.21/MangaMaGum_API/get_manga_data.php";
-//    private final String API_CHAPTER_URL = "http://192.168.0.21/MangaMaGum_API/get_chapters_data.php";
-//    private final String API_PAGE_URL = "http://192.168.0.21/MangaMaGum_API/get_pages_data.php";
-
-    private final String API_MANGA_URL = "http:// 192.168.0.14/MangaMaGum_API/get_manga_data.php";
-    private final String API_CHAPTER_URL = "http:// 192.168.0.14/MangaMaGum_API/get_chapters_data.php";
-    private final String API_PAGE_URL = "http:// 192.168.0.14/MangaMaGum_API/get_pages_data.php";
+    private final String API_MANGA_URL = "http://192.168.0.21/MangaMaGum_API/get_manga_data.php";
+    private final String API_CHAPTER_URL = "http://192.168.0.21/MangaMaGum_API/get_chapters_data.php";
+    private final String API_PAGE_URL = "http://192.168.0.21/MangaMaGum_API/get_pages_data.php";
 
     //**** API URLs maison
 //    private final String API_MANGA_URL = "http://192.168.0.35/MangaMaGum_API/get_manga_data.php";
@@ -212,11 +208,9 @@ class Server extends AsyncTask<Void,Void, Void> {
                 line = bufferedReader.readLine();
                 this.data_list_manga.add((String)line);
             }
-
         }
         catch (MalformedURLException e) {
             e.printStackTrace();
-//            Toast.makeText(context, "update done ", Toast.LENGTH_SHORT).show();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -321,8 +315,8 @@ class Server extends AsyncTask<Void,Void, Void> {
                 this.db.insertPages(Integer.parseInt(id_book), Integer.parseInt(num_chapitre), list_page);
             }
         }
-        Toast.makeText(context, "update done ", Toast.LENGTH_SHORT).show();
         this.db.close();
+        Toast.makeText(context, "update done", Toast.LENGTH_SHORT).show();
         activity.fill_library(context);
     }
 
