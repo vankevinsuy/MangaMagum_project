@@ -170,10 +170,14 @@ class Server extends AsyncTask<Void,Void, Void> {
 //    private final String API_CHAPTER_URL = "http://192.168.0.21/MangaMaGum_API/get_chapters_data.php";
 //    private final String API_PAGE_URL = "http://192.168.0.21/MangaMaGum_API/get_pages_data.php";
 
+    private final String API_MANGA_URL = "http:// 192.168.0.14/MangaMaGum_API/get_manga_data.php";
+    private final String API_CHAPTER_URL = "http:// 192.168.0.14/MangaMaGum_API/get_chapters_data.php";
+    private final String API_PAGE_URL = "http:// 192.168.0.14/MangaMaGum_API/get_pages_data.php";
+
     //**** API URLs maison
-    private final String API_MANGA_URL = "http://192.168.0.35/MangaMaGum_API/get_manga_data.php";
-    private final String API_CHAPTER_URL = "http://192.168.0.35/MangaMaGum_API/get_chapters_data.php";
-    private final String API_PAGE_URL = "http://192.168.0.35/MangaMaGum_API/get_pages_data.php";
+//    private final String API_MANGA_URL = "http://192.168.0.35/MangaMaGum_API/get_manga_data.php";
+//    private final String API_CHAPTER_URL = "http://192.168.0.35/MangaMaGum_API/get_chapters_data.php";
+//    private final String API_PAGE_URL = "http://192.168.0.35/MangaMaGum_API/get_pages_data.php";
 
 
 

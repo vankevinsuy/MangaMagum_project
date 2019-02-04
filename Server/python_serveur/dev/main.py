@@ -1,18 +1,20 @@
 import os
 from write_data import *
+from insert_in_db import insert_all
 
-if os.path.exists("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"):
- os.remove("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv")
 
-if os.path.exists("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"):
- os.remove("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv")
+if os.path.exists("D:\MangaMagum_project\Server\python_serveur\dev\outpout\manga.csv"):
+ os.remove("D:\MangaMagum_project\Server\python_serveur\dev\outpout\manga.csv")
 
-if os.path.exists("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"):
- os.remove("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv")
+if os.path.exists("D:\MangaMagum_project\Server\python_serveur\dev\outpout\chapters.csv"):
+ os.remove("D:\MangaMagum_project\Server\python_serveur\dev\outpout\chapters.csv")
+
+if os.path.exists("D:\MangaMagum_project\Server\python_serveur\dev\outpout\pages.csv"):
+ os.remove("D:\MangaMagum_project\Server\python_serveur\dev\outpout\pages.csv")
 
 
 #read the input file
-with open("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/dev/input_file.txt", "r") as input_file:
+with open("D:\MangaMagum_project\Server\python_serveur\dev\input_file.txt", "r") as input_file:
     lines_in_input_file = input_file.readlines()
     input_file_as_list_of_dict = []
 
@@ -30,3 +32,6 @@ for item in input_file_as_list_of_dict:
     write_chapter(item, id_book)
     write_page(item, id_book)
     id_book = id_book + 1
+
+
+insert_all()

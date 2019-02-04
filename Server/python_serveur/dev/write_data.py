@@ -2,13 +2,13 @@ import csv
 from URL_Checker import *
 
 def write_manga(dictionnary,id_book):
-    with open("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv",'a') as manga_csv:
+    with open("D:\MangaMagum_project\Server\python_serveur\dev\outpout\manga.csv",'a') as manga_csv:
         manga_name = dictionnary["manga_name"]
         cover_link = dictionnary["cover_link"]
 
         #writing manga.csv manga's name, cover_link ,id_book
         manga_csv_fieldnames = ['manga_name', 'cover_link', 'id_book']
-        manga_csv_writer = csv.DictWriter(manga_csv, fieldnames=manga_csv_fieldnames, lineterminator='\n')
+        manga_csv_writer = csv.DictWriter(manga_csv, fieldnames=manga_csv_fieldnames, lineterminator='\n',quoting=csv.QUOTE_ALL)
 
         manga_csv_writer.writerow({"manga_name": manga_name, "cover_link": cover_link, "id_book": id_book})
         manga_csv.close()
@@ -33,9 +33,9 @@ def link_of_list_converter(links):
         return links
 
 def chapter_recursif(id_book, urls_base,chapitre, indice_liste, list_chapitre):
-    with open("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv",'a') as chapter_csv:
+    with open("D:\MangaMagum_project\Server\python_serveur\dev\outpout\chapters.csv",'a') as chapter_csv:
         chapter_csv_fieldnames = ['id_book', 'liste_chapitre']
-        chapter_csv_writer = csv.DictWriter(chapter_csv, fieldnames=chapter_csv_fieldnames, lineterminator='\n')
+        chapter_csv_writer = csv.DictWriter(chapter_csv, fieldnames=chapter_csv_fieldnames, lineterminator='\n',quoting=csv.QUOTE_ALL)
 
         if indice_liste > len(urls_base)-1:
             indice_liste = 0
@@ -54,7 +54,9 @@ def chapter_recursif(id_book, urls_base,chapitre, indice_liste, list_chapitre):
                 return chapter_recursif(id_book,urls_base, chapitre+1, indice_liste, list_chapitre)
             else:
                 list_chapitre.append(chapitre)
-                chapter_csv_writer.writerow({'id_book': id_book, 'liste_chapitre': list_chapitre})
+
+                chapter_csv_writer.writerow({'id_book': id_book , 'liste_chapitre':  list_chapitre })
+
                 return None
 
         else:
@@ -62,11 +64,11 @@ def chapter_recursif(id_book, urls_base,chapitre, indice_liste, list_chapitre):
 
 
 def write_page(dictionnary, id_book):
-    with open('/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv', 'r') as csv_file:
-        with open('/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv', 'a') as page_csv:
+    with open('D:\MangaMagum_project\Server\python_serveur\dev\outpout\chapters.csv', 'r') as csv_file:
+        with open('D:\MangaMagum_project\Server\python_serveur\dev\outpout\pages.csv', 'a') as page_csv:
             csv_reader = csv.reader(csv_file)
             page_csv_fieldnames = ['id_book', 'chapitre', 'list_page']
-            page_csv_writer = csv.DictWriter(page_csv, fieldnames=page_csv_fieldnames, lineterminator='\n')
+            page_csv_writer = csv.DictWriter(page_csv, fieldnames=page_csv_fieldnames, lineterminator='\n',quoting=csv.QUOTE_ALL)
 
             list_chapitre = None
             list_of__base_link = link_of_list_converter(dictionnary["list_of_link"])
@@ -75,7 +77,12 @@ def write_page(dictionnary, id_book):
                 if int(line[0]) == id_book:
                     list_chapitre = line[1][1:-1].split(',')
                     for i in range(len(list_chapitre)):
-                        list_chapitre[i] = int(list_chapitre[i])
+                        if '[' in list_chapitre[i] :
+                            list_chapitre[i] = list_chapitre[i][1:]
+                        if ']' in list_chapitre[i] :
+                            list_chapitre[i] = list_chapitre[i][:-1]
+                        else:
+                            list_chapitre[i] = int(list_chapitre[i])
                 else:
                     pass
 
@@ -93,7 +100,7 @@ def write_page(dictionnary, id_book):
                         # to_write = []
                         # for j in range(len(pages)):
                         #     to_write.append(good_url_base.format(str(chapitre), str(pages[j])))
-                        page_csv_writer.writerow({'id_book': id_book, 'chapitre': chapitre, 'list_page': pages})
+                        page_csv_writer.writerow({'id_book': id_book , 'chapitre':  chapitre , 'list_page': pages })
 
 
 
