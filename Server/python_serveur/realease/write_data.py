@@ -74,7 +74,7 @@ def write_page(dictionnary, id_book):
             list_of__base_link = link_of_list_converter(dictionnary["list_of_link"])
 
             for line in csv_reader :
-                if int(line[0][1:-1]) == id_book:
+                if int(line[0]) == id_book:
                     list_chapitre = line[1][1:-1].split(',')
                     for i in range(len(list_chapitre)):
                         if '[' in list_chapitre[i] :

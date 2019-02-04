@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2627b6d3-267a-4f8d-bcf1-1d4b513fcb36" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Python_make_csv_for_database/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python_make_csv_for_database/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outpout/chapters.csv" beforeDir="false" afterPath="$PROJECT_DIR$/outpout/chapters.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outpout/manga.csv" beforeDir="false" afterPath="$PROJECT_DIR$/outpout/manga.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outpout/pages.csv" beforeDir="false" afterPath="$PROJECT_DIR$/outpout/pages.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/write_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/write_data.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/write_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1734">
-              <caret line="102" column="114" selection-start-line="102" selection-start-column="114" selection-end-line="102" selection-end-column="114" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="269">
+              <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -51,10 +50,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="55" />
-    <option name="y" value="25" />
-    <option name="width" value="970" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="473" />
+    <option name="y" value="107" />
+    <option name="width" value="960" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -160,15 +159,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="473" y="107" width="960" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14937212" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29348987" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43736503" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4445664" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39956802" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -190,13 +189,6 @@
     <entry file="file://$PROJECT_DIR$/outpout/manga.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/URL_Checker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/input_file.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -211,13 +203,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/csv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1502">
-          <caret line="131" column="8" selection-start-line="131" selection-start-column="8" selection-end-line="131" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/csv.py" />
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -228,13 +214,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/URL_Checker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/write_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1734">
-          <caret line="102" column="114" selection-start-line="102" selection-start-column="114" selection-end-line="102" selection-end-column="114" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="269">
+          <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
         </state>
       </provider>
     </entry>
