@@ -36,7 +36,8 @@ public class Chosen_manga extends AppCompatActivity {
     private ImageButton plus_button;
     private ImageButton go_to_library;
     private ImageButton play_button;
-
+    private ImageButton add_remove_favorite;
+    int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,6 +135,28 @@ public class Chosen_manga extends AppCompatActivity {
                 reading_activity.putExtra("chapter", Integer.toString(chapter_target));
                 startActivity(reading_activity);
 
+            }
+        });
+
+        add_remove_favorite = findViewById(R.id.add_remove_favorite);
+
+        if (dataBase.is_one_of_favorite(Integer.parseInt(selected_manga_id))){
+            add_remove_favorite.setBackgroundResource(R.drawable.favorite_selected);
+        }
+        else {
+            add_remove_favorite.setBackgroundResource(R.drawable.favorite_not_selected);
+        }
+        add_remove_favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (dataBase.is_one_of_favorite(Integer.parseInt(selected_manga_id)) == false){
+                    dataBase.add_favorite(Integer.parseInt(selected_manga_id));
+                    add_remove_favorite.setBackgroundResource(R.drawable.favorite_selected);
+                }
+                else {
+                    dataBase.remove_favorite(Integer.parseInt(selected_manga_id));
+                    add_remove_favorite.setBackgroundResource(R.drawable.favorite_not_selected);
+                }
             }
         });
     }

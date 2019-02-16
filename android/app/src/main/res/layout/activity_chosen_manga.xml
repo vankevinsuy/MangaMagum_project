@@ -28,13 +28,14 @@
                 android:textColor="@color/text_header"/>
 
 
-            <!--<ImageButton-->
-            <!--android:layout_width="50dp"-->
-            <!--android:layout_height="50dp"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:background="@drawable/resume_button"-->
-            <!--android:layout_marginRight="30dp"/>-->
+            <ImageButton
+                android:id="@+id/add_remove_favorite"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="29dp"
+                android:background="@drawable/favorite_not_selected" />
 
         </RelativeLayout>
 

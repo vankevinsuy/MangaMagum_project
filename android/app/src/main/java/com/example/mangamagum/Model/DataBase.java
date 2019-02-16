@@ -30,6 +30,9 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String TABLE_user = "user";
     private static final String COL_first_use = "first_use";
 
+    private static final String TABLE_favorite_manga = "favorite_manga";
+    private static final String COL_favorite_manga = "id_manga";
+
 
 
     //****QUERY FOR CREATING THE TABLES****//
@@ -50,6 +53,9 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_USER = "CREATE TABLE " + TABLE_user + "(" +
             COL_first_use + " INTEGER"+ ")";
 
+    private static final String CREATE_TABLE_FAVORITE_MANGA = "CREATE TABLE " + TABLE_favorite_manga + "(" +
+            COL_favorite_manga + " INTEGER"+ ")";
+
 
     public DataBase(Context context) {
         super(context, DATA_BASE_name, null, 1);
@@ -61,6 +67,7 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_CHAPTER);
         db.execSQL(CREATE_TABLE_PAGE);
         db.execSQL(CREATE_TABLE_USER);
+        db.execSQL(CREATE_TABLE_FAVORITE_MANGA);
     }
 
     @Override
@@ -234,6 +241,49 @@ public class DataBase extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getReadableDatabase();
         Cursor res = database.rawQuery("SELECT * FROM " + TABLE_user , null);
         return res;
+    }
+
+    public boolean add_favorite(int id_manga){
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COL_favorite_manga, id_manga);
+        long result = database.insert(TABLE_favorite_manga,null,contentValues);
+        if (result==-1){
+            return false;
+        }
+        else {
+            database.close();
+            return true;
+        }
+    }
+
+    public void remove_favorite(int id_manga){
+        String detelete_fav = "DELETE FROM " +  TABLE_favorite_manga +  " WHERE " + COL_favorite_manga + "=" + Integer.toString(id_manga);
+        SQLiteDatabase database = this.getWritableDatabase();
+        database.rawQuery(detelete_fav,null);
+    }
+
+    public boolean is_one_of_favorite(int id_manga){
+        boolean contain = false;
+
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor res = database.rawQuery("SELECT * FROM " + TABLE_favorite_manga + " ORDER BY " + COL_favorite_manga , null);
+        ArrayList<Integer>list_of_fav = new ArrayList<>();
+
+        if(res.getCount() > 0){
+            while (res.moveToNext()){
+                list_of_fav.add(res.getInt(0));
+            }
+            if (list_of_fav.contains(id_manga)){
+                contain = true;
+            }
+        }
+        else {
+            res.close();
+            contain = false;
+        }
+        return contain;
     }
 
 }
