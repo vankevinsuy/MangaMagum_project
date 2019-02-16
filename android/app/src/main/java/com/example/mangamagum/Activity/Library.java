@@ -34,6 +34,7 @@ import java.util.ArrayList;
 public class Library extends AppCompatActivity {
 
     public ImageButton update_button;
+    public ImageButton go_to_favorites;
     private RecyclerView manga_recycler_view;
     private RecyclerView.Adapter mAdapter;
     private EditText search_bar;
@@ -54,6 +55,14 @@ public class Library extends AppCompatActivity {
         setContentView(R.layout.library);
 
         update_button = findViewById(R.id.update_database);
+        go_to_favorites = findViewById(R.id.go_to_favorite);
+        go_to_favorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent favorite = new Intent(getApplicationContext(), Favorites.class);
+                startActivity(favorite);
+            }
+        });
         search_bar = findViewById(R.id.search_bar);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
@@ -111,7 +120,6 @@ public class Library extends AppCompatActivity {
 //            ShowMessage("error", "no data found try to update");
             return null;
         }
-        StringBuffer buffer = new StringBuffer();
 
         while (res.moveToNext()){
             String name = res.getString(2);

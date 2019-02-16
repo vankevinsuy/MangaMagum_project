@@ -35,6 +35,7 @@ public class Chosen_manga extends AppCompatActivity {
     private ImageButton minus_button;
     private ImageButton plus_button;
     private ImageButton go_to_library;
+    private ImageButton go_to_favorites;
     private ImageButton play_button;
     private ImageButton add_remove_favorite;
     int i = 0;
@@ -43,6 +44,23 @@ public class Chosen_manga extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chosen_manga);
+
+        go_to_library = findViewById(R.id.go_to_library_button);
+        go_to_library.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent library = new Intent(getApplicationContext(), Library.class);
+                startActivity(library);
+            }
+        });
+        go_to_favorites = findViewById(R.id.go_to_favorite);
+        go_to_favorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent favorites = new Intent(getApplicationContext(), Favorites.class);
+                startActivity(favorites);
+            }
+        });
 
         this.selected_manga_id = getIntent().getExtras().getString("id_book");
         this.selected_manga_name = getIntent().getExtras().getString("manga_name");
@@ -80,14 +98,7 @@ public class Chosen_manga extends AppCompatActivity {
                 num_chapter.setText(Integer.toString(chapter_target) + "/" + last_chapter);
             }
         });
-        go_to_library = findViewById(R.id.go_to_library_button);
-        go_to_library.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent lirary = new Intent(getApplicationContext(), Library.class);
-                startActivity(lirary);
-            }
-        });
+
 
         description = findViewById(R.id.description);
         resume_from = findViewById(R.id.resume_text);
@@ -152,10 +163,12 @@ public class Chosen_manga extends AppCompatActivity {
                 if (dataBase.is_one_of_favorite(Integer.parseInt(selected_manga_id)) == false){
                     dataBase.add_favorite(Integer.parseInt(selected_manga_id));
                     add_remove_favorite.setBackgroundResource(R.drawable.favorite_selected);
+                    dataBase.close();
                 }
                 else {
-                    dataBase.remove_favorite(Integer.parseInt(selected_manga_id));
+                    dataBase.remove_favorite(Integer.parseInt(selected_manga_id), getApplicationContext());
                     add_remove_favorite.setBackgroundResource(R.drawable.favorite_not_selected);
+                    dataBase.close();
                 }
             }
         });

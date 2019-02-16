@@ -76,6 +76,8 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_manga_0);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_chapters_name_1);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_pages_name_2);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_favorite_manga);
+
 
         //create new TABLES
         onCreate(db);
@@ -157,6 +159,24 @@ public class DataBase extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getWritableDatabase();
         Cursor res = database.rawQuery("SELECT * FROM " + TABLE_manga_0 + " ORDER BY " + COL_id_manga_0 , null);
         return res;
+    }
+
+    public Book get_book_from_id(int id_book){
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor res = database.rawQuery("SELECT * FROM " + TABLE_manga_0 + " WHERE " + "id_manga= " + id_book , null);
+        String manga_name = "";
+        String cover_link = "";
+        String id_manga = "";
+
+        if (res.getCount() >0){
+            while (res.moveToNext()){
+                id_manga = res.getString(0);
+                cover_link = res.getString(1);
+                manga_name = res.getString(2);
+
+            }
+        }
+        return new Book(manga_name, cover_link,id_manga);
     }
 
     public int get_last_chapter(String id_book){
@@ -258,10 +278,11 @@ public class DataBase extends SQLiteOpenHelper {
         }
     }
 
-    public void remove_favorite(int id_manga){
+    public void remove_favorite(int id_manga , Context context){
         String detelete_fav = "DELETE FROM " +  TABLE_favorite_manga +  " WHERE " + COL_favorite_manga + "=" + Integer.toString(id_manga);
         SQLiteDatabase database = this.getWritableDatabase();
         database.rawQuery(detelete_fav,null);
+        database.delete(TABLE_favorite_manga, "id_manga=" + Integer.toString(id_manga), null);
     }
 
     public boolean is_one_of_favorite(int id_manga){
@@ -284,6 +305,23 @@ public class DataBase extends SQLiteOpenHelper {
             contain = false;
         }
         return contain;
+    }
+
+    public ArrayList<Integer> get_all_favorites(){
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor res = database.rawQuery("SELECT * FROM " + TABLE_favorite_manga , null);
+        ArrayList<Integer> list_id_fav = new ArrayList<>();
+
+        if(res.getCount() > 0){
+            while (res.moveToNext()){
+                list_id_fav.add(res.getInt(0));
+            }
+        }
+        else {
+            return list_id_fav;
+        }
+
+        return list_id_fav;
     }
 
 }
