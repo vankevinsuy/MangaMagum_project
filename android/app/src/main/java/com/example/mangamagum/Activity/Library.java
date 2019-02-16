@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -34,6 +36,7 @@ public class Library extends AppCompatActivity {
     public ImageButton update_button;
     private RecyclerView manga_recycler_view;
     private RecyclerView.Adapter mAdapter;
+    private EditText search_bar;
 
     private Context context;
     private Library activity;
@@ -51,6 +54,9 @@ public class Library extends AppCompatActivity {
         setContentView(R.layout.library);
 
         update_button = findViewById(R.id.update_database);
+        search_bar = findViewById(R.id.search_bar);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
 
         manga_recycler_view = findViewById(R.id.manga_recycler_view);
         manga_recycler_view.setHasFixedSize(false);
@@ -65,12 +71,12 @@ public class Library extends AppCompatActivity {
         activity = this;
         dataBase = new DataBase(this);
 
+        first_use(context);
 
-        fill_library(context);
+
 
 //        Server server = new Server(this,this,dataBase);
 //        server.execute();
-
 
 //        internet_check = internetIsConnected();
 //        network_check = isNetworkConnected(context);
@@ -158,9 +164,34 @@ public class Library extends AppCompatActivity {
             return false;
         }
     }
+    private void first_use(Context context){
+        int use = -1;
+        dataBase = new DataBase(context);
+        Cursor res= dataBase.get_first_use();
+
+        //if it's the first use
+        if (res.getCount() == 0){
+            dataBase.initiate_first_use();
+            ShowMessage("Hello", "It's your first time on this app, wait a little bit, we are updating your database with all we have");
+            update_button.setEnabled(false);
+            Server server = new Server(context , activity, dataBase);
+            server.execute();
+            dataBase.close();
+            fill_library(context);
+            update_button.setEnabled(true);
+        }
+
+
+        //if we have already used
+        while (res.moveToNext()){
+            use = res.getInt(0);
+            fill_library(context);
+        }
+    }
+
 }
 
-
+// class for updating the manga database
 class Server extends AsyncTask<Void,Void, Void> {
     Context context;
     private WeakReference<Library> activityReference;

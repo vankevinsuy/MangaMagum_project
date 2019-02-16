@@ -27,6 +27,10 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String COL_chapitre_2 = "chapitre";
     private static final String COL_list_page_2 = "liste_page";
 
+    private static final String TABLE_user = "user";
+    private static final String COL_first_use = "first_use";
+
+
 
     //****QUERY FOR CREATING THE TABLES****//
     private static final String CREATE_TABLE_MANGA = "CREATE TABLE " + TABLE_manga_0 + "(" +
@@ -43,6 +47,9 @@ public class DataBase extends SQLiteOpenHelper {
             COL_chapitre_2 + " INTEGER, " +
             COL_list_page_2   + " TEXT " + ")" ;
 
+    private static final String CREATE_TABLE_USER = "CREATE TABLE " + TABLE_user + "(" +
+            COL_first_use + " INTEGER"+ ")";
+
 
     public DataBase(Context context) {
         super(context, DATA_BASE_name, null, 1);
@@ -53,6 +60,7 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_MANGA);
         db.execSQL(CREATE_TABLE_CHAPTER);
         db.execSQL(CREATE_TABLE_PAGE);
+        db.execSQL(CREATE_TABLE_USER);
     }
 
     @Override
@@ -62,10 +70,8 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_chapters_name_1);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_pages_name_2);
 
-
         //create new TABLES
         onCreate(db);
-
     }
 
 
@@ -104,7 +110,6 @@ public class DataBase extends SQLiteOpenHelper {
         }
     }
 
-
     public boolean insertPages(int id_book, int num_chapitre, String list_pages){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -121,7 +126,6 @@ public class DataBase extends SQLiteOpenHelper {
             return true;
         }
     }
-
 
     public void clear_manga_table(){
         SQLiteDatabase database = this.getWritableDatabase();
@@ -141,7 +145,6 @@ public class DataBase extends SQLiteOpenHelper {
         database.execSQL("DELETE FROM " + TABLE_pages_name_2);
 
     }
-
 
     public Cursor get_all_manga(){
         SQLiteDatabase database = this.getWritableDatabase();
@@ -174,8 +177,6 @@ public class DataBase extends SQLiteOpenHelper {
         last_chapter = Integer.parseInt(chapters[chapters.length - 1]);
         return last_chapter;
     }
-
-
 
     public ArrayList<String> get_page_by_chapitre(int id_book, int chapitre){
 
@@ -213,5 +214,26 @@ public class DataBase extends SQLiteOpenHelper {
         return list_of_link_page;
     }
 
+    public boolean initiate_first_use(){
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_first_use, 1000);
+
+        //****return -1 if insert method failed
+        long result = database.insert(TABLE_user,null,contentValues);
+        if (result==-1){
+            return false;
+        }
+        else {
+            database.close();
+            return true;
+        }
+    }
+
+    public Cursor get_first_use(){
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor res = database.rawQuery("SELECT * FROM " + TABLE_user , null);
+        return res;
+    }
 
 }

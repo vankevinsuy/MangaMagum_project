@@ -62,6 +62,9 @@ public class Chosen_manga extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 chapter_target = chapter_target + 1;
+                if(chapter_target>=last_chapter){
+                    chapter_target = last_chapter;
+                }
                 num_chapter.setText(Integer.toString(chapter_target) + "/" + last_chapter);
             }
         });

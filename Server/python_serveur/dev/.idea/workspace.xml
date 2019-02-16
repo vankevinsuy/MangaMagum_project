@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2627b6d3-267a-4f8d-bcf1-1d4b513fcb36" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/insert_in_db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/URL_Checker.py" beforeDir="false" afterPath="$PROJECT_DIR$/URL_Checker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outpout/chapters.csv" beforeDir="false" afterPath="$PROJECT_DIR$/outpout/chapters.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outpout/manga.csv" beforeDir="false" afterPath="$PROJECT_DIR$/outpout/manga.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outpout/pages.csv" beforeDir="false" afterPath="$PROJECT_DIR$/outpout/pages.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/write_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/write_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../realease/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../realease/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/insert_in_db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1581">
-              <caret line="93" column="25" lean-forward="true" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
+            <state relative-caret-position="624">
+              <caret line="93" column="25" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -58,9 +49,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -351,8 +342,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/insert_in_db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1581">
-          <caret line="93" column="25" lean-forward="true" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
+        <state relative-caret-position="624">
+          <caret line="93" column="25" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
         </state>
       </provider>
     </entry>
