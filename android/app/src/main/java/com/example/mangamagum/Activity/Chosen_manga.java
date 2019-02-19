@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mangamagum.Model.DataBase;
 import com.example.mangamagum.R;
@@ -69,8 +70,7 @@ public class Chosen_manga extends AppCompatActivity {
         last_chapter = this.dataBase.get_last_chapter(this.selected_manga_id.toString());
 
 
-//      my_chapter à définir dans la base de données
-        my_chapter = 30;
+        my_chapter = dataBase.get_chapter_to_resume(Integer.parseInt(selected_manga_id));
 //        -----------------
         chapter_target = my_chapter;
 
@@ -141,6 +141,7 @@ public class Chosen_manga extends AppCompatActivity {
         play_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dataBase.update_my_chapter(chapter_target, selected_manga_id);
                 Intent reading_activity = new Intent(getApplicationContext(), Reading.class);
                 reading_activity.putExtra("id_book" , selected_manga_id);
                 reading_activity.putExtra("chapter", Integer.toString(chapter_target));

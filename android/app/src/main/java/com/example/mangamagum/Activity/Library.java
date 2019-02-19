@@ -204,15 +204,21 @@ class Server extends AsyncTask<Void,Void, Void> {
     Context context;
     private WeakReference<Library> activityReference;
 
-    //**** API URLs appart
+//    **** API URLs appart
 //    private final String API_MANGA_URL = "http://192.168.0.21/MangaMaGum_API/get_manga_data.php";
 //    private final String API_CHAPTER_URL = "http://192.168.0.21/MangaMaGum_API/get_chapters_data.php";
 //    private final String API_PAGE_URL = "http://192.168.0.21/MangaMaGum_API/get_pages_data.php";
 
-    //**** API URLs maison
-    private final String API_MANGA_URL = "http://192.168.0.35/MangaMaGum_API/get_manga_data.php";
-    private final String API_CHAPTER_URL = "http://192.168.0.35/MangaMaGum_API/get_chapters_data.php";
-    private final String API_PAGE_URL = "http://192.168.0.35/MangaMaGum_API/get_pages_data.php";
+//    **** API URLs maison
+//    private final String API_MANGA_URL = "http://192.168.0.35/MangaMaGum_API/get_manga_data.php";
+//    private final String API_CHAPTER_URL = "http://192.168.0.35/MangaMaGum_API/get_chapters_data.php";
+//    private final String API_PAGE_URL = "http://192.168.0.35/MangaMaGum_API/get_pages_data.php";
+
+
+//    ***** API URLs isep
+    private final String API_MANGA_URL = "http://172.16.231.127/MangaMaGum_API/get_manga_data.php";
+    private final String API_CHAPTER_URL = "http://172.16.231.127/MangaMaGum_API/get_chapters_data.php";
+    private final String API_PAGE_URL = "http://172.16.231.127/MangaMaGum_API/get_pages_data.php";
 
 
 
@@ -359,6 +365,7 @@ class Server extends AsyncTask<Void,Void, Void> {
         this.db.close();
         Toast.makeText(context, "update done", Toast.LENGTH_SHORT).show();
         activity.fill_library(context);
+        this.db.initiate_resume_table(context);
     }
 
 
