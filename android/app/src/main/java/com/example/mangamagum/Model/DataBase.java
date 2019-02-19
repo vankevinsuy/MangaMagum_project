@@ -6,8 +6,11 @@ import android.content.ContextWrapper;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Environment;
+import android.util.Log;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class DataBase extends SQLiteOpenHelper {
@@ -374,6 +377,17 @@ public class DataBase extends SQLiteOpenHelper {
         contentValues.put(COL_resume_manga_num_chapitre, new_my_chapter);
 
         db.update(TABLE_resume_manga, contentValues, COL_resume_manga_id_manga+"=?", new String[]{id_manga});
+    }
+
+
+    public File Create_MangaMaGum_user_profile() {
+        // Get the directory for the user's public pictures directory.
+        File file = new File(Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_DOWNLOADS), "MangaMaGum_user_profile.txt");
+        if (file.mkdirs()) {
+            Log.i("user data", "Directory created");
+        }
+        return file;
     }
 
 }

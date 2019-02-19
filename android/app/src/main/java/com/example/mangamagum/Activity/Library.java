@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -175,8 +176,16 @@ public class Library extends AppCompatActivity {
         }
     }
     private void first_use(Context context){
+
         int use = -1;
         dataBase = new DataBase(context);
+        if (isExternalStorageWritable()){
+//            Toast.makeText(getApplicationContext(), "external storage ok " , Toast.LENGTH_SHORT).show();
+            dataBase.Create_MangaMaGum_user_profile();
+        }
+
+
+
         Cursor res= dataBase.get_first_use();
 
         //if it's the first use
@@ -197,6 +206,13 @@ public class Library extends AppCompatActivity {
             use = res.getInt(0);
             fill_library(context);
         }
+    }
+    public boolean isExternalStorageWritable() {
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+            return true;
+        }
+        return false;
     }
 
 
