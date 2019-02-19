@@ -1,5 +1,6 @@
 package com.example.mangamagum.Activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -24,29 +25,19 @@ public class Chosen_manga extends AppCompatActivity {
 
     private DataBase dataBase;
 
-    private TextView header_text;
-    private ImageView imageView;
-    private TextView description;
-    private SeekBar seekBar;
-    private TextView resume_from;
     private TextView num_chapter;
+
     private int last_chapter;
-    private int my_chapter;
     private int chapter_target;
-    private ImageButton minus_button;
-    private ImageButton plus_button;
-    private ImageButton go_to_library;
-    private ImageButton go_to_favorites;
-    private ImageButton play_button;
+
     private ImageButton add_remove_favorite;
-    int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chosen_manga);
 
-        go_to_library = findViewById(R.id.go_to_library_button);
+        ImageButton go_to_library = findViewById(R.id.go_to_library_button);
         go_to_library.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +45,7 @@ public class Chosen_manga extends AppCompatActivity {
                 startActivity(library);
             }
         });
-        go_to_favorites = findViewById(R.id.go_to_favorite);
+        ImageButton go_to_favorites = findViewById(R.id.go_to_favorite);
         go_to_favorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,13 +61,13 @@ public class Chosen_manga extends AppCompatActivity {
         last_chapter = this.dataBase.get_last_chapter(this.selected_manga_id.toString());
 
 
-        my_chapter = dataBase.get_chapter_to_resume(Integer.parseInt(selected_manga_id));
+        int my_chapter = dataBase.get_chapter_to_resume(Integer.parseInt(selected_manga_id));
 //        -----------------
         chapter_target = my_chapter;
 
-        header_text = findViewById(R.id.header_manga_name);
-        imageView = findViewById(R.id.manga_cover);
-        plus_button = findViewById(R.id.plus_button);
+        TextView header_text = findViewById(R.id.header_manga_name);
+        ImageView imageView = findViewById(R.id.manga_cover);
+        ImageButton plus_button = findViewById(R.id.plus_button);
         plus_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +78,7 @@ public class Chosen_manga extends AppCompatActivity {
                 num_chapter.setText(Integer.toString(chapter_target) + "/" + last_chapter);
             }
         });
-        minus_button = findViewById(R.id.minus_button);
+        ImageButton minus_button = findViewById(R.id.minus_button);
         minus_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,10 +91,10 @@ public class Chosen_manga extends AppCompatActivity {
         });
 
 
-        description = findViewById(R.id.description);
-        resume_from = findViewById(R.id.resume_text);
+        TextView description = findViewById(R.id.description);
+        TextView resume_from = findViewById(R.id.resume_text);
         resume_from.setText("Resume from chapter : " + Integer.toString(my_chapter));
-        seekBar = findViewById(R.id.seekBar);
+        SeekBar seekBar = findViewById(R.id.seekBar);
         num_chapter = findViewById(R.id.chapter_num);
         num_chapter.setText(Integer.toString(my_chapter) + "/" + Integer.toString(last_chapter));
         seekBar.setMax(last_chapter/10);
@@ -131,13 +122,14 @@ public class Chosen_manga extends AppCompatActivity {
         });
 
 
-        header_text.setText(this.selected_manga_name);
-        Picasso.with(this).load(this.selected_manga_cover_link).into(imageView);
+        header_text.setText(
+                selected_manga_name);
+        Picasso.with(this).load(selected_manga_cover_link).into(imageView);
         description.setText("Donec eget est vel purus mollis iaculis. In tristique pellentesque suscipit. Mauris vitae facilisis erat. Maecenas ut tempor arcu, vitae varius metus. Morbi laoreet, ante feugiat convallis imperdiet, erat nisi mattis ex, id pellentesque nibh elit a augue. Vivamus dignissim pellentesque ante, ut semper ante facilisis bibendum. Donec sed arcu non velit convallis vulputate et tristique nisi. Proin dictum, eros sit amet blandit tempor, leo dolor blandit ante, id cursus massa velit eu lorem. Nam ullamcorper maximus dui in vestibulum. Nulla et blandit odio, molestie malesuada dui. Integer semper feugiat tellus vel tristique. Aliquam eleifend, mi ut pretium ultrices, augue dui sollicitudin arcu, sit amet rutrum risus arcu non mauris. In lectus risus, dignissim ut laoreet eu, hendrerit a turpis. Nullam vel augue finibus eros fermentum fermentum. Suspendisse cursus tortor id justo viverra aliquet.");
         description.setMovementMethod(new ScrollingMovementMethod());
 
 
-        play_button = findViewById(R.id.play_button);
+        ImageButton play_button = findViewById(R.id.play_button);
         play_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,8 +137,11 @@ public class Chosen_manga extends AppCompatActivity {
                 Intent reading_activity = new Intent(getApplicationContext(), Reading.class);
                 reading_activity.putExtra("id_book" , selected_manga_id);
                 reading_activity.putExtra("chapter", Integer.toString(chapter_target));
-                startActivity(reading_activity);
+                reading_activity.putExtra("manga_name", selected_manga_name);
+                reading_activity.putExtra("cover_link", selected_manga_cover_link);
 
+                startActivity(reading_activity);
+                finish();
             }
         });
 
@@ -184,6 +179,15 @@ public class Chosen_manga extends AppCompatActivity {
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent library = new Intent(getApplicationContext() , Library.class);
+
+        startActivity(library);
+        finish();
     }
 
 }

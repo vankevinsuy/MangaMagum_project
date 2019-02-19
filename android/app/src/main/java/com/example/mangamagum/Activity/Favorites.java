@@ -48,6 +48,7 @@ public class Favorites extends AppCompatActivity {
             public void onClick(View view) {
                 Intent library = new Intent(getApplicationContext(), Library.class);
                 startActivity(library);
+                finish();
             }
         });
 
@@ -93,5 +94,13 @@ public class Favorites extends AppCompatActivity {
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent library = new Intent(getApplicationContext() , Library.class);
+
+        startActivity(library);
+        finish();
     }
 }

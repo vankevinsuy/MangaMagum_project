@@ -1,6 +1,7 @@
 package com.example.mangamagum.Activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
@@ -144,6 +145,7 @@ public class Library extends AppCompatActivity {
                 chosen_manga_activity.putExtra("cover_link" , cover_link);
 
                 startActivity(chosen_manga_activity);
+                finish();
             }
         });
         manga_recycler_view.setAdapter(mAdapter);
@@ -195,6 +197,32 @@ public class Library extends AppCompatActivity {
             use = res.getInt(0);
             fill_library(context);
         }
+    }
+
+
+    // methode pour quitter l'application
+    @Override
+    public void onBackPressed() {
+
+        new AlertDialog.Builder(this)
+                .setTitle("Really Exit?")
+                .setMessage("Are you sure you want to exit?")
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Library.super.onBackPressed();
+                        quit();
+                        System.exit(0);
+                    }
+                }).create().show();
+    }
+    public void quit() {
+        Intent start = new Intent(Intent.ACTION_MAIN);
+        start.addCategory(Intent.CATEGORY_HOME);
+        start.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        start.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(start);
     }
 
 }
