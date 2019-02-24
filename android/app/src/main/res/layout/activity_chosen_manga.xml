@@ -163,13 +163,13 @@
                 android:text="@string/library" />
 
             <ImageButton
-                android:id="@id/go_to_category_button"
-                android:layout_width="35dp"
-                android:layout_height="25dp"
+                android:id="@id/go_to_search_button"
+                android:layout_width="25dp"
+                android:layout_height="30dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="40dp"
-                android:background="@drawable/categoty_image" />
+                android:background="@drawable/search_icon" />
 
             <TextView
                 android:id="@id/textview_category"

@@ -24,6 +24,8 @@ import java.util.LinkedHashMap;
 public class Favorites extends AppCompatActivity {
 
     private ImageButton go_to_library;
+    private ImageButton go_to_search;
+
 
     private DataBase dataBase;
 
@@ -36,11 +38,6 @@ public class Favorites extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
-        ArrayList<Book> arrayList_book = new ArrayList<>();
-
-        favorites_recycler_view = findViewById(R.id.favorites_recycler_view);
-        favorites_recycler_view.setHasFixedSize(false);
-        favorites_recycler_view.setLayoutManager(new GridLayoutManager(this,3));
 
         go_to_library = findViewById(R.id.go_to_library_button);
         go_to_library.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +49,22 @@ public class Favorites extends AppCompatActivity {
             }
         });
 
+        go_to_search = findViewById(R.id.go_to_search_button);
+        go_to_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent search_layout = new Intent(getApplicationContext(), Research.class);
+                startActivity(search_layout);
+                finish();
+            }
+        });
+
+        favorites_recycler_view = findViewById(R.id.favorites_recycler_view);
+        favorites_recycler_view.setHasFixedSize(false);
+        favorites_recycler_view.setLayoutManager(new GridLayoutManager(this,3));
+
+
+
         dataBase = new DataBase(this);
         fill_library(getApplicationContext());
 
@@ -61,7 +74,6 @@ public class Favorites extends AppCompatActivity {
     public ArrayList<Book> fill_library(Context context){
         final ArrayList<Book> arrayList_book = new ArrayList<>();
         dataBase = new DataBase(context);
-        Cursor res= dataBase.get_all_manga();
 
         for(Integer id_fav : dataBase.get_all_favorites() ){
             arrayList_book.add(dataBase.get_book_from_id(id_fav));

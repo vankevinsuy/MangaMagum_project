@@ -1,5 +1,6 @@
 package com.example.mangamagum.Activity;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -35,11 +36,12 @@ import java.util.ArrayList;
 
 public class Library extends AppCompatActivity {
 
-    public ImageButton update_button;
-    public ImageButton go_to_favorites;
+    private ImageButton update_button;
+    private ImageButton go_to_favorites;
+    private ImageButton go_to_search;
+
     private RecyclerView manga_recycler_view;
     private RecyclerView.Adapter mAdapter;
-    private EditText search_bar;
 
     private Context context;
     private Library activity;
@@ -63,11 +65,19 @@ public class Library extends AppCompatActivity {
             public void onClick(View view) {
                 Intent favorite = new Intent(getApplicationContext(), Favorites.class);
                 startActivity(favorite);
+                finish();
             }
         });
-        search_bar = findViewById(R.id.search_bar);
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        go_to_search = findViewById(R.id.go_to_search_button);
+        go_to_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent search_layout = new Intent(getApplicationContext(), Research.class);
+                startActivity(search_layout);
+                finish();
+            }
+        });
 
         manga_recycler_view = findViewById(R.id.manga_recycler_view);
         manga_recycler_view.setHasFixedSize(false);
@@ -85,9 +95,6 @@ public class Library extends AppCompatActivity {
         first_use(context);
 
 
-
-//        Server server = new Server(this,this,dataBase);
-//        server.execute();
 
 //        internet_check = internetIsConnected();
 //        network_check = isNetworkConnected(context);
@@ -114,22 +121,7 @@ public class Library extends AppCompatActivity {
 
 
     public ArrayList<Book> fill_library(Context context){
-        final ArrayList<Book> arrayList_book = new ArrayList<>();
-        dataBase = new DataBase(context);
-        Cursor res= dataBase.get_all_manga();
-
-        if (res.getCount() == 0){
-//            ShowMessage("error", "no data found try to update");
-            return null;
-        }
-
-        while (res.moveToNext()){
-            String name = res.getString(2);
-            String id_manga = res.getString(0);
-            String cover_link = res.getString(1);
-
-            arrayList_book.add(new Book(name, cover_link, id_manga));
-        }
+        final ArrayList<Book> arrayList_book = dataBase.get_all_manga();
 
         mAdapter = new Library_Adapter(arrayList_book, context);
         ((Library_Adapter) mAdapter).setOnItemClickListener(new Library_Adapter.OnItemClickListener() {
@@ -151,10 +143,6 @@ public class Library extends AppCompatActivity {
         });
         manga_recycler_view.setAdapter(mAdapter);
         return arrayList_book;
-    }
-    private void reload_activity(){
-        Intent refresh = new Intent(getApplicationContext(), Library.class);
-        startActivity(refresh);
     }
     private void ShowMessage(String title, String message){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -179,10 +167,6 @@ public class Library extends AppCompatActivity {
 
         int use = -1;
         dataBase = new DataBase(context);
-        if (isExternalStorageWritable()){
-//            Toast.makeText(getApplicationContext(), "external storage ok " , Toast.LENGTH_SHORT).show();
-            dataBase.Create_MangaMaGum_user_profile();
-        }
 
 
 
@@ -207,16 +191,9 @@ public class Library extends AppCompatActivity {
             fill_library(context);
         }
     }
-    public boolean isExternalStorageWritable() {
-        String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            return true;
-        }
-        return false;
-    }
 
 
-    // methode pour quitter l'application
+    // method for closing the app
     @Override
     public void onBackPressed() {
 
@@ -254,15 +231,20 @@ class Server extends AsyncTask<Void,Void, Void> {
 //    private final String API_PAGE_URL = "http://192.168.0.21/MangaMaGum_API/get_pages_data.php";
 
 //    **** API URLs maison
-//    private final String API_MANGA_URL = "http://192.168.0.35/MangaMaGum_API/get_manga_data.php";
-//    private final String API_CHAPTER_URL = "http://192.168.0.35/MangaMaGum_API/get_chapters_data.php";
-//    private final String API_PAGE_URL = "http://192.168.0.35/MangaMaGum_API/get_pages_data.php";
+    private final String API_MANGA_URL = "http://192.168.0.35/MangaMaGum_API/get_manga_data.php";
+    private final String API_CHAPTER_URL = "http://192.168.0.35/MangaMaGum_API/get_chapters_data.php";
+    private final String API_PAGE_URL = "http://192.168.0.35/MangaMaGum_API/get_pages_data.php";
 
+
+//    **** API URLs maison CPL
+//    private final String API_MANGA_URL = "http://192.168.0.17/MangaMaGum_API/get_manga_data.php";
+//    private final String API_CHAPTER_URL = "http://192.168.0.17/MangaMaGum_API/get_chapters_data.php";
+//    private final String API_PAGE_URL = "http://192.168.0.17/MangaMaGum_API/get_pages_data.php";
 
 //    ***** API URLs isep
-    private final String API_MANGA_URL = "http://172.16.231.127/MangaMaGum_API/get_manga_data.php";
-    private final String API_CHAPTER_URL = "http://172.16.231.127/MangaMaGum_API/get_chapters_data.php";
-    private final String API_PAGE_URL = "http://172.16.231.127/MangaMaGum_API/get_pages_data.php";
+//    private final String API_MANGA_URL = "http://172.16.231.127/MangaMaGum_API/get_manga_data.php";
+//    private final String API_CHAPTER_URL = "http://172.16.231.127/MangaMaGum_API/get_chapters_data.php";
+//    private final String API_PAGE_URL = "http://172.16.231.127/MangaMaGum_API/get_pages_data.php";
 
 
 

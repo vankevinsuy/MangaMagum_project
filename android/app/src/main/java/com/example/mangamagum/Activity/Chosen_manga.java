@@ -26,6 +26,10 @@ public class Chosen_manga extends AppCompatActivity {
     private DataBase dataBase;
 
     private TextView num_chapter;
+    private ImageButton go_to_library;
+    private ImageButton go_to_favorites;
+    private ImageButton go_to_search;
+
 
     private int last_chapter;
     private int chapter_target;
@@ -37,26 +41,40 @@ public class Chosen_manga extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chosen_manga);
 
-        ImageButton go_to_library = findViewById(R.id.go_to_library_button);
+        go_to_library = findViewById(R.id.go_to_library_button);
         go_to_library.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent library = new Intent(getApplicationContext(), Library.class);
                 startActivity(library);
+                finish();
             }
         });
-        ImageButton go_to_favorites = findViewById(R.id.go_to_favorite);
+
+        go_to_favorites = findViewById(R.id.go_to_favorite);
         go_to_favorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent favorites = new Intent(getApplicationContext(), Favorites.class);
                 startActivity(favorites);
+                finish();
+            }
+        });
+
+        go_to_search = findViewById(R.id.go_to_search_button);
+        go_to_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent search_layout = new Intent(getApplicationContext(), Research.class);
+                startActivity(search_layout);
+                finish();
             }
         });
 
         this.selected_manga_id = getIntent().getExtras().getString("id_book");
         this.selected_manga_name = getIntent().getExtras().getString("manga_name");
         this.selected_manga_cover_link = getIntent().getExtras().getString("cover_link");
+
         this.dataBase = new DataBase(getApplicationContext());
         last_chapter = this.dataBase.get_last_chapter(this.selected_manga_id.toString());
 

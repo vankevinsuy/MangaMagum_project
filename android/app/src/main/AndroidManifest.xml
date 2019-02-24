@@ -4,9 +4,6 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
-
 
     <application
         android:allowBackup="true"
@@ -15,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.Favorites"></activity>
+        <activity android:name=".Activity.Research"></activity>
+        <activity android:name=".Activity.Favorites" />
         <activity
             android:name=".Activity.Reading"
             android:screenOrientation="portrait" />

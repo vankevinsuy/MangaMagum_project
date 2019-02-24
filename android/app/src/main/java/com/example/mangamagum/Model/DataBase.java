@@ -11,6 +11,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class DataBase extends SQLiteOpenHelper {
@@ -169,10 +170,45 @@ public class DataBase extends SQLiteOpenHelper {
 
     }
 
-    public Cursor get_all_manga(){
+    public ArrayList<Book> get_all_manga(){
         SQLiteDatabase database = this.getWritableDatabase();
+        ArrayList<Book> arrayList_book = new ArrayList<>();
+
+
+        Cursor res = database.rawQuery("SELECT * FROM " + TABLE_manga_0 + " ORDER BY " + COL_id_manga_0 , null);
+
+        if (res.getCount() >0){
+            while (res.moveToNext()){
+                String name = res.getString(2);
+                String id_manga = res.getString(0);
+                String cover_link = res.getString(1);
+
+                arrayList_book.add(new Book(name, cover_link, id_manga));
+            }
+        }
+        return arrayList_book;
+    }
+
+    public Cursor get_all_manga_cursor(){
+        SQLiteDatabase database = this.getWritableDatabase();
+        ArrayList<Book> arrayList_book = new ArrayList<>();
+
         Cursor res = database.rawQuery("SELECT * FROM " + TABLE_manga_0 + " ORDER BY " + COL_id_manga_0 , null);
         return res;
+    }
+
+    public ArrayList<String> get_all_manga_names(){
+        SQLiteDatabase database = this.getWritableDatabase();
+        ArrayList<String> list_name = new ArrayList<>();
+
+        Cursor res = database.rawQuery("SELECT * FROM " + TABLE_manga_0 + " ORDER BY " + COL_manga_name_0 , null);
+        if (res.getCount() >0){
+            while (res.moveToNext()){
+                list_name.add(res.getString(2));
+            }
+        }
+
+        return list_name;
     }
 
     public Book get_book_from_id(int id_book){
@@ -343,7 +379,7 @@ public class DataBase extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         ArrayList<Integer> list_id = new ArrayList<>();
 
-        Cursor cursor = get_all_manga();
+        Cursor cursor = get_all_manga_cursor();
         if (cursor.getCount()>0){
             while (cursor.moveToNext()){
                 int id_manga = Integer.parseInt(cursor.getString(0));
@@ -380,14 +416,22 @@ public class DataBase extends SQLiteOpenHelper {
     }
 
 
-    public File Create_MangaMaGum_user_profile() {
-        // Get the directory for the user's public pictures directory.
-        File file = new File(Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_DOWNLOADS), "MangaMaGum_user_profile.txt");
-        if (file.mkdirs()) {
-            Log.i("user data", "Directory created");
+    public ArrayList<Book> search_bar_database(CharSequence input){
+        SQLiteDatabase database = getReadableDatabase();
+        ArrayList<Book> like_list_result = new ArrayList<>();
+        Cursor res = database.rawQuery("SELECT * FROM " + TABLE_manga_0 + " WHERE " + COL_manga_name_0+ " LIKE '%" + input.toString() + "%'" , null);
+
+        if (res.getCount() >0){
+            while (res.moveToNext()){
+                String name = res.getString(2);
+                String id_manga = res.getString(0);
+                String cover_link = res.getString(1);
+
+                like_list_result.add(new Book(name, cover_link, id_manga));
+            }
         }
-        return file;
+
+        return like_list_result;
     }
 
 }
