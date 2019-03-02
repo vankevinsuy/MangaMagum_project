@@ -2,16 +2,10 @@ package com.example.mangamagum.Model;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Environment;
-import android.util.Log;
-import android.widget.Toast;
 
-import java.io.File;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class DataBase extends SQLiteOpenHelper {
@@ -42,7 +36,6 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String TABLE_resume_manga = "resume_manga";
     private static final String COL_resume_manga_id_manga = "id_manga";
     private static final String COL_resume_manga_num_chapitre = "chapitre";
-
 
 
     //****QUERY FOR CREATING THE TABLES****//
@@ -99,7 +92,7 @@ public class DataBase extends SQLiteOpenHelper {
     }
 
 
-    public boolean insertManga(String manga_name , String cover_link, String id_manga){
+    public void insertManga(String manga_name , String cover_link, String id_manga){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
@@ -107,48 +100,27 @@ public class DataBase extends SQLiteOpenHelper {
         contentValues.put(COL_cover_link_0, cover_link);
         contentValues.put(COL_id_manga_0, id_manga);
 
-        //****return -1 if insert method failed
-        long result = database.insert(TABLE_manga_0,null,contentValues);
-        if (result==-1){
-            return false;
-        }
-        else {
-            database.close();
-            return true;
-        }
+        database.insert(TABLE_manga_0,null,contentValues);
+
     }
 
-    public boolean insertChapter(int id_book , String list_of_chapters){
+    public void insertChapter(int id_book , String list_of_chapters){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_id_book_1, id_book);
         contentValues.put(COL_list_chapters_1, list_of_chapters);
 
-        //****return -1 if insert method failed
-        long result = database.insert(TABLE_chapters_name_1,null,contentValues);
-        if (result==-1){
-            return false;
-        }
-        else {
-            return true;
-        }
+        database.insert(TABLE_chapters_name_1,null,contentValues);
     }
 
-    public boolean insertPages(int id_book, int num_chapitre, String list_pages){
+    public void insertPages(int id_book, int num_chapitre, String list_pages){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_id_book_2, id_book);
         contentValues.put(COL_chapitre_2, num_chapitre);
         contentValues.put(COL_list_page_2, list_pages);
 
-        //****return -1 if insert method failed
-        long result = database.insert(TABLE_pages_name_2,null,contentValues);
-        if (result==-1){
-            return false;
-        }
-        else {
-            return true;
-        }
+        database.insert(TABLE_pages_name_2,null,contentValues);
     }
 
     public void clear_manga_table(){
@@ -186,15 +158,14 @@ public class DataBase extends SQLiteOpenHelper {
                 arrayList_book.add(new Book(name, cover_link, id_manga));
             }
         }
+        res.close();
         return arrayList_book;
     }
 
-    public Cursor get_all_manga_cursor(){
+    private Cursor get_all_manga_cursor(){
         SQLiteDatabase database = this.getWritableDatabase();
-        ArrayList<Book> arrayList_book = new ArrayList<>();
 
-        Cursor res = database.rawQuery("SELECT * FROM " + TABLE_manga_0 + " ORDER BY " + COL_id_manga_0 , null);
-        return res;
+        return database.rawQuery("SELECT * FROM " + TABLE_manga_0 + " ORDER BY " + COL_id_manga_0 , null);
     }
 
     public ArrayList<String> get_all_manga_names(){
@@ -207,7 +178,7 @@ public class DataBase extends SQLiteOpenHelper {
                 list_name.add(res.getString(2));
             }
         }
-
+        res.close();
         return list_name;
     }
 
@@ -226,24 +197,20 @@ public class DataBase extends SQLiteOpenHelper {
 
             }
         }
+        res.close();
         return new Book(manga_name, cover_link,id_manga);
     }
 
     public int get_last_chapter(String id_book){
         SQLiteDatabase database = this.getReadableDatabase();
-        Cursor cursor = null;
-        String list_chapter = "";
-        int last_chapter = 0;
 
-        try{
-            cursor = (Cursor) database.rawQuery("SELECT * FROM " + TABLE_chapters_name_1 + " WHERE id_book= " + id_book, null);
-            if(cursor.getCount() > 0){
-                while (cursor.moveToNext()){
+        String list_chapter = "";
+        try (Cursor cursor = (Cursor) database.rawQuery("SELECT * FROM " + TABLE_chapters_name_1 + " WHERE id_book= " + id_book, null)) {
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
                     list_chapter = cursor.getString(1);
                 }
             }
-        }finally {
-            cursor.close();
         }
 
         list_chapter = list_chapter.replace('[', ' ');
@@ -251,29 +218,22 @@ public class DataBase extends SQLiteOpenHelper {
         list_chapter = list_chapter.replace('"', ' ');
         list_chapter = list_chapter.replaceAll("\\s+","");
         String[] chapters = list_chapter.split(",");
-        last_chapter = Integer.parseInt(chapters[chapters.length - 1]);
-        return last_chapter;
+        return Integer.parseInt(chapters[chapters.length - 1]);
     }
 
     public ArrayList<String> get_page_by_chapitre(int id_book, int chapitre){
 
         ArrayList<String> list_of_link_page = new ArrayList<>();
         SQLiteDatabase database = this.getWritableDatabase();
-        Cursor cursor = null;
-        String item = "";
 
-        try{
-            cursor = (Cursor) database.rawQuery("SELECT * FROM " + TABLE_pages_name_2 + " WHERE " + COL_id_book_2 + " = " + Integer.toString(id_book) + " AND " + COL_chapitre_2 + " = " + Integer.toString(chapitre) , null);
-            if(cursor.getCount() > 0){
-                StringBuffer buffer = new StringBuffer();
-                while (cursor.moveToNext()){
+        String item = "";
+        try (Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_pages_name_2 + " WHERE " + COL_id_book_2 + " = " + Integer.toString(id_book) + " AND " + COL_chapitre_2 + " = " + Integer.toString(chapitre), null)) {
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
                     item = cursor.getString(2);
                 }
             }
-        }finally {
-            cursor.close();
         }
-
 
         item = item.replace('[', ' ');
         item = item.replace(']', ' ');
@@ -287,52 +247,38 @@ public class DataBase extends SQLiteOpenHelper {
             }
         }
 
-
         return list_of_link_page;
     }
 
-    public boolean initiate_first_use(){
+    public void initiate_first_use(){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_first_use, 1000);
 
-        //****return -1 if insert method failed
-        long result = database.insert(TABLE_user,null,contentValues);
-        if (result==-1){
-            return false;
-        }
-        else {
-            database.close();
-            return true;
-        }
+        database.insert(TABLE_user,null,contentValues);
+
     }
 
     public Cursor get_first_use(){
         SQLiteDatabase database = this.getReadableDatabase();
-        Cursor res = database.rawQuery("SELECT * FROM " + TABLE_user , null);
-        return res;
+        return database.rawQuery("SELECT * FROM " + TABLE_user , null);
     }
 
-    public boolean add_favorite(int id_manga){
+    public void add_favorite(int id_manga){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(COL_favorite_manga, id_manga);
-        long result = database.insert(TABLE_favorite_manga,null,contentValues);
-        if (result==-1){
-            return false;
-        }
-        else {
-            database.close();
-            return true;
-        }
+        database.insert(TABLE_favorite_manga,null,contentValues);
+
     }
 
-    public void remove_favorite(int id_manga , Context context){
-        String detelete_fav = "DELETE FROM " +  TABLE_favorite_manga +  " WHERE " + COL_favorite_manga + "=" + Integer.toString(id_manga);
+    public void remove_favorite(int id_manga ){
+        String delete_fav = "DELETE FROM " +  TABLE_favorite_manga +  " WHERE " + COL_favorite_manga + "=" + Integer.toString(id_manga);
         SQLiteDatabase database = this.getWritableDatabase();
-        database.rawQuery(detelete_fav,null);
+        Cursor res = database.rawQuery(delete_fav,null);
         database.delete(TABLE_favorite_manga, "id_manga=" + Integer.toString(id_manga), null);
+        res.close();
     }
 
     public boolean is_one_of_favorite(int id_manga){
@@ -352,7 +298,6 @@ public class DataBase extends SQLiteOpenHelper {
         }
         else {
             res.close();
-            contain = false;
         }
         return contain;
     }
@@ -370,11 +315,11 @@ public class DataBase extends SQLiteOpenHelper {
         else {
             return list_id_fav;
         }
-
+        res.close();
         return list_id_fav;
     }
 
-    public void initiate_resume_table(Context context){
+    public void initiate_resume_table(){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         ArrayList<Integer> list_id = new ArrayList<>();
@@ -391,7 +336,7 @@ public class DataBase extends SQLiteOpenHelper {
             contentValues.put(COL_resume_manga_num_chapitre, 1);
             database.insert(TABLE_resume_manga,null,contentValues);
         }
-
+        cursor.close();
     }
 
     public int get_chapter_to_resume(int id_manga){
@@ -404,6 +349,7 @@ public class DataBase extends SQLiteOpenHelper {
                 chapter = res.getInt(1);
             }
         }
+        res.close();
         return chapter;
     }
 
@@ -430,7 +376,7 @@ public class DataBase extends SQLiteOpenHelper {
                 like_list_result.add(new Book(name, cover_link, id_manga));
             }
         }
-
+        res.close();
         return like_list_result;
     }
 

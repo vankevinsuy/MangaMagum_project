@@ -1,21 +1,17 @@
 package com.example.mangamagum.Activity;
 
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
-import android.os.Environment;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -391,7 +387,7 @@ class Server extends AsyncTask<Void,Void, Void> {
         this.db.close();
         Toast.makeText(context, "update done", Toast.LENGTH_SHORT).show();
         activity.fill_library(context);
-        this.db.initiate_resume_table(context);
+        this.db.initiate_resume_table();
     }
 
 

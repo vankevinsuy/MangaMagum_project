@@ -1,17 +1,15 @@
 package com.example.mangamagum.Activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.mangamagum.Model.DataBase;
 import com.example.mangamagum.R;
@@ -180,7 +178,7 @@ public class Chosen_manga extends AppCompatActivity {
                     dataBase.close();
                 }
                 else {
-                    dataBase.remove_favorite(Integer.parseInt(selected_manga_id), getApplicationContext());
+                    dataBase.remove_favorite(Integer.parseInt(selected_manga_id));
                     add_remove_favorite.setBackgroundResource(R.drawable.favorite_not_selected);
                     dataBase.close();
                 }

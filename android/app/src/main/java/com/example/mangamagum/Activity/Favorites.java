@@ -2,10 +2,9 @@ package com.example.mangamagum.Activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -17,9 +16,7 @@ import com.example.mangamagum.Model.Book;
 import com.example.mangamagum.Model.DataBase;
 import com.example.mangamagum.R;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 
 public class Favorites extends AppCompatActivity {
 
@@ -80,7 +77,7 @@ public class Favorites extends AppCompatActivity {
         }
 
         mAdapter = new Library_Adapter(arrayList_book, context);
-        ((Library_Adapter) mAdapter).setOnItemClickListener(new Library_Adapter.OnItemClickListener() {
+        ((Favorites_Adapter) mAdapter).setOnItemClickListener(new Favorites_Adapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 String id_book = arrayList_book.get(position).getId_book();

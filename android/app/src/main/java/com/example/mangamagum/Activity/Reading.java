@@ -1,23 +1,18 @@
 package com.example.mangamagum.Activity;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
-import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
 import android.view.Display;
 
 import com.example.mangamagum.Adapter.Page_adapter;
 import com.example.mangamagum.Model.DataBase;
 import com.example.mangamagum.R;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 public class Reading extends AppCompatActivity {
