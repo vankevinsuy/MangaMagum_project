@@ -18,7 +18,7 @@ if os.path.exists(path_page):
 
 
 #read the input file
-with open("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/input_file.txt", "r") as input_file:
+with open("/home/vankevin/MangaMagum_project/Server/python_serveur/realease/input_file.txt", "r") as input_file:
     lines_in_input_file = input_file.readlines()
     input_file_as_list_of_dict = []
 
