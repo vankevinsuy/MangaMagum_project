@@ -1,8 +1,12 @@
 import csv
 from URL_Checker import *
 
+path_manga = ("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
+path_chapter = "/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv"
+path_page = "/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
+
 def write_manga(dictionnary,id_book):
-    with open("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv",'a') as manga_csv:
+    with open(path_manga",'a') as manga_csv:
         manga_name = dictionnary["manga_name"]
         cover_link = dictionnary["cover_link"]
 
@@ -33,19 +37,20 @@ def link_of_list_converter(links):
         return links
 
 def chapter_recursif(id_book, urls_base,chapitre, indice_liste, list_chapitre):
-    with open("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv",'a') as chapter_csv:
+    with open(path_chapter,'a') as chapter_csv:
         chapter_csv_fieldnames = ['id_book', 'liste_chapitre']
         chapter_csv_writer = csv.DictWriter(chapter_csv, fieldnames=chapter_csv_fieldnames, lineterminator='\n',quoting=csv.QUOTE_ALL)
 
         if indice_liste > len(urls_base)-1:
             indice_liste = 0
 
-        if check_url(urls_base[indice_liste].format(str(chapitre), str(1))):
+
+        if check_url(urls_base[indice_liste].format(str(chapitre), str(1))) or check_url(urls_base[indice_liste].format(str(chapitre), "01")):
             print(urls_base[indice_liste].format(str(chapitre), str(1)))
 
             future = []
             for i in range(len(urls_base)):
-                if check_last_chapter(urls_base[i].format(str(chapitre+1), str(1))):
+                if check_last_chapter(urls_base[i].format(str(chapitre+1), str(1))) or check_last_chapter(urls_base[i].format(str(chapitre+1), "01")):
                     future.append(True)
                     list_chapitre.append(chapitre)
                 else:
@@ -64,8 +69,8 @@ def chapter_recursif(id_book, urls_base,chapitre, indice_liste, list_chapitre):
 
 
 def write_page(dictionnary, id_book):
-    with open('/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv', 'r') as csv_file:
-        with open('/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv', 'a') as page_csv:
+    with open(path_chapter, 'r') as csv_file:
+        with open(path_page, 'a') as page_csv:
             csv_reader = csv.reader(csv_file)
             page_csv_fieldnames = ['id_book', 'chapitre', 'list_page']
             page_csv_writer = csv.DictWriter(page_csv, fieldnames=page_csv_fieldnames, lineterminator='\n',quoting=csv.QUOTE_ALL)
@@ -92,10 +97,11 @@ def write_page(dictionnary, id_book):
                 good_url_base = None
                 for i in range(len(list_of__base_link)):
                     urls_to_test.append(list_of__base_link[i].format(str(chapitre), str(1)))
+                    urls_to_test.append(list_of__base_link[i].format(str(chapitre), "01"))
 
                 for i in range(len(urls_to_test)) :
                     if check_url(urls_to_test[i]):
-                        good_url_base = list_of__base_link[i]
+                        # good_url_base = list_of__base_link[i]
                         pages = get_page(chapitre, list_of__base_link)
                         # to_write = []
                         # for j in range(len(pages)):
@@ -113,13 +119,19 @@ def get_page(chapitre, list_of__base_link):
         #mettre en forme les urls
         url_on_test = []
         for i in range(len(list_of__base_link)):
-            url = list_of__base_link[i].format(str(chapitre), str(num_page))
-            url_on_test.append(url)
+            if num_page < 10 :
+                url = list_of__base_link[i].format(str(chapitre), "0"+str(num_page))
+                url_on_test.append({'url':url, 'base url': list_of__base_link[i]})
+                url = list_of__base_link[i].format(str(chapitre), str(num_page))
+                url_on_test.append({'url':url, 'base url': list_of__base_link[i]})
+            else:
+                url = list_of__base_link[i].format(str(chapitre), str(num_page))
+                url_on_test.append({'url':url, 'base url': list_of__base_link[i]})
 
         #verifier leurs états
         url_res = []
         for i in range(len(url_on_test)):
-            if check_url(url_on_test[i]):
+            if check_url(url_on_test[i]['url']):
                 url_res.append(True)
                 break
             else:
@@ -128,15 +140,23 @@ def get_page(chapitre, list_of__base_link):
         #récupérer la bonne url et l'ajouter à la liste
         for i in range(len(url_res)):
             if url_res[i] == True:
-                good_url = list_of__base_link[i].format(str(chapitre), str(num_page))
+                # good_url = list_of__base_link[i].format(str(chapitre), str(num_page))
+                good_url = url_on_test[i]['url']
                 print(good_url)
                 list_page.append(good_url)
 #---------------------------------------------------
         #vérifier si la prochaine page existe
         url_on_test = []
         for i in range(len(list_of__base_link)):
-            url = list_of__base_link[i].format(str(chapitre), str(num_page+1))
-            url_on_test.append(url)
+            if num_page <10:
+                url = list_of__base_link[i].format(str(chapitre), "0"+str(num_page + 1))
+                url_on_test.append(url)
+                url = list_of__base_link[i].format(str(chapitre), str(num_page+1))
+                url_on_test.append(url)
+            else:
+                url = list_of__base_link[i].format(str(chapitre), str(num_page+1))
+                url_on_test.append(url)
+
 
         #verifier les états
         url_res = []

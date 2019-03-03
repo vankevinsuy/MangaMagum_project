@@ -1,14 +1,20 @@
 import os
 from write_data import *
 
-if os.path.exists("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"):
- os.remove("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv")
+path_manga = ("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
+path_chapter = "/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv"
+path_page = "/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
 
-if os.path.exists("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv"):
- os.remove("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv")
 
-if os.path.exists("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"):
- os.remove("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv")
+
+if os.path.exists(path_manga):
+ os.remove(path_manga)
+
+if os.path.exists(path_chapter):
+ os.remove(path_chapter)
+
+if os.path.exists(path_page):
+ os.remove(path_page)
 
 
 #read the input file

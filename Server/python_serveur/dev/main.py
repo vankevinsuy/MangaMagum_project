@@ -2,15 +2,18 @@ import os
 from write_data import *
 from insert_in_db import insert_all
 
+path_manga = "D:\MangaMagum_project\Server\python_serveur\dev\outpout\manga.csv"
+path_chapter = "D:\MangaMagum_project\Server\python_serveur\dev\outpout\chapters.csv"
+path_page = "D:\MangaMagum_project\Server\python_serveur\dev\outpout\pages.csv"
 
-if os.path.exists("D:\MangaMagum_project\Server\python_serveur\dev\outpout\manga.csv"):
- os.remove("D:\MangaMagum_project\Server\python_serveur\dev\outpout\manga.csv")
+if os.path.exists(path_manga):
+ os.remove(path_manga)
 
-if os.path.exists("D:\MangaMagum_project\Server\python_serveur\dev\outpout\chapters.csv"):
- os.remove("D:\MangaMagum_project\Server\python_serveur\dev\outpout\chapters.csv")
+if os.path.exists(path_chapter):
+ os.remove(path_chapter)
 
-if os.path.exists("D:\MangaMagum_project\Server\python_serveur\dev\outpout\pages.csv"):
- os.remove("D:\MangaMagum_project\Server\python_serveur\dev\outpout\pages.csv")
+if os.path.exists(path_page):
+ os.remove(path_page)
 
 
 #read the input file

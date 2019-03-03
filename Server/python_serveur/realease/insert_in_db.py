@@ -2,9 +2,9 @@ def insert_all():
     import mysql.connector
     import csv
 
-    path_manga = "D:\MangaMagum_project\Server\python_serveur\dev\outpout\manga.csv"
-    path_chapter = "D:\MangaMagum_project\Server\python_serveur\dev\outpout\chapters.csv"
-    path_page = "D:\MangaMagum_project\Server\python_serveur\dev\outpout\pages.csv"
+    path_manga = ("/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
+    path_chapter = "/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv"
+    path_page = "/home/van-kevin/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
 
     mydb = mysql.connector.connect(
         host="localhost",
