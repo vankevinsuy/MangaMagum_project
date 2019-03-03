@@ -6,7 +6,7 @@ path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease
 path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
 
 def write_manga(dictionnary,id_book):
-    with open(path_manga",'a') as manga_csv:
+    with open(path_manga,'a') as manga_csv:
         manga_name = dictionnary["manga_name"]
         cover_link = dictionnary["cover_link"]
 
