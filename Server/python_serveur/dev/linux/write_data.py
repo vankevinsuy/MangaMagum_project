@@ -46,7 +46,7 @@ def chapter_recursif(id_book, urls_base,chapitre, indice_liste, list_chapitre):
 
 
         if check_url(urls_base[indice_liste].format(str(chapitre), str(1))) or check_url(urls_base[indice_liste].format(str(chapitre), "01")):
-            if check_url(urls_base[indice_liste].format(str(chapitre), str(1)))):
+            if check_url(urls_base[indice_liste].format(str(chapitre), str(1))):
                 print(urls_base[indice_liste].format(str(chapitre), str(1)))
             else:
                 print(urls_base[indice_liste].format(str(chapitre), "01"))
