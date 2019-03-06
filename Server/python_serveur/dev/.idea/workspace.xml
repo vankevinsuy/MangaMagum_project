@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2627b6d3-267a-4f8d-bcf1-1d4b513fcb36" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dev.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input_file.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/insert_in_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/insert_in_db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outpout/chapters.csv" beforeDir="false" afterPath="$PROJECT_DIR$/outpout/chapters.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outpout/manga.csv" beforeDir="false" afterPath="$PROJECT_DIR$/outpout/manga.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outpout/pages.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/write_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/write_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../realease/URL_Checker.py" beforeDir="false" afterPath="$PROJECT_DIR$/../realease/URL_Checker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../realease/input_file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../realease/input_file.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../realease/write_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../realease/write_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../android/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +65,17 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -189,9 +187,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1590604" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16107382" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -291,27 +288,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/outpout/pages.csv">
+    <entry file="file://$PROJECT_DIR$/outpout/pages.csv" />
+    <entry file="file://$PROJECT_DIR$/outpout/chapters.csv">
       <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-        </state>
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
       <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outpout/chapters.csv">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/input_file.txt">
       <provider selected="true" editor-type-id="text-editor">
