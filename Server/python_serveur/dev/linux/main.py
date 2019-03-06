@@ -1,10 +1,11 @@
 import os
 from write_data import *
-#from insert_in_db import insert_all
 
-path_manga = "D:\MangaMagum_project\Server\python_serveur\dev\outpout\manga.csv"
-path_chapter = "D:\MangaMagum_project\Server\python_serveur\dev\outpout\chapters.csv"
-path_page = "D:\MangaMagum_project\Server\python_serveur\dev\outpout\pages.csv"
+path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/linux/outpout/manga.csv"
+path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/linux/outpout/chapters.csv"
+path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/linux/outpout/pages.csv"
+
+
 
 if os.path.exists(path_manga):
  os.remove(path_manga)
@@ -17,7 +18,7 @@ if os.path.exists(path_page):
 
 
 #read the input file
-with open("D:\MangaMagum_project\Server\python_serveur\dev\input_file.txt", "r") as input_file:
+with open("/home/vankevin/MangaMagum_project/Server/python_serveur/realease/input_file.txt", "r") as input_file:
     lines_in_input_file = input_file.readlines()
     input_file_as_list_of_dict = []
 
@@ -35,6 +36,3 @@ for item in input_file_as_list_of_dict:
     write_chapter(item, id_book)
     #write_page(item, id_book)
     id_book = id_book + 1
-
-
-#insert_all()

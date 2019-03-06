@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1700601-bf3d-4d75-afe6-cea00d8126f2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/.idea/Python_make_csv_for_database.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_1/input_file.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_1/input_file2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_1/python_code/Chapter_list_maker.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_1/python_code/Url_page_checker.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_1/python_code/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_2/Make_tables_as_csv.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_2/URL_Checker.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_2/input_file.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_2/input_file_structure.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_2/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_2/outpout/chapters.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_2/outpout/manga.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_2/outpout/pages.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_3/URL_Checker.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_3/input_file.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_3/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Python_make_csv_for_database/version_3/write_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../android/.idea/misc.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d1700601-bf3d-4d75-afe6-cea00d8126f2" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,13 +57,9 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25302014" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -97,11 +67,15 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="R Packages" />
-      <window_info anchor="right" id="R Graphics" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="R Graphics" order="3" />
+      <window_info anchor="right" id="R Packages" order="4" />
     </layout>
   </component>
 </project>

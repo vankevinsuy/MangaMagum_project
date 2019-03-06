@@ -1,9 +1,9 @@
 import csv
-from URL_Checker import *
+from windows.URL_Checker import *
 
-path_manga = "D:\MangaMagum_project\Server\python_serveur\dev\outpout\manga.csv"
-path_chapter = "D:\MangaMagum_project\Server\python_serveur\dev\outpout\chapters.csv"
-path_page = "D:\MangaMagum_project\Server\python_serveur\dev\outpout\pages.csv"
+path_manga = "D:\MangaMagum_project\Server\python_serveur\dev\windows\outpout\manga.csv"
+path_chapter = "D:\MangaMagum_project\Server\python_serveur\dev\windows\outpout\chapters.csv"
+path_page = "D:\MangaMagum_project\Server\python_serveur\dev\windows\outpout\pages.csv"
 
 def write_manga(dictionnary,id_book):
     with open(path_manga,'a') as manga_csv:
