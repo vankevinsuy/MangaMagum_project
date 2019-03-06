@@ -1,6 +1,6 @@
 import os
 from write_data import *
-from insert_in_db import insert_all
+#from insert_in_db import insert_all
 
 path_manga = "D:\MangaMagum_project\Server\python_serveur\dev\outpout\manga.csv"
 path_chapter = "D:\MangaMagum_project\Server\python_serveur\dev\outpout\chapters.csv"
@@ -33,8 +33,8 @@ id_book = 0
 for item in input_file_as_list_of_dict:
     write_manga(item, id_book)
     write_chapter(item, id_book)
-    write_page(item, id_book)
+    #write_page(item, id_book)
     id_book = id_book + 1
 
 
-insert_all()
+#insert_all()
