@@ -27,9 +27,9 @@ for line in file :
         cover = ""
         list_of_link = []
     if "--MANGA--" in line :
-        manga = line[11:-1]
+        manga = line[10:-1]
     if "--COVER--" in line :
-        cover = line[11:-1]
+        cover = line[10:-1]
     if "--LINK--" in line:
         list_of_link.append(line[10:-1])
     if "--FIN NEW--" in line:
@@ -41,6 +41,8 @@ for line in file :
 id_book = 0
 for item in input_file_as_list_of_dict:
     write_manga(item, id_book)
+    print(item)
+    print('')
     write_chapter(item, id_book)
     #write_page(item, id_book)
     id_book = id_book + 1

@@ -1,7 +1,7 @@
 import csv
 from URL_Checker import *
 
-path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/macos/outpout/manga.csvv"
+path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/macos/outpout/manga.csv"
 path_chapter = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/macos/outpout/chapters.csv"
 path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/macos/outpout/pages.csv"
 
@@ -64,6 +64,7 @@ def chapter_recursif(id_book, urls_base,chapitre, indice_liste, list_chapitre):
                 list_chapitre.append(chapitre)
 
                 chapter_csv_writer.writerow({'id_book': id_book , 'liste_chapitre':  list_chapitre })
+                chapter_csv.close()
 
                 return None
 
