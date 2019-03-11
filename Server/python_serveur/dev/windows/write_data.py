@@ -1,5 +1,5 @@
 import csv
-from windows.URL_Checker import *
+from URL_Checker import *
 
 path_manga = "D:\MangaMagum_project\Server\python_serveur\dev\windows\outpout\manga.csv"
 path_chapter = "D:\MangaMagum_project\Server\python_serveur\dev\windows\outpout\chapters.csv"
@@ -16,6 +16,8 @@ def write_manga(dictionnary,id_book):
 
         manga_csv_writer.writerow({"manga_name": manga_name, "cover_link": cover_link, "id_book": id_book})
         manga_csv.close()
+
+
 
 
 def write_chapter(dictionnary, id_book):
@@ -44,7 +46,10 @@ def chapter_recursif(id_book, urls_base,chapitre, indice_liste, list_chapitre):
 
 
         if check_url(urls_base[indice_liste].format(str(chapitre), str(1))) or check_url(urls_base[indice_liste].format(str(chapitre), "01")):
-            print(urls_base[indice_liste].format(str(chapitre), str(1)))
+            if check_url(urls_base[indice_liste].format(str(chapitre), str(1))):
+                print(urls_base[indice_liste].format(str(chapitre), str(1)))
+            else:
+                print(urls_base[indice_liste].format(str(chapitre), "01"))
 
             future = []
             for i in range(len(urls_base)):
@@ -105,6 +110,8 @@ def write_page(dictionnary, id_book):
                         # for j in range(len(pages)):
                         #     to_write.append(good_url_base.format(str(chapitre), str(pages[j])))
                         page_csv_writer.writerow({'id_book': id_book , 'chapitre':  chapitre , 'list_page': pages })
+
+
 
 
 def get_page(chapitre, list_of__base_link):
