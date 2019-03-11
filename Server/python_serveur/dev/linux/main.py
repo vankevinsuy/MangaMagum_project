@@ -18,7 +18,7 @@ if os.path.exists(path_page):
 
 
 #read the input file
-file = open('"/home/vankevin/MangaMagum_project/Server/python_serveur/dev/linux/input_file.txt"','r').readlines()
+file = open("/home/vankevin/MangaMagum_project/Server/python_serveur/dev/linux/input_file.txt",'r').readlines()
 input_file_as_list_of_dict = []
 
 #add lines as dctionnaries in input_file_as_list_of_dict
