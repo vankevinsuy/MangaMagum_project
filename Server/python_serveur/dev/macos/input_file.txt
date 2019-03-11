@@ -6,6 +6,7 @@
 --LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/{}.JPG
 --LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/%20({}).jpg
 --LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/%20({}).png
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/{}.jpeg
 --LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/{}/{}.jpg
 --LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/{}/{}.png
 --LINK-- :http://lelscanv.com/mangas/one-piece/{}/{}.jpg?v=fr

@@ -1,9 +1,9 @@
 import csv
 from URL_Checker import *
 
-path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/linux/outpout/manga.csv"
-path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/linux/outpout/chapters.csv"
-path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/linux/outpout/pages.csv"
+path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/macos/outpout/manga.csvv"
+path_chapter = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/macos/outpout/chapters.csv"
+path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/macos/outpout/pages.csv"
 
 def write_manga(dictionnary,id_book):
     with open(path_manga,'a') as manga_csv:
