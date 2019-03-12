@@ -62,7 +62,7 @@ for item in input_file_as_list_of_dict:
 
     write_manga(item, id_book)
     write_chapter(item, id_book)
-    #write_page(item, id_book)
+    write_page(item, id_book)
     id_book = id_book + 1
 
 
