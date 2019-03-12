@@ -1,24 +1,24 @@
-import os
 import time
 start = time.time()
 import platform
-os = platform.system()
 from write_data import *
 #from insert_in_db import insert_all
 
-if os == "Windows":
+import os
+
+if platform.system() == "Windows":
     path_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\manga.csv"
     path_chapter = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\chapters.csv"
     path_page = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\pages.csv"
     input_file_path = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\input_file.txt"
 
-if os == "Darwin":
+if platform.system() == "Darwin":
     path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
     path_chapter = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
     path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
     input_file_path = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/input_file.txt"
 
-if os == "Linux":
+if platform.system() == "Linux":
     path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
     path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
     path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
