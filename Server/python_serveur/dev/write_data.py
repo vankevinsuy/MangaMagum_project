@@ -1,6 +1,8 @@
 import csv
 import numpy as np
 from URL_Checker import *
+import platform
+os = platform.system()
 
 path_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\windows\\outpout\\manga.csv"
 path_chapter = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\windows\\outpout\\chapters.csv"

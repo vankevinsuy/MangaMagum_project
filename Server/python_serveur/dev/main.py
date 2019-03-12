@@ -1,6 +1,8 @@
 import os
 import time
 start = time.time()
+import platform
+os = platform.system()
 from write_data import *
 #from insert_in_db import insert_all
 

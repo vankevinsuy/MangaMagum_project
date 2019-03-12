@@ -1,0 +1,80 @@
+---NEW---
+--MANGA--:Black Clover
+--COVER--:https://www.nautiljon.com/images/more/00/96/72069.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/black-clover/{}/{}.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/black-clover/{}/{}.png
+--FIN NEW--
+
+---NEW---
+--MANGA--:Bleach
+--COVER--:http://fr.web.img5.acsta.net/pictures/16/02/03/17/47/271248.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/bleach/{}/{}.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/bleach/{}/{}.png
+--FIN NEW--
+
+---NEW---
+--MANGA--:Death Note
+--COVER--:https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/1913ba64-f52f-4dfc-b544-c1a0bc12b19d/d1xmeas-dfba9f91-c8c4-40fc-8370-c44369865a01.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/death-note/{}/{}.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/death-note/{}/{}.png
+--FIN NEW--
+
+---NEW---
+--MANGA--:My Hero Academia
+--COVER--:https://cdn.shopify.com/s/files/1/0747/3829/products/mz1096_1024x1024.jpeg?v=1485014933
+--LINK-- :https://cdn.mangahub.io/file/imghub/boku-no-hero-academia/{}/{}.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/boku-no-hero-academia/{}/{}.png
+--FIN NEW--
+
+---NEW---
+--MANGA--:One Punch Man
+--COVER--:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-SbmjrnooAVSd5hgT6E0ZV5-cJVdA2JXS0QEuozYvWLPFwEa5
+--LINK-- :https://cdn.mangahub.io/file/imghub/onepunch-man/{}/{}.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/onepunch-man/{}/{}.png
+--FIN NEW--
+
+---NEW---
+--MANGA--:Nanatsu no Taizai
+--COVER--:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0jtzI_YKV3K3slsmTZF8PseEMqZs7YgRAqXyHddXOAQDWAAl_
+--LINK-- :https://cdn.mangahub.io/file/imghub/nanatsu-no-taizai/{}/{}.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/nanatsu-no-taizai/{}/{}.png
+--FIN NEW--
+
+---NEW---
+--MANGA--:Boruto
+--COVER--:https://dw9to29mmj727.cloudfront.net/properties/2016/1363-SeriesThumbnail_BorutoAnime_400x320_v2.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/boruto-naruto-next-generations/{}/{}.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/boruto-naruto-next-generations/{}/{}.png
+--FIN NEW--
+
+---NEW---
+--MANGA--:Naruto
+--COVER--:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYFxl5f5XsfVoTJbGeC2o77e44IxXB_tUvi7nAS9mSAnQC2ZTx
+--LINK-- :https://cdn.mangahub.io/file/imghub/naruto/{}/{}.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/naruto/{}/{}.png
+--FIN NEW--
+
+---NEW---
+--MANGA--:Attack on Titan
+--COVER--:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvoovvtrjdU7LD1Lb2MdbWXKyBl_69rVQrKIkFV_6miNxnPJvI
+--LINK-- :https://cdn.mangahub.io/file/imghub/attack-on-titan/{}/{}.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/attack-on-titan/{}/{}.png
+--FIN NEW--
+
+---NEW---
+--MANGA--:One Piece
+--COVER--:https://www.nautiljon.com/images/anime/00/60/one_piece_6.jpg
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/{}.png
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/{}.jpg
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/{}.JPG
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/%20({}).jpg
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/%20({}).png
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/{}.jpeg
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/{}/{}.jpg
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/{}/{}.png
+--LINK-- :http://lelscanv.com/mangas/one-piece/{}/{}.jpg?v=fr
+--LINK-- :http://lelscanv.com/mangas/one-piece/{}/{}.png?v=fr
+--LINK-- :http://lelscanv.com/mangas/one-piece/{}/{}.jpg?v=en
+--LINK-- :http://lelscanv.com/mangas/one-piece/{}/{}.png?v=en
+
+--FIN NEW--
