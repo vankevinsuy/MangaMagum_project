@@ -10,29 +10,32 @@ if os == "Windows":
     path_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\manga.csv"
     path_chapter = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\chapters.csv"
     path_page = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\pages.csv"
+    input_file_path = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\input_file.txt"
 
 if os == "Darwin":
     path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
     path_chapter = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
     path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
+    input_file_path = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/input_file.txt"
 
 if os == "Linux":
     path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
     path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
     path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
+    input_file_path = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/input_file.txt"
 
 if os.path.exists(path_manga):
- os.remove(path_manga)
+     os.remove(path_manga)
 
 if os.path.exists(path_chapter):
- os.remove(path_chapter)
+     os.remove(path_chapter)
 
 if os.path.exists(path_page):
- os.remove(path_page)
+     os.remove(path_page)
 
 
 #read the input file
-file = open('D:\\MangaMagum_project\\Server\\python_serveur\\dev\\input_file.txt','r').readlines()
+file = open(input_file_path,'r').readlines()
 input_file_as_list_of_dict = []
 
 #add lines as dctionnaries in input_file_as_list_of_dict
