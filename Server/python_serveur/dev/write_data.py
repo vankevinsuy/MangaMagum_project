@@ -57,7 +57,7 @@ def write_chapter(dictionnary, id_book):
         chapter_csv_fieldnames = ['id_book', 'liste_chapitre']
         chapter_csv_writer = csv.DictWriter(chapter_csv, fieldnames=chapter_csv_fieldnames, lineterminator='\n',quoting=csv.QUOTE_ALL)
         chapter_csv_writer.writerow({'id_book': id_book , 'liste_chapitre':  list_chapitre })
-    chapter_csv.close()
+        chapter_csv.close()
 
     return None
 
@@ -148,7 +148,8 @@ def write_page(dictionnary, id_book):
             page_csv_writer = csv.DictWriter(page_csv, fieldnames=page_csv_fieldnames, lineterminator='\n',quoting=csv.QUOTE_ALL)
 
             list_chapitre = None
-            list_of__base_link = link_of_list_converter(dictionnary["list_of_link"])
+            #list_of__base_link = link_of_list_converter(dictionnary["list_of_link"])
+            list_of__base_link = dictionnary["list_of_link"]
 
             for line in csv_reader :
                 if int(line[0]) == id_book:
@@ -211,7 +212,7 @@ def get_page(chapitre, list_of__base_link):
             if url_res[i] == True:
                 # good_url = list_of__base_link[i].format(str(chapitre), str(num_page))
                 good_url = url_on_test[i]['url']
-                print(good_url)
+                #print(good_url)
                 list_page.append(good_url)
 #---------------------------------------------------
         #vérifier si la prochaine page existe
