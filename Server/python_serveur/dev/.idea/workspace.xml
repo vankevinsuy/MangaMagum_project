@@ -2,8 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2627b6d3-267a-4f8d-bcf1-1d4b513fcb36" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/linux/insert_in_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/linux/insert_in_db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/input_file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/windows/input_file.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reload_all.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/update_content.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/insert_in_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/insert_in_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/URL_Checker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/input_file.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/insert_in_db.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/outpout/chapters.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/outpout/manga.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/outpout/pages.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/write_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/URL_Checker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/input_file.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/insert_in_db.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/outpout/manga.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/write_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outpout/chapters.csv" beforeDir="false" afterPath="$PROJECT_DIR$/outpout/chapters.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outpout/manga.csv" beforeDir="false" afterPath="$PROJECT_DIR$/outpout/manga.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outpout/pages.csv" beforeDir="false" afterPath="$PROJECT_DIR$/outpout/pages.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outpout/sdv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/URL_Checker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/input_file.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/insert_in_db.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/outpout/manga.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/write_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/write_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/write_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../android/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../android/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,13 +45,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/linux/main.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/update_content.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+            <state relative-caret-position="624">
+              <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/input_file.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="647">
+              <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/reload_all.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="539">
+              <caret line="76" column="13" lean-forward="true" selection-start-line="76" selection-end-line="77" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -42,25 +94,28 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/write_manga.py" />
-        <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/outpout/chapters.csv" />
         <option value="$PROJECT_DIR$/outpout/insert_in_db.py" />
         <option value="$PROJECT_DIR$/URL_Checker.py" />
-        <option value="$PROJECT_DIR$/input_file.txt" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/insert_in_db.py" />
-        <option value="$PROJECT_DIR$/write_data.py" />
         <option value="$PROJECT_DIR$/windows/main.py" />
         <option value="$PROJECT_DIR$/windows/write_data.py" />
         <option value="$PROJECT_DIR$/windows/insert_in_db.py" />
         <option value="$PROJECT_DIR$/linux/write_data.py" />
         <option value="$PROJECT_DIR$/linux/main.py" />
         <option value="$PROJECT_DIR$/linux/insert_in_db.py" />
+        <option value="$PROJECT_DIR$/insert_in_db.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/write_data.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/outpout/chapters.csv" />
+        <option value="$PROJECT_DIR$/reload_all.py" />
+        <option value="$PROJECT_DIR$/update_content.py" />
+        <option value="$PROJECT_DIR$/input_file.txt" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-10" />
+    <option name="y" value="100" />
     <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
@@ -72,7 +127,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -83,18 +137,19 @@
             <path>
               <item name="dev" type="b2602c69:ProjectViewProjectNode" />
               <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="linux" type="462c0819:PsiDirectoryNode" />
+              <item name="outpout" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/windows" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -118,27 +173,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.main">
-    <configuration name="insert_in_db" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="dev" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:\MangaMagum_project\Server\python_serveur\dev\windows\insert_in_db.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="dev" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -151,7 +185,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:\MangaMagum_project\Server\python_serveur\dev\windows\main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -184,7 +218,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.insert_in_db" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -206,7 +239,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16510066" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17516778" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -216,7 +249,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32937366" />
@@ -232,42 +265,42 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>112</line>
+          <line>172</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>127</line>
+          <line>187</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>166</line>
+          <line>226</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>167</line>
+          <line>227</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>168</line>
+          <line>228</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>169</line>
+          <line>229</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>102</line>
+          <line>163</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>165</line>
+          <line>225</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
@@ -275,16 +308,9 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/urllib3/_collections.py" />
-    <entry file="file://$PROJECT_DIR$/test.py" />
     <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/urllib3/poolmanager.py" />
     <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/urllib3/request.py" />
-    <entry file="file://$PROJECT_DIR$/windows/outpout/manga.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/windows/outpout/manga.csv" />
     <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/urllib3/request.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -306,92 +332,106 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/outpout/pages.csv" />
-    <entry file="file://$PROJECT_DIR$/windows/outpout/chapters.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+    <entry file="file://$PROJECT_DIR$/windows/outpout/chapters.csv" />
+    <entry file="file://$PROJECT_DIR$/windows/main.py" />
+    <entry file="file://$PROJECT_DIR$/windows/URL_Checker.py" />
+    <entry file="file://$PROJECT_DIR$/windows/insert_in_db.py" />
+    <entry file="file://$PROJECT_DIR$/linux/outpout/manga.csv" />
+    <entry file="file://$PROJECT_DIR$/linux/insert_in_db.py" />
+    <entry file="file://$PROJECT_DIR$/linux/URL_Checker.py" />
+    <entry file="file://$PROJECT_DIR$/linux/write_data.py" />
+    <entry file="file://$PROJECT_DIR$/linux/main.py" />
+    <entry file="file://$PROJECT_DIR$/URL_Checker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/macos/write_data.py" />
+    <entry file="file://$PROJECT_DIR$/windows/input_file.txt" />
+    <entry file="file://$PROJECT_DIR$/outpout/sdv" />
+    <entry file="file://$PROJECT_DIR$/windows/write_data.py" />
+    <entry file="file://$PROJECT_DIR$/insert_in_db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/outpout/manga.csv">
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/windows/input_file.txt">
-      <provider selected="true" editor-type-id="text-editor">
+    <entry file="file://$PROJECT_DIR$/outpout/chapters.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
         <state>
-          <caret column="723" selection-start-column="723" selection-end-column="723" />
+          <caret column="119" selection-start-column="119" selection-end-column="119" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/windows/write_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="87" selection-start-line="5" selection-start-column="87" selection-end-line="5" selection-end-column="87" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/windows/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" selection-start-line="4" selection-end-line="6" selection-end-column="87" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/windows/URL_Checker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/windows/insert_in_db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="91" selection-start-line="6" selection-start-column="91" selection-end-line="6" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/linux/outpout/manga.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
+    <entry file="file://$PROJECT_DIR$/outpout/pages.csv">
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/linux/insert_in_db.py">
+    <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+          <caret line="6" selection-start-line="6" selection-end-line="26" selection-end-column="15" />
+          <folding>
+            <element signature="e#29#33#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/linux/URL_Checker.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/linux/write_data.py">
+    <entry file="file://$PROJECT_DIR$/write_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="97" />
+        <state relative-caret-position="235">
+          <caret line="107" selection-start-line="107" selection-end-line="108" selection-end-column="129" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/linux/main.py">
+    <entry file="file://$PROJECT_DIR$/reload_all.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        <state relative-caret-position="539">
+          <caret line="76" column="13" lean-forward="true" selection-start-line="76" selection-end-line="77" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update_content.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input_file.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="647">
+          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
         </state>
       </provider>
     </entry>

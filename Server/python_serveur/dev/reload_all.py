@@ -1,9 +1,6 @@
-import time
-start = time.time()
-import platform
 from write_data import *
 #from insert_in_db import insert_all
-
+import platform
 import os
 
 if platform.system() == "Windows":
@@ -59,10 +56,10 @@ for line in file :
 id_book = 0
 for item in input_file_as_list_of_dict:
     print(item)
+    print("")
     write_manga(item, id_book)
     id_book = id_book + 1
 
-print("")
 id_book = 0
 for item in input_file_as_list_of_dict:
     print(item)
@@ -70,13 +67,11 @@ for item in input_file_as_list_of_dict:
     id_book = id_book + 1
 
 print("")
-# id_book = 0
-# for item in input_file_as_list_of_dict:
-#     print(item)
-#     write_page(item, id_book)
-#     id_book = id_book + 1
+id_book = 0
+for item in input_file_as_list_of_dict:
+    print(item)
+    write_page(item, id_book)
+    id_book = id_book + 1
 
 
 #insert_all()
-end = time.time()
-print(end - start)
