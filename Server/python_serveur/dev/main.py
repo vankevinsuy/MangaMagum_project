@@ -4,29 +4,13 @@ import platform
 import os
 import sys
 
-if platform.system() == "Windows":
-    path_output = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout"
-
-if platform.system() == "Darwin":
-    path_output = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout"
-
-if platform.system() == "Linux":
-    path_output = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout"
-
-
-print("What to do ? \n")
-print("rewrite the data base : reload")
-print("update the database : update")
-print("quit program : quit")
-
-
-while(True):
-    what_to_do = str(input("what to do ?"))
+def launch():
+    what_to_do = input("what to do ? ")
 
     if what_to_do == "reload" :
         import reload_all
         reload_all
-        break
+        return 1
 
     if what_to_do == "update" :
         if len(os.listdir(path_output)) == 0 :
@@ -39,18 +23,35 @@ while(True):
                     import update_content
                     reload_all
                     update_content
-                    break
+                    return 1
+
                 if re == "N" or re == 'n':
-                    break
+                    return launch()
 
         else :
             import update_content
             update_content
-            break
+            return 1
 
     if what_to_do == "quit" :
-        break
         sys.exit()
+
+
+if platform.system() == "Windows":
+    path_output = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout"
+
+if platform.system() == "Darwin":
+    path_output = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout"
+
+if platform.system() == "Linux":
+    path_output = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout"
+
+
+print("rewrite the data base : reload")
+print("update the database : update")
+print("quit program : quit")
+
+launch()
 
 end = time.time()
 print(end - start)

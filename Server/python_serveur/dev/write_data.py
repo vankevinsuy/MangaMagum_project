@@ -65,7 +65,7 @@ def max_chapter_dicoto(list_link, min_chapitre, max_chapitre, init_max):
         if check_url(url1) or check_url(url2):
             chapitre_existe = True
 
-        print("min : " + str(min_chapitre) + "  max : " + str(max_chapitre))
+        print("min : " + str(min_chapitre) + "  max : " + str(max_chapitre) + "    " + url1)
 
     if min_chapitre == max_chapitre:
         return max_chapitre
@@ -134,9 +134,11 @@ def write_page(dictionnary, id_book):
                 for i in range(len(urls_to_test)) :
                     if check_url(urls_to_test[i]):
                         pages = get_page(chapitre, list_of__base_link)
-                        page_csv_writer.writerow({'id_book': id_book , 'chapitre':  chapitre , 'list_page': pages })
-        page_csv.close()
-        
+                        with open(path_page, 'a') as page_csv2:
+                            page_csv_writer.writerow({'id_book': id_book , 'chapitre':  chapitre , 'list_page': pages })
+                            pages = []
+                        page_csv2.close()
+
 def get_page(chapitre, list_of__base_link):
 # loop for finding all pages by chapter
     num_page = 1

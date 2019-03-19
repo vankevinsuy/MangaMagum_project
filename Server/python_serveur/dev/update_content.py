@@ -58,7 +58,6 @@ for item in input_file_as_list_of_dict:
     print(item)
     write_manga(item, id_book)
     list_of_link = item['list_of_link']
-    list_of_dic_to_rewrite_for_page.append({"id_book":id_book , "list_of_link":list_of_link})
 
     with open(path_chapter) as chapter_file :
         csv_reader = csv.reader(chapter_file, delimiter=',')
@@ -77,6 +76,9 @@ for item in input_file_as_list_of_dict:
                     if it > our_last_chapter:
                         chapter_for_page.append(it)
 
+                list_of_dic_to_rewrite_for_page.append({"id_book":id_book ,
+                                                        "list_of_link":list_of_link,
+                                                        'new_chapter' : chapter_for_page})
                 list_of_dic_to_rewrite.append({"id_book" : id_book, "liste_chapitre" : l_chapter})
 
     id_book = id_book + 1
@@ -94,39 +96,27 @@ with open(path_chapter,'w') as chapter_file:
 chapter_file.close()
 
 
-# rewrite page with new page
-page_file_content = []
-
-id_book = 0
-
-if len(chapter_for_page)>0 :
-    with open(path_page,'r') as page_file:
-        csv_reader = csv.reader(page_file, delimiter=',')
-        for new_chapitre in chapter_for_page :
-            for line in csv_reader:
-                id_book_file = int(line[0])
-                chapitre = int(line[1])
-                links = line[2][1:-1].replace("'", '').split(',')
-
-                if id_book == id_book_file and chapitre<new_chapitre:
-                    page_file_content.append({'id_book': id_book, 'chapitre':  chapitre, 'list_page': links})
-
-            list_base_link = []
-            for item in list_of_dic_to_rewrite_for_page:
-                if item['id_book'] == id_book :
-                    list_base_link = item['list_of_link']
-            page_file_content.append({'id_book': id_book, 'chapitre': new_chapitre, 'list_page': get_page(new_chapitre, list_base_link)})
-        id_book = id_book + 1
 
 
-with open(path_page , 'w') as page_file :
+
+print(list_of_dic_to_rewrite_for_page)
+
+# write new pages
+with open(path_page, 'a') as csv_page :
     page_csv_fieldnames = ['id_book', 'chapitre', 'list_page']
-    page_csv_writer = csv.DictWriter(page_file, fieldnames=page_csv_fieldnames, lineterminator='\n', quoting=csv.QUOTE_ALL)
+    page_csv_writer = csv.DictWriter(csv_page, fieldnames=page_csv_fieldnames, lineterminator='\n',quoting=csv.QUOTE_ALL)
 
-    for item in page_file_content:
-        page_csv_writer.writerow(item)
+    if len(list_of_dic_to_rewrite_for_page) >0:
+        for item in list_of_dic_to_rewrite_for_page :
+            id_book = item['id_book']
+            list_of_link = item['list_of_link']
+            new_chapter = item['new_chapter']
+
+            for chapitre in new_chapter:
+                pages = get_page(chapitre, list_of_link)
+                page_csv_writer.writerow({'id_book': id_book , 'chapitre':  chapitre , 'list_page': pages })
+
 
 
 
 #insert_all()
-
