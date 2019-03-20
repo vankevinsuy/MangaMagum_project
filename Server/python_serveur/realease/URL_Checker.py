@@ -5,7 +5,7 @@ def check_url(url):
     http = urllib3.PoolManager()
     r = http.request('GET', url)
     if r.status == 200:
-        # print(url)
+        print(url)
         http.clear()
         return True
     else:

@@ -1,10 +1,24 @@
 def insert_all():
     import mysql.connector
     import csv
+    import platform
 
-path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
-path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv"
-path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
+    print("######### DATABASE INSERTION #########")
+
+    if platform.system() == "Windows":
+        path_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout\\manga.csv"
+        path_chapter = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout\\chapters.csv"
+        path_page = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout\\pages.csv"
+
+    if platform.system() == "Darwin":
+        path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
+        path_chapter = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv"
+        path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
+
+    if platform.system() == "Linux":
+        path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
+        path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv"
+        path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
 
     mydb = mysql.connector.connect(
         host="localhost",
