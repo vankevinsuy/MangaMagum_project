@@ -3,6 +3,8 @@ def insert_all():
     import csv
     import platform
 
+    print("######### DATABASE INSERTION #########")
+
     if platform.system() == "Windows":
         path_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\manga.csv"
         path_chapter = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\chapters.csv"

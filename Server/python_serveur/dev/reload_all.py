@@ -3,6 +3,8 @@ from write_data import *
 import platform
 import os
 
+print("######### RELOADING ALL ############")
+
 if platform.system() == "Windows":
     path_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\manga.csv"
     path_chapter = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\chapters.csv"
