@@ -78,9 +78,10 @@ for item in input_file_as_list_of_dict:
                     if it > our_last_chapter:
                         chapter_for_page.append(it)
 
-                list_of_dic_to_rewrite_for_page.append({"id_book":id_book ,
-                                                        "list_of_link":list_of_link,
-                                                        'new_chapter' : chapter_for_page})
+                        list_of_dic_to_rewrite_for_page.append({"id_book":id_book ,
+                                                                "list_of_link":list_of_link,
+                                                                'new_chapter' : chapter_for_page})
+                        chapter_for_page = []
                 list_of_dic_to_rewrite.append({"id_book" : id_book, "liste_chapitre" : l_chapter})
 
     id_book = id_book + 1
@@ -97,11 +98,8 @@ with open(path_chapter,'w') as chapter_file:
         chapter_csv_writer.writerow(item)
 chapter_file.close()
 
+print("")
 
-
-
-
-print(list_of_dic_to_rewrite_for_page)
 
 # write new pages
 with open(path_page, 'a') as csv_page :
@@ -110,6 +108,7 @@ with open(path_page, 'a') as csv_page :
 
     if len(list_of_dic_to_rewrite_for_page) >0:
         for item in list_of_dic_to_rewrite_for_page :
+            print(item)
             id_book = item['id_book']
             list_of_link = item['list_of_link']
             new_chapter = item['new_chapter']
@@ -117,6 +116,13 @@ with open(path_page, 'a') as csv_page :
             for chapitre in new_chapter:
                 pages = get_page(chapitre, list_of_link)
                 page_csv_writer.writerow({'id_book': id_book , 'chapitre':  chapitre , 'list_page': pages })
+
+            print(" ")
+
+    else:
+        print("everything is up to date")
+        print(" ")
+
 
 
 
