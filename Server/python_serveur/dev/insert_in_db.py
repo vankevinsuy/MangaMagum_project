@@ -9,11 +9,19 @@ def insert_all():
         path_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\manga.csv"
         path_chapter = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\chapters.csv"
         path_page = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\pages.csv"
+        a_host="localhost"
+        a_user="root"
+        a_passwd=""
+        a_database="mangamagum"
 
     if platform.system() == "Darwin":
         path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
         path_chapter = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
         path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
+        a_host="localhost"
+        a_user="root"
+        a_passwd="root"
+        a_database="mangamagum"
 
     if platform.system() == "Linux":
         path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
@@ -21,10 +29,10 @@ def insert_all():
         path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
 
     mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        passwd="",
-        database="mangamagum"
+        host=a_host,
+        user=a_user,
+        passwd=a_passwd,
+        database=a_database
     )
 
     mycursor = mydb.cursor()
