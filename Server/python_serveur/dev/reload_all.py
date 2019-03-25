@@ -1,7 +1,9 @@
 from write_data import *
-#from insert_in_db import insert_all
+from insert_in_db import insert_all
 import platform
 import os
+import gc
+
 
 print("######### RELOADING ALL ############")
 
@@ -61,12 +63,14 @@ for item in input_file_as_list_of_dict:
     print("")
     write_manga(item, id_book)
     id_book = id_book + 1
+    gc.collect()
 
 id_book = 0
 for item in input_file_as_list_of_dict:
     print(item)
     write_chapter(item, id_book)
     id_book = id_book + 1
+    gc.collect()
 
 print("")
 id_book = 0
@@ -74,6 +78,7 @@ for item in input_file_as_list_of_dict:
     print(item)
     write_page(item, id_book)
     id_book = id_book + 1
+    gc.collect()
 
 
-#insert_all()
+insert_all()

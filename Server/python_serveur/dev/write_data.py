@@ -1,31 +1,43 @@
 import csv
 import numpy as np
 from URL_Checker import *
+from insert_in_db import insert_all
 import platform
 import time
+import gc
 os = platform.system()
 
 if os == "Windows":
     path_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\manga.csv"
     path_chapter = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\chapters.csv"
     path_page = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\pages.csv"
+    path_new_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\add_new_manga.txt"
+    input_file_path = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\input_file.txt"
+
 
 if os == "Darwin":
     path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
     path_chapter = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
     path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
+    path_new_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/add_new_manga.txt"
+    input_file_path = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/input_file.txt"
+
 
 if os == "Linux":
     path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
     path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
     path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
+    path_new_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/add_new_manga.txt"
+    input_file_path = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/input_file.txt"
+
 
 #function for manga
 def write_manga(dictionnary,id_book):
-    with open(path_manga,'a') as manga_csv:
+    with open(path_manga, "a") as manga_csv:
         manga_name = dictionnary["manga_name"]
         cover_link = dictionnary["cover_link"]
 
+        # manga_csv.write('\n')
         #writing manga.csv manga's name, cover_link ,id_book
         manga_csv_fieldnames = ['manga_name', 'cover_link', 'id_book']
         manga_csv_writer = csv.DictWriter(manga_csv, fieldnames=manga_csv_fieldnames, lineterminator='\n',quoting=csv.QUOTE_ALL)
@@ -52,8 +64,6 @@ def write_chapter(dictionnary, id_book):
         chapter_csv_writer = csv.DictWriter(chapter_csv, fieldnames=chapter_csv_fieldnames, lineterminator='\n',quoting=csv.QUOTE_ALL)
         chapter_csv_writer.writerow({'id_book': id_book , 'liste_chapitre':  list_chapitre })
     chapter_csv.close()
-
-    return None
 
 def max_chapter_dicoto(list_link, min_chapitre, max_chapitre, init_max):
     chapitre_existe = False
@@ -111,6 +121,7 @@ def write_page(dictionnary, id_book):
             list_chapitre = None
             list_of__base_link = dictionnary["list_of_link"]
 
+            page_csv.write('\n')
             for line in csv_reader:
                 if int(line[0]) == id_book:
                     list_chapitre = line[1][1:-1].split(',')
@@ -198,3 +209,60 @@ def get_page(chapitre, list_of__base_link):
             num_page = num_page +1
         else:
             return list_page
+
+def get_last_id():
+    with open(path_manga) as manga_file :
+        csv_reader = csv.reader(manga_file)
+
+        last_id = 0
+        for line in csv_reader :
+            last_id = int(line[-1])
+    return last_id
+
+def add_new_manga() :
+    # read the file which have the new mangas to add
+    file = open(path_new_manga, 'r').readlines()
+    input_file_as_list_of_dict = []
+
+    # add lines as dctionnaries in input_file_as_list_of_dict
+    for line in file:
+        if "---NEW---" in line:
+            manga = ""
+            cover = ""
+            list_of_link = []
+        if "--MANGA--" in line:
+            manga = line[10:-1]
+        if "--COVER--" in line:
+            cover = line[10:-1]
+        if "--LINK--" in line:
+            list_of_link.append(line[10:-1])
+        if "--FIN NEW--" in line:
+            input_file_as_list_of_dict.append({"manga_name":   manga,
+                                               "cover_link":   cover,
+                                               "list_of_link": list_of_link})
+    file.close()
+
+    with open(input_file_path , 'a') as input_file :
+        for item in input_file_as_list_of_dict :
+            input_file.write("\n")
+
+            manga = item['manga_name']
+            cover = item['cover_link']
+            link = item['list_of_link']
+
+            # adding data in input file
+            input_file.write("\n---NEW---\n")
+            input_file.write("--MANGA--:" + manga +"\n")
+            input_file.write("--COVER--:" + cover +"\n")
+            for i in range(len(link)):
+                input_file.write("--LINK-- :" + link[i] +"\n")
+            input_file.write("\n--FIN NEW--")
+
+            id_book = get_last_id()+1
+            write_manga(item, id_book)
+            write_chapter(item, id_book)
+            write_page(item, id_book)
+            gc.collect()
+
+    new_manga = open(path_new_manga,'w').close()
+    insert_all()

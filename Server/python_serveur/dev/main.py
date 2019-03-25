@@ -3,6 +3,7 @@ start = time.time()
 import platform
 import os
 import sys
+from write_data import *
 
 def launch():
     what_to_do = input("what to do ? ")
@@ -33,6 +34,9 @@ def launch():
             update_content
             return 1
 
+    if what_to_do == "add" :
+        add_new_manga()
+
     if what_to_do == "quit" :
         sys.exit()
 
@@ -49,6 +53,7 @@ if platform.system() == "Linux":
 
 print("rewrite the data base : reload")
 print("update the database : update")
+print("add new manga in database : add")
 print("quit program : quit")
 
 launch()
