@@ -127,4 +127,4 @@ with open(path_page, 'a') as csv_page :
 
 
 
-#insert_all()
+insert_all()
