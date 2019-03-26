@@ -27,6 +27,10 @@ def insert_all():
         path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
         path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
         path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
+        a_host="vankevin_server"
+        a_user="server"
+        a_passwd="deadoralive"
+        a_database="mangamagum"
 
     mydb = mysql.connector.connect(
         host=a_host,
