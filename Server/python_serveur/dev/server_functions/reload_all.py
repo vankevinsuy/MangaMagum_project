@@ -1,5 +1,5 @@
-from write_data import *
-from insert_in_db import insert_all
+from Server.python_serveur.dev.server_functions.write_data import *
+from Server.python_serveur.dev.server_functions.insert_in_db import insert_all
 import platform
 import os
 import gc

@@ -3,7 +3,9 @@ start = time.time()
 import platform
 import os
 import sys
-from write_data import *
+from Server.python_serveur.dev.server_functions.write_data import *
+from Server.python_serveur.dev.server_functions.insert_in_db import insert_all
+
 
 def launch():
     what_to_do = input("what to do ? ")
@@ -20,8 +22,8 @@ def launch():
             while(True):
                 re = str(input("do you want to fill the database ? Y | N :  "))
                 if re == "Y" or re == 'y':
-                    import reload_all
-                    import update_content
+                    from  Server.python_serveur.dev.server_functions import reload_all
+                    from Server.python_serveur.dev.server_functions import update_content
                     reload_all
                     update_content
                     return 1
@@ -30,12 +32,15 @@ def launch():
                     return launch()
 
         else :
-            import update_content
+            from Server.python_serveur.dev.server_functions import update_content
             update_content
             return 1
 
     if what_to_do == "add" :
         add_new_manga()
+
+    if what_to_do == "finsert":
+        insert_all()
 
     if what_to_do == "quit" :
         sys.exit()
@@ -54,6 +59,7 @@ if platform.system() == "Linux":
 print("rewrite the data base : reload")
 print("update the database : update")
 print("add new manga in database : add")
+print("force insertion of datas in databases : finsert")
 print("quit program : quit")
 
 launch()

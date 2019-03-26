@@ -1,7 +1,7 @@
 import csv
 import numpy as np
-from URL_Checker import *
-from insert_in_db import insert_all
+from Server.python_serveur.dev.server_functions.URL_Checker import *
+from Server.python_serveur.dev.server_functions.insert_in_db import insert_all
 import platform
 import time
 import gc
@@ -11,7 +11,7 @@ if os == "Windows":
     path_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\manga.csv"
     path_chapter = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\chapters.csv"
     path_page = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\pages.csv"
-    path_new_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\add_new_manga.txt"
+    path_new_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\new_manga.txt"
     input_file_path = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\input_file.txt"
 
 
@@ -19,7 +19,7 @@ if os == "Darwin":
     path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
     path_chapter = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
     path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
-    path_new_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/add_new_manga.txt"
+    path_new_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/new_manga.txt"
     input_file_path = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/input_file.txt"
 
 
@@ -27,7 +27,7 @@ if os == "Linux":
     path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
     path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
     path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
-    path_new_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/add_new_manga.txt"
+    path_new_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/new_manga.txt"
     input_file_path = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/input_file.txt"
 
 
