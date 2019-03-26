@@ -3,15 +3,15 @@ start = time.time()
 import platform
 import os
 import sys
-from Server.python_serveur.dev.server_functions.write_data import *
-from Server.python_serveur.dev.server_functions.insert_in_db import insert_all
+from server_functions.write_data import *
+from server_functions.insert_in_db import insert_all
 
 
 def launch():
     what_to_do = input("what to do ? ")
 
     if what_to_do == "reload" :
-        import reload_all
+        from  server_functions import reload_all
         reload_all
         return 1
 
@@ -22,8 +22,8 @@ def launch():
             while(True):
                 re = str(input("do you want to fill the database ? Y | N :  "))
                 if re == "Y" or re == 'y':
-                    from  Server.python_serveur.dev.server_functions import reload_all
-                    from Server.python_serveur.dev.server_functions import update_content
+                    from  server_functions import reload_all
+                    from server_functions import update_content
                     reload_all
                     update_content
                     return 1

@@ -1,7 +1,7 @@
 import csv
 import numpy as np
-from Server.python_serveur.dev.server_functions.URL_Checker import *
-from Server.python_serveur.dev.server_functions.insert_in_db import insert_all
+from server_functions.URL_Checker import *
+from server_functions.insert_in_db import insert_all
 import platform
 import time
 import gc
