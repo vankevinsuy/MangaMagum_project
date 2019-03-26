@@ -127,10 +127,10 @@ def insert_all():
         print("DATAS INSERT IN MYSQL DATABASE")
 
     except :
-        print("INSERTION IN DATABASES FAILED")
+        print("INSERTION IN MYSQL DATABASE FAILED")
 
 
-    else:
+    try:
         print("######### FIREBASE DATABASE INSERTION #########")
         root = {}
 
@@ -192,3 +192,6 @@ def insert_all():
         firebase.delete('/',"manga")
         firebase.put('/',"manga" ,root)
         print("DATAS INSERT IN FIREBASE DATABASE")
+
+    except:
+        print("INSERTION IN FIREBASE DATABASE FAILED")
