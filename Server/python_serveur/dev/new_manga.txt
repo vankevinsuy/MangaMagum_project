@@ -1,0 +1,27 @@
+<<<<<<< HEAD
+=======
+---NEW---
+--MANGA--:Bleach
+--COVER--:http://fr.web.img5.acsta.net/pictures/16/02/03/17/47/271248.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/bleach/{}/{}.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/bleach/{}/{}.png
+--FIN NEW--
+
+---NEW---
+--MANGA--:One Piece
+--COVER--:https://www.nautiljon.com/images/anime/00/60/one_piece_6.jpg
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/{}.png
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/{}.jpg
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/{}.JPG
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/%20({}).jpg
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/%20({}).png
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/chapitre-{}/{}.jpeg
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/{}/{}.jpg
+--LINK-- :https://www.scan-vf.co/uploads/manga/one_piece/chapters/{}/{}.png
+--LINK-- :http://lelscanv.com/mangas/one-piece/{}/{}.jpg?v=fr
+--LINK-- :http://lelscanv.com/mangas/one-piece/{}/{}.png?v=fr
+--LINK-- :http://lelscanv.com/mangas/one-piece/{}/{}.jpg?v=en
+--LINK-- :http://lelscanv.com/mangas/one-piece/{}/{}.png?v=en
+
+--FIN NEW--
+>>>>>>> 04a6cdb183b29988422db6cab3d7c106ca096341

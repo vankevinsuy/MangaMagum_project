@@ -1,4 +1,5 @@
 ---NEW---
+<<<<<<< HEAD
 --MANGA--:Boruto
 --COVER--:https://dw9to29mmj727.cloudfront.net/properties/2016/1363-SeriesThumbnail_BorutoAnime_400x320_v2.jpg
 --LINK-- :https://cdn.mangahub.io/file/imghub/boruto-naruto-next-generations/{}/{}.jpg
@@ -14,6 +15,8 @@
 --FIN NEW--
 
 ---NEW---
+=======
+>>>>>>> 04a6cdb183b29988422db6cab3d7c106ca096341
 --MANGA--:Black Clover
 --COVER--:https://www.nautiljon.com/images/more/00/96/72069.jpg
 --LINK-- :https://cdn.mangahub.io/file/imghub/black-clover/{}/{}.jpg
@@ -49,6 +52,16 @@
 --FIN NEW--
 
 ---NEW---
+<<<<<<< HEAD
+=======
+--MANGA--:Boruto
+--COVER--:https://dw9to29mmj727.cloudfront.net/properties/2016/1363-SeriesThumbnail_BorutoAnime_400x320_v2.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/boruto-naruto-next-generations/{}/{}.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/boruto-naruto-next-generations/{}/{}.png
+--FIN NEW--
+
+---NEW---
+>>>>>>> 04a6cdb183b29988422db6cab3d7c106ca096341
 --MANGA--:Naruto
 --COVER--:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYFxl5f5XsfVoTJbGeC2o77e44IxXB_tUvi7nAS9mSAnQC2ZTx
 --LINK-- :https://cdn.mangahub.io/file/imghub/naruto/{}/{}.jpg
