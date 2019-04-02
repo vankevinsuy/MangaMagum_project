@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 ---NEW---
 --MANGA--:Bleach
 --COVER--:http://fr.web.img5.acsta.net/pictures/16/02/03/17/47/271248.jpg
@@ -24,4 +22,3 @@
 --LINK-- :http://lelscanv.com/mangas/one-piece/{}/{}.png?v=en
 
 --FIN NEW--
->>>>>>> 04a6cdb183b29988422db6cab3d7c106ca096341

@@ -28,3 +28,4 @@ class Mail:
         mailserver.login('vkubuntuserver@gmail.com', "eCNHxqZeApw5")
         mailserver.sendmail('vkubuntuserver@gmail.com', 'vkubuntuserver@gmail.com', msg.as_string())
         mailserver.quit()
+        file = open("report.txt",'w')
