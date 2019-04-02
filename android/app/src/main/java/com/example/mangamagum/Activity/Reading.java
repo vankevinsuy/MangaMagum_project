@@ -49,7 +49,7 @@ public class Reading extends AppCompatActivity {
 
         this.list_urls = this.dataBase.get_page_by_chapitre(Integer.parseInt(this.id_book), Integer.parseInt(this.chapter));
 //        ShowMessage("list url size" , Integer.toString(this.list_urls.size()));
-//        ShowMessage("list url index 0 content" , this.list_urls.get(0));
+//        ShowMessage("list url index 0 content" , this.list_urls.get(this.list_urls.size()-1));
 
         mRecyclerView = findViewById(R.id.page_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -80,7 +80,9 @@ public class Reading extends AppCompatActivity {
         chosen_manga_activity.putExtra("manga_name" , selected_manga_name);
         chosen_manga_activity.putExtra("cover_link" , selected_manga_cover_link);
 
-        startActivity(chosen_manga_activity);
+        startActivityForResult(chosen_manga_activity,0);
+        overridePendingTransition(0,0);
+//        startActivity(chosen_manga_activity);
         finish();
     }
 

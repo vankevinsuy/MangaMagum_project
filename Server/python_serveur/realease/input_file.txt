@@ -1,19 +1,4 @@
 ---NEW---
---MANGA--:Boruto
---COVER--:https://dw9to29mmj727.cloudfront.net/properties/2016/1363-SeriesThumbnail_BorutoAnime_400x320_v2.jpg
---LINK-- :https://cdn.mangahub.io/file/imghub/boruto-naruto-next-generations/{}/{}.jpg
---LINK-- :https://cdn.mangahub.io/file/imghub/boruto-naruto-next-generations/{}/{}.png
---FIN NEW--
-
-
----NEW---
---MANGA--:koisuru michiru ojou sama
---COVER--:https://cdn.mangahub.io/file/imghub/koisuru-michiru-ojou-sama/1/1.jpg
---LINK-- :https://cdn.mangahub.io/file/imghub/koisuru-michiru-ojou-sama/{}/{}.jpg
---LINK-- :https://cdn.mangahub.io/file/imghub/koisuru-michiru-ojou-sama/{}/{}.png
---FIN NEW--
-
----NEW---
 --MANGA--:Black Clover
 --COVER--:https://www.nautiljon.com/images/more/00/96/72069.jpg
 --LINK-- :https://cdn.mangahub.io/file/imghub/black-clover/{}/{}.jpg
@@ -46,6 +31,13 @@
 --COVER--:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0jtzI_YKV3K3slsmTZF8PseEMqZs7YgRAqXyHddXOAQDWAAl_
 --LINK-- :https://cdn.mangahub.io/file/imghub/nanatsu-no-taizai/{}/{}.jpg
 --LINK-- :https://cdn.mangahub.io/file/imghub/nanatsu-no-taizai/{}/{}.png
+--FIN NEW--
+
+---NEW---
+--MANGA--:Boruto
+--COVER--:https://dw9to29mmj727.cloudfront.net/properties/2016/1363-SeriesThumbnail_BorutoAnime_400x320_v2.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/boruto-naruto-next-generations/{}/{}.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/boruto-naruto-next-generations/{}/{}.png
 --FIN NEW--
 
 ---NEW---

@@ -44,7 +44,9 @@ public class Chosen_manga extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent library = new Intent(getApplicationContext(), Library.class);
-                startActivity(library);
+                startActivityForResult(library,0);
+                overridePendingTransition(0,0);
+//                startActivity(library);
                 finish();
             }
         });
@@ -54,7 +56,9 @@ public class Chosen_manga extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent favorites = new Intent(getApplicationContext(), Favorites.class);
-                startActivity(favorites);
+                startActivityForResult(favorites,0);
+                overridePendingTransition(0,0);
+//                startActivity(favorites);
                 finish();
             }
         });
@@ -64,7 +68,9 @@ public class Chosen_manga extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent search_layout = new Intent(getApplicationContext(), Research.class);
-                startActivity(search_layout);
+                startActivityForResult(search_layout,0);
+                overridePendingTransition(0,0);
+//                startActivity(search_layout);
                 finish();
             }
         });
@@ -201,8 +207,9 @@ public class Chosen_manga extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent library = new Intent(getApplicationContext() , Library.class);
-
-        startActivity(library);
+        startActivityForResult(library,0);
+        overridePendingTransition(0,0);
+//        startActivity(library);
         finish();
     }
 

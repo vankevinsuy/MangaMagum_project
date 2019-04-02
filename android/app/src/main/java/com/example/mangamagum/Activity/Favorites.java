@@ -41,7 +41,9 @@ public class Favorites extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent library = new Intent(getApplicationContext(), Library.class);
-                startActivity(library);
+                startActivityForResult(library,0);
+                overridePendingTransition(0,0);
+//                startActivity(library);
                 finish();
             }
         });
@@ -51,7 +53,9 @@ public class Favorites extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent search_layout = new Intent(getApplicationContext(), Research.class);
-                startActivity(search_layout);
+                startActivityForResult(search_layout,0);
+                overridePendingTransition(0,0);
+//                startActivity(search_layout);
                 finish();
             }
         });
@@ -68,18 +72,21 @@ public class Favorites extends AppCompatActivity {
     }
 
 
-    public ArrayList<Book> fill_library(Context context){
+    public void fill_library(Context context){    //ArrayList<Book>
         final ArrayList<Book> arrayList_book = new ArrayList<>();
         dataBase = new DataBase(context);
 
         for(Integer id_fav : dataBase.get_all_favorites() ){
             arrayList_book.add(dataBase.get_book_from_id(id_fav));
+//            ShowMessage("id_fav", Integer.toString(id_fav));
+
         }
 
-        mAdapter = new Library_Adapter(arrayList_book, context);
+        mAdapter = new Favorites_Adapter(arrayList_book, context);
         ((Favorites_Adapter) mAdapter).setOnItemClickListener(new Favorites_Adapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
+                ShowMessage("positon" , Integer.toString(position));
                 String id_book = arrayList_book.get(position).getId_book();
                 String manga_name = arrayList_book.get(position).getName();
                 String cover_link = arrayList_book.get(position).getCover_link();
@@ -90,11 +97,13 @@ public class Favorites extends AppCompatActivity {
                 chosen_manga_activity.putExtra("manga_name" , manga_name);
                 chosen_manga_activity.putExtra("cover_link" , cover_link);
 
-                startActivity(chosen_manga_activity);
+                startActivityForResult(chosen_manga_activity,0);
+                overridePendingTransition(0,0);
+//                startActivity(chosen_manga_activity);
             }
         });
         favorites_recycler_view.setAdapter(mAdapter);
-        return arrayList_book;
+//        return arrayList_book;
     }
 
     private void ShowMessage(String title, String message){
@@ -108,8 +117,9 @@ public class Favorites extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent library = new Intent(getApplicationContext() , Library.class);
-
-        startActivity(library);
+        startActivityForResult(library,0);
+        overridePendingTransition(0,0);
+//        startActivity(library);
         finish();
     }
 }

@@ -4,37 +4,35 @@ def insert_all():
     import platform
     from firebase import firebase
 
-    if platform.system() == "Windows":
-        path_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\manga.csv"
-        path_chapter = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\chapters.csv"
-        path_page = "D:\\MangaMagum_project\\Server\\python_serveur\\dev\\outpout\\pages.csv"
-        a_host="localhost"
-        a_user="root"
-        a_passwd=""
-        a_database="mangamagum"
-
-    if platform.system() == "Darwin":
-        path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
-        path_chapter = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
-        path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
-        a_host="localhost"
-        a_user="root"
-        a_passwd="root"
-        a_database="mangamagum"
-        from server_functions.Mail import Mail
-
-    if platform.system() == "Linux":
-        path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
-        path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
-        path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
-        a_host="vankevin_server"
-        a_user="server"
-        a_passwd="deadoralive"
-        a_database="mangamagum"
-        from server_functions.Mail import Mail
-
     try:
         print("######### SQL DATABASE INSERTION #########")
+
+        if platform.system() == "Windows":
+            path_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout\\manga.csv"
+            path_chapter = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout\\chapters.csv"
+            path_page = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout\\pages.csv"
+            a_host="localhost"
+            a_user="root"
+            a_passwd=""
+            a_database="mangamagum"
+
+        if platform.system() == "Darwin":
+            path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
+            path_chapter = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv"
+            path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
+            a_host="localhost"
+            a_user="root"
+            a_passwd="root"
+            a_database="mangamagum"
+
+        if platform.system() == "Linux":
+            path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
+            path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv"
+            path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
+            a_host="vankevin_server"
+            a_user="server"
+            a_passwd="deadoralive"
+            a_database="mangamagum"
 
         mydb = mysql.connector.connect(
             host=a_host,
@@ -135,8 +133,6 @@ def insert_all():
     try:
         print("######### FIREBASE DATABASE INSERTION #########")
         root = {}
-        mail = Mail()
-        mail.add("ADDED MANGA : ")
 
         with open(path_manga, 'r') as manga_csv :
             with open(path_chapter, 'r') as chapter_csv:
@@ -175,6 +171,7 @@ def insert_all():
                                     if id_book_line3 == id_book and chapitre_line3 == chapitre:
                                         list_page["chapitre__" + str(chapitre)] = list_link_page
 
+
                     # print(list_page)
 
                         ## add manga in root
@@ -186,13 +183,12 @@ def insert_all():
                             "last_chapitre" : last_chapter,
                             "list_page" : list_page
                         }
-                        mail = Mail()
-                        mail.add("      " + manga_name + " id : " + str(id_book) + "   last chapter : " + str(last_chapter))
+
                         list_page = {}
         # print(root)
 
 
-        firebase = firebase.FirebaseApplication('https://manga-time-7a6bf.firebaseio.com/', None)
+        firebase = firebase.FirebaseApplication('https://fireapp-f2062.firebaseio.com/', None)
         firebase.delete('/',"manga")
         firebase.put('/',"manga" ,root)
         print("DATAS INSERT IN FIREBASE DATABASE")

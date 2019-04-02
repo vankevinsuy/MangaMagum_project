@@ -43,7 +43,9 @@ public class Research extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent favorite = new Intent(getApplicationContext(), Favorites.class);
-                startActivity(favorite);
+                startActivityForResult(favorite,0);
+                overridePendingTransition(0,0);
+//                startActivity(favorite);
                 finish();
             }
         });
@@ -53,7 +55,9 @@ public class Research extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent library = new Intent(getApplicationContext(), Library.class);
-                startActivity(library);
+                startActivityForResult(library,0);
+                overridePendingTransition(0,0);
+//                startActivity(library);
                 finish();
             }
         });
@@ -109,7 +113,10 @@ public class Research extends AppCompatActivity {
                 chosen_manga_activity.putExtra("manga_name" , manga_name);
                 chosen_manga_activity.putExtra("cover_link" , cover_link);
 
-                startActivity(chosen_manga_activity);
+                startActivityForResult(chosen_manga_activity,0);
+                overridePendingTransition(0,0);
+
+//                startActivity(chosen_manga_activity);
                 finish();
             }
         });
@@ -117,7 +124,7 @@ public class Research extends AppCompatActivity {
         return arrayList_book;
     }
 
-    public ArrayList<Book> fill_research(Context context, ArrayList<Book> books){
+    public void fill_research(Context context, ArrayList<Book> books){
         final ArrayList<Book> arrayList_book = books;
 
         mAdapter = new Library_Adapter(arrayList_book, context);
@@ -134,20 +141,23 @@ public class Research extends AppCompatActivity {
                 chosen_manga_activity.putExtra("manga_name" , manga_name);
                 chosen_manga_activity.putExtra("cover_link" , cover_link);
 
-                startActivity(chosen_manga_activity);
+                startActivityForResult(chosen_manga_activity,0);
+                overridePendingTransition(0,0);
+//                startActivity(chosen_manga_activity);
                 finish();
             }
         });
         result_recycler_view.setAdapter(mAdapter);
-        return arrayList_book;
+//        return arrayList_book;
     }
 
 
     @Override
     public void onBackPressed() {
         Intent library = new Intent(getApplicationContext() , Library.class);
-
-        startActivity(library);
+        startActivityForResult(library,0);
+        overridePendingTransition(0,0);
+//        startActivity(library);
         finish();
     }
 }

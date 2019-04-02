@@ -1,9 +1,4 @@
-from server_functions.write_data import *
-from server_functions.insert_in_db import insert_all
 import platform
-import os
-import gc
-
 
 print("######### RELOADING ALL ############")
 
@@ -19,7 +14,19 @@ if platform.system() == "Darwin":
     path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
     input_file_path = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/input_file.txt"
 
+    from server_functions.write_data import *
+    from server_functions.insert_in_db import insert_all
+    import os
+    import gc
+    from server_functions.Mail import Mail
+
 if platform.system() == "Linux":
+    from server_functions.write_data import *
+    from server_functions.insert_in_db import insert_all
+    import platform
+    import os
+    import gc
+
     path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
     path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
     path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
@@ -56,7 +63,7 @@ for line in file :
                                            "cover_link": cover,
                                            "list_of_link": list_of_link})
 
-# treatment for each line (dictionnary)
+# # treatment for each line (dictionnary)
 id_book = 0
 for item in input_file_as_list_of_dict:
     print(item)

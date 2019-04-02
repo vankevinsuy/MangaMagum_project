@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "977957280079",
+    "firebase_url": "https://manga-time-7a6bf.firebaseio.com",
+    "project_id": "manga-time-7a6bf",
+    "storage_bucket": "manga-time-7a6bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977957280079:android:d817940b01bcdcf2",
+        "android_client_info": {
+          "package_name": "com.example.mangamagum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "977957280079-4tspmlk3s4g27dtogj5ifdnaf3vstvgs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mangamagum",
+            "certificate_hash": "e600e148e502642b54f8eac1ce2d601cfa2c34a1"
+          }
+        },
+        {
+          "client_id": "977957280079-klaftkntk9j6jdlng09rt53302ptlpik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3n6BOwvQ6ELtI5LVDubSLzDwPh0DGfQ8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "977957280079-klaftkntk9j6jdlng09rt53302ptlpik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

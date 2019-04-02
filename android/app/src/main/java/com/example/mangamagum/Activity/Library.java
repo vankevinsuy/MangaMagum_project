@@ -1,5 +1,6 @@
 package com.example.mangamagum.Activity;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,34 +8,39 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mangamagum.Adapter.Library_Adapter;
 import com.example.mangamagum.Model.Book;
+import com.example.mangamagum.Model.Chapitre;
 import com.example.mangamagum.Model.DataBase;
 import com.example.mangamagum.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.AbstractCollection;
 import java.util.ArrayList;
+import java.util.BitSet;
+import java.util.List;
 
 public class Library extends AppCompatActivity {
 
     private ImageButton update_button;
     private ImageButton go_to_favorites;
     private ImageButton go_to_search;
+
 
     private RecyclerView manga_recycler_view;
     private RecyclerView.Adapter mAdapter;
@@ -48,11 +54,13 @@ public class Library extends AppCompatActivity {
     public ArrayList<String> manga_table_data_list;
     public ArrayList<String> chapter_table_data_list;
     public ArrayList<String> page_table_data_list;
+    public ArrayList<Book> list_book;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.library);
+
 
         update_button = findViewById(R.id.update_database);
         go_to_favorites = findViewById(R.id.go_to_favorite);
@@ -60,7 +68,10 @@ public class Library extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent favorite = new Intent(getApplicationContext(), Favorites.class);
-                startActivity(favorite);
+                favorite.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+//                startActivity(favorite);
+                startActivityForResult(favorite,0);
+                overridePendingTransition(0,0);
                 finish();
             }
         });
@@ -70,7 +81,9 @@ public class Library extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent search_layout = new Intent(getApplicationContext(), Research.class);
-                startActivity(search_layout);
+//                startActivity(search_layout);
+                startActivityForResult(search_layout,0);
+                overridePendingTransition(0,0);
                 finish();
             }
         });
@@ -83,6 +96,7 @@ public class Library extends AppCompatActivity {
         manga_table_data_list = new ArrayList<>();
         chapter_table_data_list = new ArrayList<>();
         page_table_data_list = new ArrayList<>();
+        list_book = new ArrayList<>();
 
         context = this.getApplicationContext();
         activity = this;
@@ -102,21 +116,25 @@ public class Library extends AppCompatActivity {
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                update_button.animate().rotation(update_button.getRotation()-360).setDuration(1000).start();
                 fill_library(context);
+
+                update_button.animate().rotation(update_button.getRotation()-360).setDuration(1000).start();
+
                 update_button.setEnabled(false);
                 Server server = new Server(context , activity, dataBase);
                 server.execute();
                 dataBase.close();
-                fill_library(context);
+
                 update_button.setEnabled(true);
+                fill_library(context);
+
             }
         });
 
     }
 
 
-    public ArrayList<Book> fill_library(Context context){
+    public void fill_library(Context context){
         final ArrayList<Book> arrayList_book = dataBase.get_all_manga();
 
         mAdapter = new Library_Adapter(arrayList_book, context);
@@ -133,12 +151,14 @@ public class Library extends AppCompatActivity {
                 chosen_manga_activity.putExtra("manga_name" , manga_name);
                 chosen_manga_activity.putExtra("cover_link" , cover_link);
 
-                startActivity(chosen_manga_activity);
+                startActivityForResult(chosen_manga_activity,0);
+                overridePendingTransition(0,0);
+//                startActivity(chosen_manga_activity);
                 finish();
             }
         });
         manga_recycler_view.setAdapter(mAdapter);
-        return arrayList_book;
+//        return arrayList_book;
     }
     private void ShowMessage(String title, String message){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -178,6 +198,8 @@ public class Library extends AppCompatActivity {
             dataBase.close();
             fill_library(context);
             update_button.setEnabled(true);
+            fill_library(context);
+            fill_library(context);
         }
 
 
@@ -216,179 +238,278 @@ public class Library extends AppCompatActivity {
 
 }
 
-// class for updating the manga database
-class Server extends AsyncTask<Void,Void, Void> {
+
+
+class Server{
     Context context;
     private WeakReference<Library> activityReference;
 
-//    **** API URLs appart
-//    private final String API_MANGA_URL = "http://192.168.0.21/MangaMaGum_API/get_manga_data.php";
-//    private final String API_CHAPTER_URL = "http://192.168.0.21/MangaMaGum_API/get_chapters_data.php";
-//    private final String API_PAGE_URL = "http://192.168.0.21/MangaMaGum_API/get_pages_data.php";
-
-//    **** API URLs maison
-    private final String API_MANGA_URL = "http://192.168.0.35/MangaMaGum_API/get_manga_data.php";
-    private final String API_CHAPTER_URL = "http://192.168.0.35/MangaMaGum_API/get_chapters_data.php";
-    private final String API_PAGE_URL = "http://192.168.0.35/MangaMaGum_API/get_pages_data.php";
-
-
-//    **** API URLs maison CPL
-//    private final String API_MANGA_URL = "http://192.168.0.17/MangaMaGum_API/get_manga_data.php";
-//    private final String API_CHAPTER_URL = "http://192.168.0.17/MangaMaGum_API/get_chapters_data.php";
-//    private final String API_PAGE_URL = "http://192.168.0.17/MangaMaGum_API/get_pages_data.php";
-
-//    ***** API URLs isep
-//    private final String API_MANGA_URL = "http://172.16.231.127/MangaMaGum_API/get_manga_data.php";
-//    private final String API_CHAPTER_URL = "http://172.16.231.127/MangaMaGum_API/get_chapters_data.php";
-//    private final String API_PAGE_URL = "http://172.16.231.127/MangaMaGum_API/get_pages_data.php";
+    public String name ;
+    public String cover_link ;
+    public String id_book ;
+    public String last_chapitre;
 
 
 
     private DataBase db;
-    private ArrayList<String> data_list_manga;
-    private ArrayList<String> data_list_chapter;
-    private ArrayList<String> data_list_page;
 
-
+    public DatabaseReference reference;
 
     public Server(Context context, Library activity, DataBase dataBase) {
         this.context = context;
         activityReference = new WeakReference<Library>(activity);
-        this.data_list_manga = new ArrayList<>();
-        this.data_list_chapter = new ArrayList<>();
-        this.data_list_page = new ArrayList<>();
         this.db = dataBase;
-
     }
 
-    //**** filling list with server's datas
-    @Override
-    protected Void doInBackground(Void... voids) {
-        try {
-            URL url = new URL(API_MANGA_URL);
-            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-            InputStream inputStream = httpURLConnection.getInputStream();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            String line ="";
-
-            while (line != null){
-                line = bufferedReader.readLine();
-                this.data_list_manga.add((String)line);
-            }
-
-        }
-        catch (MalformedURLException e) {
-            e.printStackTrace();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-//      ------------------------------------------------------
-        try {
-            URL url = new URL(API_CHAPTER_URL);
-            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-            InputStream inputStream = httpURLConnection.getInputStream();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            String line ="";
-
-            while (line != null){
-                line = bufferedReader.readLine();
-                this.data_list_chapter.add((String)line);
-            }
-
-        }
-        catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-//        -----------------------------------------------------
-        try {
-            URL url = new URL(API_PAGE_URL);
-            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-            InputStream inputStream = httpURLConnection.getInputStream();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            String line ="";
-
-            while (line != null){
-                line = bufferedReader.readLine();
-                this.data_list_page.add((String)line);
-            }
-
-        }
-        catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
+    public void execute(){
         Library activity = this.activityReference.get();
         if (activity == null || activity.isFinishing()) {
             return;
         }
-//------------------------------------
-        activity.manga_table_data_list.clear();
-        for(String n : this.data_list_manga){
-            activity.manga_table_data_list.add(n);
-        }
+
+        //vider la base de données interne
         this.db.clear_manga_table();
-
-//**** Add manga's data in database
-        for(String item : activity.manga_table_data_list){
-            if (item != null){
-                String manga_name = item.split(";")[0];
-                String cover_link = item.split(";")[1];
-                String id_manga = item.split(";")[2];
-                this.db.insertManga(manga_name,cover_link,id_manga);
-            }
-        }
-//---------------------------------------------
-        activity.chapter_table_data_list.clear();
-        for(String n : this.data_list_chapter){
-            activity.chapter_table_data_list.add(n);
-        }
         this.db.clear_chapter_table();
-
-//**** Add manga's data in database
-        for(String item : activity.chapter_table_data_list){
-            if (item != null){
-                String id_book = item.split(";")[0];
-                String list_of_chapter = item.split(";")[1];
-
-                this.db.insertChapter(Integer.parseInt(id_book), list_of_chapter);
-            }
-        }
-
-//---------------------------------------------
-        activity.page_table_data_list.clear();
-        for(String n : this.data_list_page){
-            activity.page_table_data_list.add(n);
-        }
         this.db.clear_page_table();
 
-//**** Add manga's data in database
-        for(String item : activity.page_table_data_list){
-            if (item != null){
-                String id_book = item.split(";")[0];
-                String num_chapitre = item.split(";")[1];
-                String list_page = item.split(";")[2];
 
+        //remplir la liste avant de remplir la base de données
+        reference = FirebaseDatabase.getInstance().getReference().child("manga");
+        reference.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Library activity = activityReference.get();
+
+                activity.list_book.clear();
+                Iterable<DataSnapshot> book = dataSnapshot.getChildren();
+
+                ArrayList<Chapitre> list_chapitres;
+                list_chapitres = new ArrayList<>();
+
+                while (book.iterator().hasNext()){
+                    DataSnapshot iterator = book.iterator().next();
+                    list_chapitres.clear();
+
+                    name = iterator.child("name").getValue().toString();
+                    cover_link = iterator.child("cover").getValue().toString();
+                    id_book = iterator.child("id").getValue().toString();
+                    last_chapitre = iterator.child("last_chapitre").getValue().toString();
+
+                    Iterable<DataSnapshot> chapitres = iterator.child("list_page").getChildren();
+                    while (chapitres.iterator().hasNext()){
+
+                        DataSnapshot iterator2 = chapitres.iterator().next();
+                        String n = iterator2.child(iterator2.getKey()).getKey().toString();
+                        String[]m = n.split("__");
+                        String num_chapitre = m[1];
+
+                        ArrayList<String> list_pages = new ArrayList<>();
+
+                        Iterable<DataSnapshot> pages = iterator.child("list_page").child(n).getChildren();
+                        while (pages.iterator().hasNext()){
+
+                            DataSnapshot iterator3 = pages.iterator().next();
+                            list_pages.add(iterator3.getValue().toString());
+                        }
+                        list_chapitres.add(new Chapitre(num_chapitre, list_pages));
+
+                    }
+                    activity.list_book.add(new Book(name,cover_link,id_book,last_chapitre,list_chapitres));
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        //remplir la base de données
+        for (Book item: activity.list_book) {
+            String manga_name = item.getName();
+            String cover_link = item.getCover_link();
+            String id_manga = item.getId_book();
+            this.db.insertManga(manga_name,cover_link,id_manga);
+        }
+
+        for (Book item: activity.list_book) {
+            String id_book = item.getId_book();
+            String list_of_chapter = item.getList_Chapitre_from_one_to_end_as_list();
+            this.db.insertChapter(Integer.parseInt(id_book), list_of_chapter);
+        }
+
+        for (Book item: activity.list_book) {
+            String id_book = item.getId_book();
+
+            for (Chapitre chapitre : activity.list_book.get(Integer.parseInt(id_book)).getList_chapitre()) {
+                String num_chapitre = chapitre.getNum_chapitre();
+                String list_page = chapitre.getPages_as_list();
                 this.db.insertPages(Integer.parseInt(id_book), Integer.parseInt(num_chapitre), list_page);
+
             }
         }
-        this.db.close();
-        Toast.makeText(context, "update done", Toast.LENGTH_SHORT).show();
-        activity.fill_library(context);
-        this.db.initiate_resume_table();
+        Toast.makeText(context, "Update done", Toast.LENGTH_SHORT).show();
     }
-
-
 }
+
+
+
+
+
+
+
+
+
+//// class for updating the manga database
+//class Server extends AsyncTask<Void,Void, ArrayList<Book>> {
+//    Context context;
+//    private WeakReference<Library> activityReference;
+//
+//    public String name ;
+//    public String cover_link ;
+//    public String id_book ;
+//    public String last_chapitre;
+//
+//
+//
+//    private DataBase db;
+//
+//    public DatabaseReference reference;
+//
+//    public Server(Context context, Library activity, DataBase dataBase) {
+//        this.context = context;
+//        activityReference = new WeakReference<Library>(activity);
+//        this.db = dataBase;
+//    }
+//
+////    @Override
+////    protected void onPreExecute() {
+////        super.onPreExecute();
+////        Library activity = this.activityReference.get();
+////        if (activity == null || activity.isFinishing()) {
+////            return;
+////        }
+////        this.db.clear_manga_table();
+////        this.db.clear_chapter_table();
+////        this.db.clear_page_table();
+////        activity.fill_library(context);
+////
+////    }
+//
+//    //**** filling list with server's datas
+//    @Override
+//    protected ArrayList<Book> doInBackground(Void... voids) {
+//        Library activity = activityReference.get();
+//
+//        reference = FirebaseDatabase.getInstance().getReference().child("manga");
+//        reference.addValueEventListener(new ValueEventListener() {
+//
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                Library activity = activityReference.get();
+//
+//                Iterable<DataSnapshot> book = dataSnapshot.getChildren();
+//
+//                ArrayList<Chapitre> list_chapitres;
+//                list_chapitres = new ArrayList<>();
+//
+//                while (book.iterator().hasNext()){
+//                    DataSnapshot iterator = book.iterator().next();
+//                    list_chapitres.clear();
+//
+//                    name = iterator.child("name").getValue().toString();
+//                    cover_link = iterator.child("cover").getValue().toString();
+//                    id_book = iterator.child("id").getValue().toString();
+//                    last_chapitre = iterator.child("last_chapitre").getValue().toString();
+//
+//                    Iterable<DataSnapshot> chapitres = iterator.child("list_page").getChildren();
+//                    while (chapitres.iterator().hasNext()){
+//
+//                        DataSnapshot iterator2 = chapitres.iterator().next();
+//                        String n = iterator2.child(iterator2.getKey()).getKey().toString();
+//                        String[]m = n.split("__");
+//                        String num_chapitre = m[1];
+//
+//                        ArrayList<String> list_pages = new ArrayList<>();
+//
+//                        Iterable<DataSnapshot> pages = iterator.child("list_page").child(n).getChildren();
+//                        while (pages.iterator().hasNext()){
+//
+//                            DataSnapshot iterator3 = pages.iterator().next();
+//                            list_pages.add(iterator3.getValue().toString());
+//                        }
+//                        list_chapitres.add(new Chapitre(num_chapitre, list_pages));
+//
+//                    }
+//                    activity.list_book.add(new Book(name,cover_link,id_book,last_chapitre,list_chapitres));
+//                }
+//
+////                Toast.makeText(context, "size of list_manga "+Integer.toString(list_manga.size()), Toast.LENGTH_SHORT).show();
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+////        Toast.makeText(context, "size of list_manga "+Integer.toString(), Toast.LENGTH_SHORT).show();
+//
+//        return activity.list_book;
+//    }
+//
+//    @Override
+//    protected void onPostExecute(ArrayList<Book> returned_list_manga) {
+//
+//        Library activity = this.activityReference.get();
+//        if (activity == null || activity.isFinishing()) {
+//            return;
+//        }
+//////------------------------------------
+//        this.db.clear_manga_table();
+//
+//////**** Add manga's data in database
+//        for (Book item: returned_list_manga) {
+//            String manga_name = item.getName();
+//            String cover_link = item.getCover_link();
+//            String id_manga = item.getId_book();
+//            this.db.insertManga(manga_name,cover_link,id_manga);
+//        }
+//////---------------------------------------------
+////        activity.chapter_table_data_list.clear();
+//        this.db.clear_chapter_table();
+//
+//        for (Book item: returned_list_manga) {
+//            String id_book = item.getId_book();
+//            String list_of_chapter = item.getList_Chapitre_from_one_to_end_as_list();
+//            this.db.insertChapter(Integer.parseInt(id_book), list_of_chapter);
+//        }
+//
+//////---------------------------------------------
+//        this.db.clear_page_table();
+//
+//        for (Book item: returned_list_manga) {
+//            String id_book = item.getId_book();
+//
+//            for (Chapitre chapitre: returned_list_manga.get(Integer.parseInt(id_book)).getList_chapitre()) {
+//                String num_chapitre = chapitre.getNum_chapitre();
+//                String list_page = chapitre.getPages_as_list();
+//                this.db.insertPages(Integer.parseInt(id_book), Integer.parseInt(num_chapitre), list_page);
+//
+//            }
+//
+//        }
+//
+//
+//        this.db.close();
+//        Toast.makeText(context, "update done", Toast.LENGTH_SHORT).show();
+//        activity.fill_library(context);
+//        this.db.initiate_resume_table();
+//        activity.list_book.clear();
+//    }
+//
+//
+//}
