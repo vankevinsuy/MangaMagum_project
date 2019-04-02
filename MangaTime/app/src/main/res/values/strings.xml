@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Manga Time</string>
+    <string name="search_bar_initial">search by manga\'s name</string>
+    <string name="library">Library</string>
+    <string name="search">Search</string>
+    <string name="favorite">Favorite</string>
+    <string name="no_text">NONE</string>
+    <string name="no_value">no_value</string>
+    <string name="favorites">Favorites</string>
+</resources>
