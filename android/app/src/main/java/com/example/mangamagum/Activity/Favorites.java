@@ -85,7 +85,7 @@ public class Favorites extends AppCompatActivity {
         ((Favorites_Adapter) mAdapter).setOnItemClickListener(new Favorites_Adapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                ShowMessage("positon" , Integer.toString(position));
+//                ShowMessage("positon" , Integer.toString(position));
                 String id_book = arrayList_book.get(position).getId_book();
                 String manga_name = arrayList_book.get(position).getName();
                 String cover_link = arrayList_book.get(position).getCover_link();
