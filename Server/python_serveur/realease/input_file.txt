@@ -41,13 +41,6 @@
 --FIN NEW--
 
 ---NEW---
---MANGA--:Naruto
---COVER--:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYFxl5f5XsfVoTJbGeC2o77e44IxXB_tUvi7nAS9mSAnQC2ZTx
---LINK-- :https://cdn.mangahub.io/file/imghub/naruto/{}/{}.jpg
---LINK-- :https://cdn.mangahub.io/file/imghub/naruto/{}/{}.png
---FIN NEW--
-
----NEW---
 --MANGA--:Attack on Titan
 --COVER--:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvoovvtrjdU7LD1Lb2MdbWXKyBl_69rVQrKIkFV_6miNxnPJvI
 --LINK-- :https://cdn.mangahub.io/file/imghub/attack-on-titan/{}/{}.jpg

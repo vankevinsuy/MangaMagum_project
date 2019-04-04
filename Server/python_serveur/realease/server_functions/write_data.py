@@ -1,10 +1,4 @@
-import csv
-import numpy as np
-from server_functions.URL_Checker import *
-from server_functions.insert_in_db import insert_all
 import platform
-import time
-import gc
 os = platform.system()
 
 if os == "Windows":
@@ -22,6 +16,14 @@ if os == "Darwin":
     path_new_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/new_manga.txt"
     input_file_path = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/input_file.txt"
 
+    import csv
+    import numpy as np
+    from server_functions.URL_Checker import *
+    from server_functions.insert_in_db import insert_all
+    import platform
+    import time
+    import gc
+
 
 if os == "Linux":
     path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
@@ -29,6 +31,14 @@ if os == "Linux":
     path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
     path_new_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/new_manga.txt"
     input_file_path = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/input_file.txt"
+
+    import csv
+    import numpy as np
+    from server_functions.URL_Checker import *
+    from server_functions.insert_in_db import insert_all
+    import platform
+    import time
+    import gc
 
 
 #function for manga
@@ -240,7 +250,6 @@ def add_new_manga() :
             input_file_as_list_of_dict.append({"manga_name":   manga,
                                                "cover_link":   cover,
                                                "list_of_link": list_of_link})
-    file.close()
 
     with open(input_file_path , 'a') as input_file :
         for item in input_file_as_list_of_dict :
