@@ -3,6 +3,8 @@ import time
 start = time.time()
 import platform
 import sys
+import subprocess
+
 
 if platform.system() == "Windows":
     from write_data import *
@@ -86,3 +88,8 @@ end = time.time()
 print(end - start)
 Mail().add("EXECUTION TIME  : " + str(end - start))
 Mail().send_report_to_admin("Server has finished to run")
+
+
+#turn off the server
+cmdCommand = "sudo shutdown -h now"
+process = subprocess.Popen(cmdCommand.split(), stdout=subprocess.PIPE)
