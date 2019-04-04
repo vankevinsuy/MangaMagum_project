@@ -1,5 +1,6 @@
 package com.example.mangamagum.Activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -17,9 +18,9 @@ import com.squareup.picasso.Picasso;
 
 public class Chosen_manga extends AppCompatActivity {
 
-    private String selected_manga_id;
-    private String selected_manga_name;
-    private String selected_manga_cover_link;
+    public String selected_manga_id;
+    public String selected_manga_name;
+    public String selected_manga_cover_link;
 
     private DataBase dataBase;
 
@@ -75,12 +76,12 @@ public class Chosen_manga extends AppCompatActivity {
             }
         });
 
-        this.selected_manga_id = getIntent().getExtras().getString("id_book");
-        this.selected_manga_name = getIntent().getExtras().getString("manga_name");
-        this.selected_manga_cover_link = getIntent().getExtras().getString("cover_link");
+        selected_manga_id = getIntent().getExtras().getString("id_book");
+        selected_manga_name = getIntent().getExtras().getString("manga_name");
+        selected_manga_cover_link = getIntent().getExtras().getString("cover_link");
 
         this.dataBase = new DataBase(getApplicationContext());
-        last_chapter = this.dataBase.get_last_chapter(this.selected_manga_id.toString());
+        last_chapter = this.dataBase.get_last_chapter(selected_manga_id.toString());
 
 
         int my_chapter = dataBase.get_chapter_to_resume(Integer.parseInt(selected_manga_id));
@@ -119,12 +120,13 @@ public class Chosen_manga extends AppCompatActivity {
         SeekBar seekBar = findViewById(R.id.seekBar);
         num_chapter = findViewById(R.id.chapter_num);
         num_chapter.setText(Integer.toString(my_chapter) + "/" + Integer.toString(last_chapter));
-        seekBar.setMax(last_chapter/10);
-        seekBar.setProgress(my_chapter/10);
+
+        seekBar.setMax(last_chapter);      //last_chapter/10
+        seekBar.setProgress(my_chapter);  //my_chapter/10
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean fromUser) {
-                int progress = i*10;
+                int progress = i;
                 chapter_target = progress;
 
                 if (chapter_target <= 0){

@@ -333,8 +333,8 @@ public class DataBase extends SQLiteOpenHelper {
             }
         }
         for (Integer item : list_id){
-            contentValues.put(COL_resume_manga_id_manga, item);
-            contentValues.put(COL_resume_manga_num_chapitre, 1);
+            contentValues.put(COL_resume_manga_id_manga, Integer.toString(item));
+            contentValues.put(COL_resume_manga_num_chapitre, Integer.toString(1));
             database.insert(TABLE_resume_manga,null,contentValues);
         }
         cursor.close();
@@ -342,6 +342,7 @@ public class DataBase extends SQLiteOpenHelper {
 
     public int get_chapter_to_resume(int id_manga){
         SQLiteDatabase database = this.getReadableDatabase();
+
         Cursor res = database.rawQuery("SELECT * FROM " + TABLE_resume_manga + " WHERE " + "id_manga= " + id_manga , null);
         int chapter = 1;
 
@@ -351,15 +352,27 @@ public class DataBase extends SQLiteOpenHelper {
             }
         }
         res.close();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_resume_manga, COL_resume_manga_id_manga + "=" + Integer.toString(id_manga),null);
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_resume_manga_num_chapitre,Integer.toString(chapter));
+        contentValues.put(COL_resume_manga_id_manga, id_manga);
+        db.insert(TABLE_resume_manga,null,contentValues);
+
         return chapter;
     }
 
     public void update_my_chapter(int new_my_chapter, String id_manga){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_resume_manga_num_chapitre, new_my_chapter);
+        contentValues.put(COL_resume_manga_num_chapitre,Integer.toString(new_my_chapter));
+        contentValues.put(COL_resume_manga_id_manga, id_manga);
 
-        db.update(TABLE_resume_manga, contentValues, COL_resume_manga_id_manga+"=?", new String[]{id_manga});
+
+//        db.update(TABLE_resume_manga, contentValues, COL_resume_manga_id_manga+"=?", new String[]{id_manga});
+        db.insert(TABLE_resume_manga,null,contentValues);
     }
 
 

@@ -1,6 +1,5 @@
 package com.example.mangamagum.Model;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 
 public class Chapitre {
@@ -33,10 +32,3 @@ public class Chapitre {
         return res;
     }
 }
-
-
-
-=======
-public class Chapitre {
-}
->>>>>>> 04a6cdb183b29988422db6cab3d7c106ca096341

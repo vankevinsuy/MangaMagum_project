@@ -1,12 +1,10 @@
 package com.example.mangamagum.Activity;
 
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
@@ -15,7 +13,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mangamagum.Adapter.Library_Adapter;
@@ -30,10 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.lang.ref.WeakReference;
-import java.util.AbstractCollection;
 import java.util.ArrayList;
-import java.util.BitSet;
-import java.util.List;
 
 public class Library extends AppCompatActivity {
 
@@ -102,6 +96,7 @@ public class Library extends AppCompatActivity {
         activity = this;
         dataBase = new DataBase(this);
 
+        fill_library(context);
         first_use(context);
 
 
@@ -183,22 +178,20 @@ public class Library extends AppCompatActivity {
 
         int use = -1;
         dataBase = new DataBase(context);
-
-
-
         Cursor res= dataBase.get_first_use();
 
         //if it's the first use
         if (res.getCount() == 0){
             dataBase.initiate_first_use();
-            ShowMessage("Hello", "It's your first time on this app, wait a little bit, we are updating your database with all we have");
+            ShowMessage("Hello", "It's your first time on this app, for updating your library just click on the top right button");
             update_button.setEnabled(false);
             Server server = new Server(context , activity, dataBase);
-            server.execute();
+
+//            if (server.execute()){
+//                dataBase.initiate_resume_table();
+//            }
             dataBase.close();
-            fill_library(context);
             update_button.setEnabled(true);
-            fill_library(context);
             fill_library(context);
         }
 
@@ -261,10 +254,10 @@ class Server{
         this.db = dataBase;
     }
 
-    public void execute(){
+    public boolean execute(){
         Library activity = this.activityReference.get();
         if (activity == null || activity.isFinishing()) {
-            return;
+            return false;
         }
 
         //vider la base de données interne
@@ -284,12 +277,11 @@ class Server{
                 activity.list_book.clear();
                 Iterable<DataSnapshot> book = dataSnapshot.getChildren();
 
-                ArrayList<Chapitre> list_chapitres;
-                list_chapitres = new ArrayList<>();
-
                 while (book.iterator().hasNext()){
                     DataSnapshot iterator = book.iterator().next();
-                    list_chapitres.clear();
+
+                    ArrayList<Chapitre> list_chapitres;
+                    list_chapitres = new ArrayList<>();
 
                     name = iterator.child("name").getValue().toString();
                     cover_link = iterator.child("cover").getValue().toString();
@@ -352,164 +344,8 @@ class Server{
             }
         }
         Toast.makeText(context, "Update done", Toast.LENGTH_SHORT).show();
+        return true;
     }
+
+
 }
-
-
-
-
-
-
-
-
-
-//// class for updating the manga database
-//class Server extends AsyncTask<Void,Void, ArrayList<Book>> {
-//    Context context;
-//    private WeakReference<Library> activityReference;
-//
-//    public String name ;
-//    public String cover_link ;
-//    public String id_book ;
-//    public String last_chapitre;
-//
-//
-//
-//    private DataBase db;
-//
-//    public DatabaseReference reference;
-//
-//    public Server(Context context, Library activity, DataBase dataBase) {
-//        this.context = context;
-//        activityReference = new WeakReference<Library>(activity);
-//        this.db = dataBase;
-//    }
-//
-////    @Override
-////    protected void onPreExecute() {
-////        super.onPreExecute();
-////        Library activity = this.activityReference.get();
-////        if (activity == null || activity.isFinishing()) {
-////            return;
-////        }
-////        this.db.clear_manga_table();
-////        this.db.clear_chapter_table();
-////        this.db.clear_page_table();
-////        activity.fill_library(context);
-////
-////    }
-//
-//    //**** filling list with server's datas
-//    @Override
-//    protected ArrayList<Book> doInBackground(Void... voids) {
-//        Library activity = activityReference.get();
-//
-//        reference = FirebaseDatabase.getInstance().getReference().child("manga");
-//        reference.addValueEventListener(new ValueEventListener() {
-//
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                Library activity = activityReference.get();
-//
-//                Iterable<DataSnapshot> book = dataSnapshot.getChildren();
-//
-//                ArrayList<Chapitre> list_chapitres;
-//                list_chapitres = new ArrayList<>();
-//
-//                while (book.iterator().hasNext()){
-//                    DataSnapshot iterator = book.iterator().next();
-//                    list_chapitres.clear();
-//
-//                    name = iterator.child("name").getValue().toString();
-//                    cover_link = iterator.child("cover").getValue().toString();
-//                    id_book = iterator.child("id").getValue().toString();
-//                    last_chapitre = iterator.child("last_chapitre").getValue().toString();
-//
-//                    Iterable<DataSnapshot> chapitres = iterator.child("list_page").getChildren();
-//                    while (chapitres.iterator().hasNext()){
-//
-//                        DataSnapshot iterator2 = chapitres.iterator().next();
-//                        String n = iterator2.child(iterator2.getKey()).getKey().toString();
-//                        String[]m = n.split("__");
-//                        String num_chapitre = m[1];
-//
-//                        ArrayList<String> list_pages = new ArrayList<>();
-//
-//                        Iterable<DataSnapshot> pages = iterator.child("list_page").child(n).getChildren();
-//                        while (pages.iterator().hasNext()){
-//
-//                            DataSnapshot iterator3 = pages.iterator().next();
-//                            list_pages.add(iterator3.getValue().toString());
-//                        }
-//                        list_chapitres.add(new Chapitre(num_chapitre, list_pages));
-//
-//                    }
-//                    activity.list_book.add(new Book(name,cover_link,id_book,last_chapitre,list_chapitres));
-//                }
-//
-////                Toast.makeText(context, "size of list_manga "+Integer.toString(list_manga.size()), Toast.LENGTH_SHORT).show();
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-////        Toast.makeText(context, "size of list_manga "+Integer.toString(), Toast.LENGTH_SHORT).show();
-//
-//        return activity.list_book;
-//    }
-//
-//    @Override
-//    protected void onPostExecute(ArrayList<Book> returned_list_manga) {
-//
-//        Library activity = this.activityReference.get();
-//        if (activity == null || activity.isFinishing()) {
-//            return;
-//        }
-//////------------------------------------
-//        this.db.clear_manga_table();
-//
-//////**** Add manga's data in database
-//        for (Book item: returned_list_manga) {
-//            String manga_name = item.getName();
-//            String cover_link = item.getCover_link();
-//            String id_manga = item.getId_book();
-//            this.db.insertManga(manga_name,cover_link,id_manga);
-//        }
-//////---------------------------------------------
-////        activity.chapter_table_data_list.clear();
-//        this.db.clear_chapter_table();
-//
-//        for (Book item: returned_list_manga) {
-//            String id_book = item.getId_book();
-//            String list_of_chapter = item.getList_Chapitre_from_one_to_end_as_list();
-//            this.db.insertChapter(Integer.parseInt(id_book), list_of_chapter);
-//        }
-//
-//////---------------------------------------------
-//        this.db.clear_page_table();
-//
-//        for (Book item: returned_list_manga) {
-//            String id_book = item.getId_book();
-//
-//            for (Chapitre chapitre: returned_list_manga.get(Integer.parseInt(id_book)).getList_chapitre()) {
-//                String num_chapitre = chapitre.getNum_chapitre();
-//                String list_page = chapitre.getPages_as_list();
-//                this.db.insertPages(Integer.parseInt(id_book), Integer.parseInt(num_chapitre), list_page);
-//
-//            }
-//
-//        }
-//
-//
-//        this.db.close();
-//        Toast.makeText(context, "update done", Toast.LENGTH_SHORT).show();
-//        activity.fill_library(context);
-//        this.db.initiate_resume_table();
-//        activity.list_book.clear();
-//    }
-//
-//
-//}

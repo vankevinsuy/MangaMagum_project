@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.mangamagum.Adapter.Favorites_Adapter;
-import com.example.mangamagum.Adapter.Library_Adapter;
 import com.example.mangamagum.Model.Book;
 import com.example.mangamagum.Model.DataBase;
 import com.example.mangamagum.R;
