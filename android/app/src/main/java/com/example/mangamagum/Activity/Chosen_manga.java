@@ -47,7 +47,6 @@ public class Chosen_manga extends AppCompatActivity {
                 Intent library = new Intent(getApplicationContext(), Library.class);
                 startActivityForResult(library,0);
                 overridePendingTransition(0,0);
-//                startActivity(library);
                 finish();
             }
         });
@@ -59,7 +58,6 @@ public class Chosen_manga extends AppCompatActivity {
                 Intent favorites = new Intent(getApplicationContext(), Favorites.class);
                 startActivityForResult(favorites,0);
                 overridePendingTransition(0,0);
-//                startActivity(favorites);
                 finish();
             }
         });
@@ -71,7 +69,6 @@ public class Chosen_manga extends AppCompatActivity {
                 Intent search_layout = new Intent(getApplicationContext(), Research.class);
                 startActivityForResult(search_layout,0);
                 overridePendingTransition(0,0);
-//                startActivity(search_layout);
                 finish();
             }
         });
@@ -85,7 +82,7 @@ public class Chosen_manga extends AppCompatActivity {
 
 
         int my_chapter = dataBase.get_chapter_to_resume(Integer.parseInt(selected_manga_id));
-//        -----------------
+
         chapter_target = my_chapter;
 
         TextView header_text = findViewById(R.id.header_manga_name);
@@ -121,8 +118,8 @@ public class Chosen_manga extends AppCompatActivity {
         num_chapter = findViewById(R.id.chapter_num);
         num_chapter.setText(Integer.toString(my_chapter) + "/" + Integer.toString(last_chapter));
 
-        seekBar.setMax(last_chapter);      //last_chapter/10
-        seekBar.setProgress(my_chapter);  //my_chapter/10
+        seekBar.setMax(last_chapter);
+        seekBar.setProgress(my_chapter);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean fromUser) {
@@ -211,7 +208,6 @@ public class Chosen_manga extends AppCompatActivity {
         Intent library = new Intent(getApplicationContext() , Library.class);
         startActivityForResult(library,0);
         overridePendingTransition(0,0);
-//        startActivity(library);
         finish();
     }
 

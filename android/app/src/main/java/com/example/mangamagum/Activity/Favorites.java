@@ -42,7 +42,6 @@ public class Favorites extends AppCompatActivity {
                 Intent library = new Intent(getApplicationContext(), Library.class);
                 startActivityForResult(library,0);
                 overridePendingTransition(0,0);
-//                startActivity(library);
                 finish();
             }
         });
@@ -54,7 +53,6 @@ public class Favorites extends AppCompatActivity {
                 Intent search_layout = new Intent(getApplicationContext(), Research.class);
                 startActivityForResult(search_layout,0);
                 overridePendingTransition(0,0);
-//                startActivity(search_layout);
                 finish();
             }
         });
@@ -77,7 +75,6 @@ public class Favorites extends AppCompatActivity {
 
         for(Integer id_fav : dataBase.get_all_favorites() ){
             arrayList_book.add(dataBase.get_book_from_id(id_fav));
-//            ShowMessage("id_fav", Integer.toString(id_fav));
 
         }
 
@@ -85,7 +82,6 @@ public class Favorites extends AppCompatActivity {
         ((Favorites_Adapter) mAdapter).setOnItemClickListener(new Favorites_Adapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-//                ShowMessage("positon" , Integer.toString(position));
                 String id_book = arrayList_book.get(position).getId_book();
                 String manga_name = arrayList_book.get(position).getName();
                 String cover_link = arrayList_book.get(position).getCover_link();
@@ -98,11 +94,9 @@ public class Favorites extends AppCompatActivity {
 
                 startActivityForResult(chosen_manga_activity,0);
                 overridePendingTransition(0,0);
-//                startActivity(chosen_manga_activity);
             }
         });
         favorites_recycler_view.setAdapter(mAdapter);
-//        return arrayList_book;
     }
 
     private void ShowMessage(String title, String message){
@@ -118,7 +112,6 @@ public class Favorites extends AppCompatActivity {
         Intent library = new Intent(getApplicationContext() , Library.class);
         startActivityForResult(library,0);
         overridePendingTransition(0,0);
-//        startActivity(library);
         finish();
     }
 }

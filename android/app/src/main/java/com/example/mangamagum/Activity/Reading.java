@@ -48,8 +48,6 @@ public class Reading extends AppCompatActivity {
         this.selected_manga_cover_link = getIntent().getExtras().getString("cover_link");
 
         this.list_urls = this.dataBase.get_page_by_chapitre(Integer.parseInt(this.id_book), Integer.parseInt(this.chapter));
-//        ShowMessage("list url size" , Integer.toString(this.list_urls.size()));
-//        ShowMessage("list url index 0 content" , this.list_urls.get(this.list_urls.size()-1));
 
         mRecyclerView = findViewById(R.id.page_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -71,7 +69,6 @@ public class Reading extends AppCompatActivity {
     }
 
 
-    // methode pour quitter l'application
     @Override
     public void onBackPressed() {
         Intent chosen_manga_activity = new Intent(getApplicationContext() , Chosen_manga.class);
@@ -82,7 +79,6 @@ public class Reading extends AppCompatActivity {
 
         startActivityForResult(chosen_manga_activity,0);
         overridePendingTransition(0,0);
-//        startActivity(chosen_manga_activity);
         finish();
     }
 

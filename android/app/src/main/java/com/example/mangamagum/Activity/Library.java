@@ -75,7 +75,6 @@ public class Library extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent search_layout = new Intent(getApplicationContext(), Research.class);
-//                startActivity(search_layout);
                 startActivityForResult(search_layout,0);
                 overridePendingTransition(0,0);
                 finish();
@@ -148,12 +147,10 @@ public class Library extends AppCompatActivity {
 
                 startActivityForResult(chosen_manga_activity,0);
                 overridePendingTransition(0,0);
-//                startActivity(chosen_manga_activity);
                 finish();
             }
         });
         manga_recycler_view.setAdapter(mAdapter);
-//        return arrayList_book;
     }
     private void ShowMessage(String title, String message){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -185,11 +182,8 @@ public class Library extends AppCompatActivity {
             dataBase.initiate_first_use();
             ShowMessage("Hello", "It's your first time on this app, for updating your library just click on the top right button");
             update_button.setEnabled(false);
-            Server server = new Server(context , activity, dataBase);
+            new Server(context , activity, dataBase);
 
-//            if (server.execute()){
-//                dataBase.initiate_resume_table();
-//            }
             dataBase.close();
             update_button.setEnabled(true);
             fill_library(context);
