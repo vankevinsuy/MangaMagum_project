@@ -34,15 +34,12 @@ if platform.system() == "Linux":
 
 if os.path.exists(path_manga):
      os.remove(path_manga)
-     open(path_manga)
 
 if os.path.exists(path_chapter):
      os.remove(path_chapter)
-     open(path_chapter)
 
 if os.path.exists(path_page):
      os.remove(path_page)
-     open(path_page)
 
 
 #read the input file
