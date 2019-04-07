@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.example.mangamagum.Model.Book;
 import com.example.mangamagum.Model.DataBase;
 import com.example.mangamagum.R;
 import com.squareup.picasso.Picasso;
@@ -21,7 +22,10 @@ public class Chosen_manga extends AppCompatActivity {
     public String selected_manga_id;
     public String selected_manga_name;
     public String selected_manga_cover_link;
+    public String selected_manga_last_chapter;
+    public String selected_manga_description;
 
+    public Book selected_book;
     private DataBase dataBase;
 
     private TextView num_chapter;
@@ -73,12 +77,18 @@ public class Chosen_manga extends AppCompatActivity {
             }
         });
 
-        selected_manga_id = getIntent().getExtras().getString("id_book");
-        selected_manga_name = getIntent().getExtras().getString("manga_name");
-        selected_manga_cover_link = getIntent().getExtras().getString("cover_link");
+
+        Intent i = getIntent();
+        selected_book = (Book)i.getSerializableExtra("selected_book");
+
+        selected_manga_id = selected_book.getId_book();
+        selected_manga_name = selected_book.getName();
+        selected_manga_cover_link = selected_book.getCover_link();
+        selected_manga_last_chapter = selected_book.getLast_chapitre();
+        selected_manga_description = selected_book.getDescription();
 
         this.dataBase = new DataBase(getApplicationContext());
-        last_chapter = this.dataBase.get_last_chapter(selected_manga_id.toString());
+        last_chapter = Integer.parseInt(selected_manga_last_chapter);
 
 
         int my_chapter = dataBase.get_chapter_to_resume(Integer.parseInt(selected_manga_id));
@@ -143,23 +153,21 @@ public class Chosen_manga extends AppCompatActivity {
         });
 
 
-        header_text.setText(
-                selected_manga_name);
+        header_text.setText(selected_manga_name);
         Picasso.with(this).load(selected_manga_cover_link).into(imageView);
-        description.setText("Donec eget est vel purus mollis iaculis. In tristique pellentesque suscipit. Mauris vitae facilisis erat. Maecenas ut tempor arcu, vitae varius metus. Morbi laoreet, ante feugiat convallis imperdiet, erat nisi mattis ex, id pellentesque nibh elit a augue. Vivamus dignissim pellentesque ante, ut semper ante facilisis bibendum. Donec sed arcu non velit convallis vulputate et tristique nisi. Proin dictum, eros sit amet blandit tempor, leo dolor blandit ante, id cursus massa velit eu lorem. Nam ullamcorper maximus dui in vestibulum. Nulla et blandit odio, molestie malesuada dui. Integer semper feugiat tellus vel tristique. Aliquam eleifend, mi ut pretium ultrices, augue dui sollicitudin arcu, sit amet rutrum risus arcu non mauris. In lectus risus, dignissim ut laoreet eu, hendrerit a turpis. Nullam vel augue finibus eros fermentum fermentum. Suspendisse cursus tortor id justo viverra aliquet.");
+        description.setText(selected_manga_description);
         description.setMovementMethod(new ScrollingMovementMethod());
 
-
+//click for reading
         ImageButton play_button = findViewById(R.id.play_button);
         play_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dataBase.update_my_chapter(chapter_target, selected_manga_id);
                 Intent reading_activity = new Intent(getApplicationContext(), Reading.class);
-                reading_activity.putExtra("id_book" , selected_manga_id);
-                reading_activity.putExtra("chapter", Integer.toString(chapter_target));
-                reading_activity.putExtra("manga_name", selected_manga_name);
-                reading_activity.putExtra("cover_link", selected_manga_cover_link);
+
+                reading_activity.putExtra("selected_book" , selected_book);
+                reading_activity.putExtra("chapter_target" , chapter_target);
 
                 startActivity(reading_activity);
                 finish();

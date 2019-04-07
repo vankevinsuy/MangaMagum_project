@@ -7,4 +7,7 @@
     <string name="no_text">NONE</string>
     <string name="no_value">no_value</string>
     <string name="favorites">Favorites</string>
+    <string name="Loading">Loading ...</string>
+    <string name="update_done">Update done</string>
+    <string name="clear_text"></string>
 </resources>

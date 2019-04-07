@@ -1,8 +1,9 @@
 package com.example.mangamagum.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Book {
+public class Book implements Serializable {
     private String name ;
     private String cover_link ;
     private String description ;
@@ -16,12 +17,13 @@ public class Book {
         this.id_book = id_book;
     }
 
-    public Book(String name, String cover_link, String id_book, String last_chapitre, ArrayList<Chapitre> list_chapitre) {
+    public Book(String name, String cover_link, String id_book, String last_chapitre, ArrayList<Chapitre> list_chapitre, String description) {
         this.name = name;
         this.cover_link = cover_link;
         this.id_book = id_book;
         this.last_chapitre = last_chapitre;
         this.list_chapitre = list_chapitre;
+        this.description = description;
     }
 
     public String getName() {
@@ -60,4 +62,6 @@ public class Book {
 
         return res;
     }
+
+
 }

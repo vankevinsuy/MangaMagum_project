@@ -37,6 +37,10 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String COL_resume_manga_id_manga = "id_manga";
     private static final String COL_resume_manga_num_chapitre = "chapitre";
 
+    private static final String TABLE_description = "description";
+    private static final String COL_description_id_manga = "id_manga";
+    private static final String COL_description_text = "description_text";
+
 
     //****QUERY FOR CREATING THE TABLES****//
     private static final String CREATE_TABLE_MANGA = "CREATE TABLE " + TABLE_manga_0 + "(" +
@@ -63,6 +67,10 @@ public class DataBase extends SQLiteOpenHelper {
             COL_resume_manga_id_manga + " INTEGER ," +
             COL_resume_manga_num_chapitre + " INTEGER" + ")";
 
+    private static final String CREATE_TABLE_DESCRIPTION = "CREATE TABLE " + TABLE_description + "(" +
+            COL_description_id_manga + " INTEGER ," +
+            COL_description_text + " TEXT" + ")";
+
 
     public DataBase(Context context) {
         super(context, DATA_BASE_name, null, 1);
@@ -76,6 +84,7 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_USER);
         db.execSQL(CREATE_TABLE_FAVORITE_MANGA);
         db.execSQL(CREATE_TABLE_RESUME_CHAPTER);
+        db.execSQL(CREATE_TABLE_DESCRIPTION);
     }
 
     @Override
@@ -85,6 +94,7 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_chapters_name_1);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_pages_name_2);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_favorite_manga);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_description);
 
 
         //create new TABLES
@@ -392,6 +402,35 @@ public class DataBase extends SQLiteOpenHelper {
         }
         res.close();
         return like_list_result;
+    }
+
+
+    public void insertDescription(String id_manga, String text){
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COL_description_id_manga, id_manga);
+        contentValues.put(COL_description_text, text);
+
+        database.insert(TABLE_description,null,contentValues);
+
+    }
+
+
+    public String get_description_by_id(String id_manga){
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        Cursor res = database.rawQuery("SELECT * FROM " + TABLE_description + " WHERE " + "id_manga= " + id_manga , null);
+        String text = "";
+
+        if (res.getCount() >0){
+            while (res.moveToNext()){
+                text = res.getString(1);
+            }
+        }
+        res.close();
+
+        return text;
     }
 
 }

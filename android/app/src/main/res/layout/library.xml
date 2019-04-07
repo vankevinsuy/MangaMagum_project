@@ -26,6 +26,15 @@
             android:layout_height="50dp"
             android:background="@color/colorPrimary">
 
+            <TextView
+                android:id="@+id/state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/text_header"
+                android:text=""
+                android:layout_centerInParent="true"/>
+
             <ImageButton
                 android:id="@+id/update_database"
                 android:layout_width="29dp"

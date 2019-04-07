@@ -8,8 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Display;
+import android.widget.Toast;
 
 import com.example.mangamagum.Adapter.Page_adapter;
+import com.example.mangamagum.Model.Book;
+import com.example.mangamagum.Model.Chapitre;
 import com.example.mangamagum.Model.DataBase;
 import com.example.mangamagum.R;
 
@@ -17,10 +20,9 @@ import java.util.ArrayList;
 
 public class Reading extends AppCompatActivity {
 
-    private String chapter;
-    private String id_book;
-    private String selected_manga_name;
-    private String selected_manga_cover_link;
+    public int chapter;
+    public Book selected_book;
+
 
     private DataBase dataBase;
     private ArrayList<String> list_urls;
@@ -33,7 +35,7 @@ public class Reading extends AppCompatActivity {
         setContentView(R.layout.activity_reading);
 
 
-
+// get screen size
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
@@ -42,12 +44,16 @@ public class Reading extends AppCompatActivity {
 
 
         this.dataBase = new DataBase(getApplicationContext());
-        this.chapter = getIntent().getExtras().getString("chapter");
-        this.id_book = getIntent().getExtras().getString("id_book");
-        this.selected_manga_name = getIntent().getExtras().getString("manga_name");
-        this.selected_manga_cover_link = getIntent().getExtras().getString("cover_link");
 
-        this.list_urls = this.dataBase.get_page_by_chapitre(Integer.parseInt(this.id_book), Integer.parseInt(this.chapter));
+        Intent i = getIntent();
+        selected_book = (Book)i.getSerializableExtra("selected_book");
+        chapter = getIntent().getExtras().getInt("chapter_target");
+
+        for(Chapitre chapitre : selected_book.getList_chapitre()){
+            if(Integer.parseInt(chapitre.getNum_chapitre()) == chapter){
+                this.list_urls = chapitre.getPages();
+            }
+        }
 
         mRecyclerView = findViewById(R.id.page_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -73,9 +79,7 @@ public class Reading extends AppCompatActivity {
     public void onBackPressed() {
         Intent chosen_manga_activity = new Intent(getApplicationContext() , Chosen_manga.class);
 
-        chosen_manga_activity.putExtra("id_book" , id_book);
-        chosen_manga_activity.putExtra("manga_name" , selected_manga_name);
-        chosen_manga_activity.putExtra("cover_link" , selected_manga_cover_link);
+        chosen_manga_activity.putExtra("selected_book" , selected_book);
 
         startActivityForResult(chosen_manga_activity,0);
         overridePendingTransition(0,0);

@@ -4,23 +4,9 @@ start = time.time()
 import platform
 import sys
 import subprocess
-
-
-if platform.system() == "Windows":
-    from write_data import *
-    from insert_in_db import insert_all
-    from Mail import Mail
-
-if platform.system() == "Darwin":
-    from server_functions.write_data import *
-    from server_functions.insert_in_db import insert_all
-    from server_functions.Mail import Mail
-
-if platform.system() == "Linux":
-    from server_functions.write_data import *
-    from server_functions.insert_in_db import insert_all
-    from server_functions.Mail import Mail
-
+from server_functions.write_data import *
+from server_functions.insert_in_db import insert_all
+from server_functions.Mail import Mail
 
 def launch():
     import os
@@ -89,7 +75,7 @@ print(end - start)
 Mail().add("EXECUTION TIME  : " + str(end - start))
 Mail().send_report_to_admin("Server has finished to run")
 
-
-#turn off the server
-cmdCommand = "sudo shutdown -h now"
-process = subprocess.Popen(cmdCommand.split(), stdout=subprocess.PIPE)
+if platform.system() == "Linux":
+    #turn off the server
+    cmdCommand = "sudo shutdown -h now"
+    process = subprocess.Popen(cmdCommand.split(), stdout=subprocess.PIPE)

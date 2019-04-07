@@ -1,4 +1,9 @@
 import platform
+from server_functions.write_data import *
+from server_functions.insert_in_db import insert_all
+import os
+import gc
+from server_functions.Mail import Mail
 
 print("######### RELOADING ALL ############")
 
@@ -14,23 +19,14 @@ if platform.system() == "Darwin":
     path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
     input_file_path = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/input_file.txt"
 
-    from server_functions.write_data import *
-    from server_functions.insert_in_db import insert_all
-    import os
-    import gc
-    from server_functions.Mail import Mail
+
 
 if platform.system() == "Linux":
-    from server_functions.write_data import *
-    from server_functions.insert_in_db import insert_all
-    import platform
-    import os
-    import gc
-
     path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
     path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv"
     path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
     input_file_path = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/input_file.txt"
+
 
 if os.path.exists(path_manga):
      os.remove(path_manga)
@@ -52,16 +48,20 @@ for line in file :
         manga = ""
         cover = ""
         list_of_link = []
+        book_description =""
     if "--MANGA--" in line :
         manga = line[10:-1]
     if "--COVER--" in line :
         cover = line[10:-1]
     if "--LINK--" in line:
         list_of_link.append(line[10:-1])
+    if "--DESC--" in line:
+        book_description = line[10:-1]
     if "--FIN NEW--" in line:
         input_file_as_list_of_dict.append({"manga_name": manga,
                                            "cover_link": cover,
-                                           "list_of_link": list_of_link})
+                                           "list_of_link": list_of_link,
+                                           "description": book_description})
 
 # # treatment for each line (dictionnary)
 id_book = 0

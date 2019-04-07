@@ -1,5 +1,12 @@
 import platform
 os = platform.system()
+import csv
+import numpy as np
+from server_functions.URL_Checker import *
+from server_functions.insert_in_db import insert_all
+import platform
+import time
+import gc
 
 if os == "Windows":
     path_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout\\manga.csv"
@@ -16,14 +23,6 @@ if os == "Darwin":
     path_new_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/new_manga.txt"
     input_file_path = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/input_file.txt"
 
-    import csv
-    import numpy as np
-    from server_functions.URL_Checker import *
-    from server_functions.insert_in_db import insert_all
-    import platform
-    import time
-    import gc
-
 
 if os == "Linux":
     path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
@@ -32,13 +31,6 @@ if os == "Linux":
     path_new_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/new_manga.txt"
     input_file_path = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/input_file.txt"
 
-    import csv
-    import numpy as np
-    from server_functions.URL_Checker import *
-    from server_functions.insert_in_db import insert_all
-    import platform
-    import time
-    import gc
 
 
 #function for manga
@@ -46,13 +38,14 @@ def write_manga(dictionnary,id_book):
     with open(path_manga, "a") as manga_csv:
         manga_name = dictionnary["manga_name"]
         cover_link = dictionnary["cover_link"]
+        description = dictionnary["description"]
 
         # manga_csv.write('\n')
         #writing manga.csv manga's name, cover_link ,id_book
-        manga_csv_fieldnames = ['manga_name', 'cover_link', 'id_book']
+        manga_csv_fieldnames = ['manga_name', 'cover_link', 'id_book','description']
         manga_csv_writer = csv.DictWriter(manga_csv, fieldnames=manga_csv_fieldnames, lineterminator='\n',quoting=csv.QUOTE_ALL)
 
-        manga_csv_writer.writerow({"manga_name": manga_name, "cover_link": cover_link, "id_book": id_book})
+        manga_csv_writer.writerow({"manga_name": manga_name, "cover_link": cover_link, "id_book": id_book, "description": description})
     manga_csv.close()
 
 

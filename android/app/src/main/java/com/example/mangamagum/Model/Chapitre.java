@@ -1,8 +1,9 @@
 package com.example.mangamagum.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Chapitre {
+public class Chapitre implements Serializable {
     private String num_chapitre;
     private ArrayList<String>pages;
 

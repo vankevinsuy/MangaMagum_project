@@ -12,7 +12,7 @@
         android:id="@+id/page_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="1dp"
         android:contentDescription="@string/no_value">
         <!--android:layout_centerInParent="true"-->
 

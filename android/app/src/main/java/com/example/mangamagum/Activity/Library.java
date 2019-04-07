@@ -13,6 +13,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mangamagum.Adapter.Library_Adapter;
@@ -36,8 +37,8 @@ public class Library extends AppCompatActivity {
     private ImageButton go_to_search;
 
 
-    private RecyclerView manga_recycler_view;
-    private RecyclerView.Adapter mAdapter;
+    public RecyclerView manga_recycler_view;
+    public RecyclerView.Adapter mAdapter;
 
     private Context context;
     private Library activity;
@@ -50,11 +51,13 @@ public class Library extends AppCompatActivity {
     public ArrayList<String> page_table_data_list;
     public ArrayList<Book> list_book;
 
+    public TextView state;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.library);
-
+        state = findViewById(R.id.state);
 
         update_button = findViewById(R.id.update_database);
         go_to_favorites = findViewById(R.id.go_to_favorite);
@@ -63,9 +66,10 @@ public class Library extends AppCompatActivity {
             public void onClick(View view) {
                 Intent favorite = new Intent(getApplicationContext(), Favorites.class);
                 favorite.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-//                startActivity(favorite);
                 startActivityForResult(favorite,0);
                 overridePendingTransition(0,0);
+                dataBase.close();
+
                 finish();
             }
         });
@@ -77,6 +81,8 @@ public class Library extends AppCompatActivity {
                 Intent search_layout = new Intent(getApplicationContext(), Research.class);
                 startActivityForResult(search_layout,0);
                 overridePendingTransition(0,0);
+                dataBase.close();
+
                 finish();
             }
         });
@@ -95,35 +101,43 @@ public class Library extends AppCompatActivity {
         activity = this;
         dataBase = new DataBase(this);
 
-        fill_library(context);
-        first_use(context);
+        internet_check = internetIsConnected();
+        network_check = isNetworkConnected(context);
 
+//        Boolean s = first_use(context);
 
+        if(internet_check & network_check){
+            update_button.setEnabled(true);
+            Server_firebase server_firebase = new Server_firebase(context,this);
+            server_firebase.execute();
+        }
+        else {
+            update_button.setEnabled(false);
+            update_button.setBackgroundResource(R.drawable.no_internet);
+        }
 
-//        internet_check = internetIsConnected();
-//        network_check = isNetworkConnected(context);
+//        if(!s){
+//            fill_library(this);
+//            update_button.setEnabled(true);
+//        }
 //
-//        ShowMessage("internet" , internet_check.toString());
-//        ShowMessage("network" , network_check.toString());
 
 
-        update_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fill_library(context);
 
-                update_button.animate().rotation(update_button.getRotation()-360).setDuration(1000).start();
-
-                update_button.setEnabled(false);
-                Server server = new Server(context , activity, dataBase);
-                server.execute();
-                dataBase.close();
-
-                update_button.setEnabled(true);
-                fill_library(context);
-
-            }
-        });
+//        update_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                state.setText(R.string.Loading);
+//                update_button.animate().rotation(update_button.getRotation()-360).setDuration(1000).start();
+//                Server server = new Server(context , activity, dataBase);
+//                update_button.setEnabled(false);
+//                if (server.execute()){
+//                    fill_library(context);
+//                }
+//
+//                update_button.setEnabled(true);
+//            }
+//        });
 
     }
 
@@ -152,6 +166,26 @@ public class Library extends AppCompatActivity {
         });
         manga_recycler_view.setAdapter(mAdapter);
     }
+
+    public void fill_library_firebase(Context context){
+
+        mAdapter = new Library_Adapter(list_book, context);
+        ((Library_Adapter) mAdapter).setOnItemClickListener(new Library_Adapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent chosen_manga_activity = new Intent(getApplicationContext() , Chosen_manga.class);
+
+                chosen_manga_activity.putExtra("selected_book" , list_book.get(position));
+
+                startActivityForResult(chosen_manga_activity,0);
+                overridePendingTransition(0,0);
+                finish();
+            }
+        });
+        manga_recycler_view.setAdapter(mAdapter);
+    }
+
+
     private void ShowMessage(String title, String message){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
@@ -171,9 +205,8 @@ public class Library extends AppCompatActivity {
             return false;
         }
     }
-    private void first_use(Context context){
 
-        int use = -1;
+    private boolean first_use(Context context){
         dataBase = new DataBase(context);
         Cursor res= dataBase.get_first_use();
 
@@ -181,20 +214,27 @@ public class Library extends AppCompatActivity {
         if (res.getCount() == 0){
             dataBase.initiate_first_use();
             ShowMessage("Hello", "It's your first time on this app, for updating your library just click on the top right button");
-            update_button.setEnabled(false);
-            new Server(context , activity, dataBase);
-
+//            update_button.setEnabled(false);
+//            state.setText(R.string.Loading);
+//            Server server = new Server(context , activity, dataBase);
+//            Boolean s =server.execute();
+//            if (s){
+//                dataBase.close();
+//                fill_library(context);
+////                state.setText(R.string.update_done);
+//            }
+            state.setText(R.string.clear_text);
             dataBase.close();
+            return true;
+        }
+
+        else {
             update_button.setEnabled(true);
+            dataBase.close();
             fill_library(context);
+            return false;
         }
 
-
-        //if we have already used
-        while (res.moveToNext()){
-            use = res.getInt(0);
-            fill_library(context);
-        }
     }
 
 
@@ -235,6 +275,7 @@ class Server{
     public String cover_link ;
     public String id_book ;
     public String last_chapitre;
+    public String description;
 
 
 
@@ -259,6 +300,7 @@ class Server{
         this.db.clear_chapter_table();
         this.db.clear_page_table();
 
+        activity.state.setText(R.string.Loading);
 
         //remplir la liste avant de remplir la base de données
         reference = FirebaseDatabase.getInstance().getReference().child("manga");
@@ -281,6 +323,7 @@ class Server{
                     cover_link = iterator.child("cover").getValue().toString();
                     id_book = iterator.child("id").getValue().toString();
                     last_chapitre = iterator.child("last_chapitre").getValue().toString();
+                    description = iterator.child("description").getValue().toString();
 
                     Iterable<DataSnapshot> chapitres = iterator.child("list_page").getChildren();
                     while (chapitres.iterator().hasNext()){
@@ -301,9 +344,30 @@ class Server{
                         list_chapitres.add(new Chapitre(num_chapitre, list_pages));
 
                     }
-                    activity.list_book.add(new Book(name,cover_link,id_book,last_chapitre,list_chapitres));
+                    activity.list_book.add(new Book(name,cover_link,id_book,last_chapitre,list_chapitres, description));
+
                 }
 
+                //mettre la liste list_book dans le bon ordre
+                ArrayList<Book> temporary_list = new ArrayList<>();
+
+
+                for (int i = 0; i < activity.list_book.size() ; i++) {
+                    for (Book item : activity.list_book){
+                        if(Integer.parseInt(item.getId_book()) == i){
+                            temporary_list.add(new Book(
+                                    item.getName(),
+                                    item.getCover_link(),
+                                    item.getId_book(),
+                                    item.getLast_chapitre(),
+                                    item.getList_chapitre(),
+                                    item.getDescription()));
+                        }
+                    }
+                }
+
+                activity.list_book.clear();
+                activity.list_book = temporary_list;
             }
 
             @Override
@@ -318,28 +382,137 @@ class Server{
             String manga_name = item.getName();
             String cover_link = item.getCover_link();
             String id_manga = item.getId_book();
-            this.db.insertManga(manga_name,cover_link,id_manga);
-        }
 
-        for (Book item: activity.list_book) {
-            String id_book = item.getId_book();
             String list_of_chapter = item.getList_Chapitre_from_one_to_end_as_list();
-            this.db.insertChapter(Integer.parseInt(id_book), list_of_chapter);
-        }
+            String text_description = item.getDescription();
 
-        for (Book item: activity.list_book) {
-            String id_book = item.getId_book();
 
-            for (Chapitre chapitre : activity.list_book.get(Integer.parseInt(id_book)).getList_chapitre()) {
+            this.db.insertManga(manga_name,cover_link,id_manga);
+            this.db.insertChapter(Integer.parseInt(id_manga), list_of_chapter);
+            this.db.insertDescription(id_manga, text_description);
+
+
+            for (Chapitre chapitre : activity.list_book.get(Integer.parseInt(id_manga)).getList_chapitre()) {
                 String num_chapitre = chapitre.getNum_chapitre();
                 String list_page = chapitre.getPages_as_list();
-                this.db.insertPages(Integer.parseInt(id_book), Integer.parseInt(num_chapitre), list_page);
-
+                this.db.insertPages(Integer.parseInt(id_manga), Integer.parseInt(num_chapitre), list_page);
             }
+
         }
-        Toast.makeText(context, "Update done", Toast.LENGTH_SHORT).show();
+
+//        for (Book item: activity.list_book) {
+//            String id_book = item.getId_book();
+//            String list_of_chapter = item.getList_Chapitre_from_one_to_end_as_list();
+//            this.db.insertChapter(Integer.parseInt(id_book), list_of_chapter);
+//        }
+
+//        for (Book item: activity.list_book) {
+//            String id_book = item.getId_book();
+//
+//            for (Chapitre chapitre : activity.list_book.get(Integer.parseInt(id_book)).getList_chapitre()) {
+//                String num_chapitre = chapitre.getNum_chapitre();
+//                String list_page = chapitre.getPages_as_list();
+//                this.db.insertPages(Integer.parseInt(id_book), Integer.parseInt(num_chapitre), list_page);
+//
+//            }
+//        }
+
+//        for (Book item: activity.list_book) {
+//            String id_manga = item.getId_book();
+//            String text_description = item.getDescription();
+//            this.db.insertDescription(id_manga, text_description);
+//        }
+//        activity.state.setText(R.string.update_done);
         return true;
     }
 
 
+}
+
+
+
+
+
+class Server_firebase {
+    Context context;
+    private WeakReference<Library> activityReference;
+
+    public String name ;
+    public String cover_link ;
+    public String id_book ;
+    public String last_chapitre;
+    public String description;
+
+    public DatabaseReference reference;
+
+    public Server_firebase(Context context, Library activity) {
+        this.context = context;
+        activityReference = new WeakReference<Library>(activity);
+    }
+
+    public boolean execute(){
+        Library activity = this.activityReference.get();
+        if (activity == null || activity.isFinishing()) {
+            return false;
+        }
+
+
+        activity.state.setText(R.string.Loading);
+
+        //remplir la liste
+        reference = FirebaseDatabase.getInstance().getReference().child("manga");
+        reference.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Library activity = activityReference.get();
+
+                activity.list_book.clear();
+                Iterable<DataSnapshot> book = dataSnapshot.getChildren();
+
+                while (book.iterator().hasNext()){
+                    DataSnapshot iterator = book.iterator().next();
+
+                    ArrayList<Chapitre> list_chapitres;
+                    list_chapitres = new ArrayList<>();
+
+                    name = iterator.child("name").getValue().toString();
+                    cover_link = iterator.child("cover").getValue().toString();
+                    id_book = iterator.child("id").getValue().toString();
+                    last_chapitre = iterator.child("last_chapitre").getValue().toString();
+                    description = iterator.child("description").getValue().toString();
+
+                    Iterable<DataSnapshot> chapitres = iterator.child("list_page").getChildren();
+                    while (chapitres.iterator().hasNext()){
+
+                        DataSnapshot iterator2 = chapitres.iterator().next();
+                        String n = iterator2.child(iterator2.getKey()).getKey().toString();
+                        String[]m = n.split("__");
+                        String num_chapitre = m[1];
+
+                        ArrayList<String> list_pages = new ArrayList<>();
+
+                        Iterable<DataSnapshot> pages = iterator.child("list_page").child(n).getChildren();
+                        while (pages.iterator().hasNext()){
+                            DataSnapshot iterator3 = pages.iterator().next();
+                            list_pages.add(iterator3.getValue().toString());
+                        }
+                        list_chapitres.add(new Chapitre(num_chapitre, list_pages));
+
+                    }
+                    activity.list_book.add(new Book(name,cover_link,id_book,last_chapitre,list_chapitres, description));
+
+                }
+                activity.fill_library_firebase(context);
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        return true;
+    }
 }
