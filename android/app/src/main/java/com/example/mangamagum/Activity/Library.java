@@ -60,6 +60,7 @@ public class Library extends AppCompatActivity {
         state = findViewById(R.id.state);
 
         update_button = findViewById(R.id.update_database);
+
         go_to_favorites = findViewById(R.id.go_to_favorite);
         go_to_favorites.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -428,10 +429,6 @@ class Server{
 
 
 }
-
-
-
-
 
 class Server_firebase {
     Context context;
