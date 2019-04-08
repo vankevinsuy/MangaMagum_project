@@ -44,7 +44,6 @@ public class Page_adapter extends RecyclerView.Adapter<Page_adapter.ViewHolder>{
     public void onBindViewHolder(@NonNull Page_adapter.ViewHolder viewHolder, int i) {
         String image_url = this.List_urls.get(i);
 
-
 //        Picasso.with(context).load(image_url).into(viewHolder.imageView);
         Glide
                 .with(context)

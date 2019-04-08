@@ -28,6 +28,7 @@ public class Reading extends AppCompatActivity {
     private ArrayList<String> list_urls;
 
     public RecyclerView mRecyclerView;
+    public RecyclerView.Adapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,12 +56,22 @@ public class Reading extends AppCompatActivity {
             }
         }
 
+        ArrayList<String> corected_list = new ArrayList<>();
+
+        for(String link : this.list_urls){
+            corected_list.add(link.replaceAll("\\s+",""));
+        }
+
+//        Toast.makeText(this, this.list_urls.get(1), Toast.LENGTH_SHORT).show();
+
+
+
         mRecyclerView = findViewById(R.id.page_recycler_view);
-        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(false);
         LinearLayoutManager manager = new LinearLayoutManager(this.getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(manager);
-        Page_adapter page_adapter = new Page_adapter(this.list_urls, this.getApplicationContext(), width,height);
-        mRecyclerView.setAdapter(page_adapter);
+        mAdapter = new Page_adapter(corected_list, this.getApplicationContext(), width,height);
+        mRecyclerView.setAdapter(mAdapter);
 
     }
 

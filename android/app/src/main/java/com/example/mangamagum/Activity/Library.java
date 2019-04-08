@@ -498,7 +498,6 @@ class Server_firebase {
                             list_pages.add(iterator3.getValue().toString());
                         }
                         list_chapitres.add(new Chapitre(num_chapitre, list_pages));
-
                     }
                     activity.list_book.add(new Book(name,cover_link,id_book,last_chapitre,list_chapitres, description));
 
