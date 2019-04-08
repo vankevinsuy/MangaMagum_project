@@ -23,6 +23,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.lang.ref.WeakReference;
@@ -73,7 +74,8 @@ public class Favorites extends AppCompatActivity {
         favorites_recycler_view.setLayoutManager(new GridLayoutManager(this,3));
 
         dataBase = new DataBase(this);
-
+//        Query_firebase query_firebase = new Query_firebase(getApplicationContext(),this);
+//        query_firebase.execute();
         Server_firebase_favorite server_firebase_favorite = new Server_firebase_favorite(getApplicationContext(),this);
         server_firebase_favorite.execute();
     }
@@ -204,5 +206,43 @@ class Server_firebase_favorite {
 
             }
         });
+    }
+}
+
+
+class Query_firebase{
+    public DatabaseReference reference;
+    Context context;
+    private WeakReference<Favorites> activityReference;
+
+
+
+    public Query_firebase(Context context, Favorites activity) {
+        this.context = context;
+        this.activityReference = new WeakReference<Favorites>(activity);
+    }
+
+    public void execute(){
+        DataBase dataBase = new DataBase(context);
+        ArrayList<Integer> all_fav = dataBase.get_all_favorites();
+
+        for(Integer id_book : all_fav){
+            Query query = FirebaseDatabase.getInstance().getReference("manga").orderByChild("id").equalTo(id_book);
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()){
+                        Toast.makeText(context, dataSnapshot.getValue().toString(),Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+
     }
 }

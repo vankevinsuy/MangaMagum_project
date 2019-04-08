@@ -107,15 +107,10 @@ public class Library extends AppCompatActivity {
 
 //        Boolean s = first_use(context);
 
-        if(internet_check & network_check){
-            update_button.setEnabled(true);
-            Server_firebase server_firebase = new Server_firebase(context,this);
-            server_firebase.execute();
-        }
-        else {
-            update_button.setEnabled(false);
-            update_button.setBackgroundResource(R.drawable.no_internet);
-        }
+        update_button.setEnabled(true);
+        Server_firebase server_firebase = new Server_firebase(context,this);
+        server_firebase.execute();
+
 
 //        if(!s){
 //            fill_library(this);
