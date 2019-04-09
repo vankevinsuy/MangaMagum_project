@@ -92,9 +92,7 @@ public class Reading extends AppCompatActivity {
 
         chosen_manga_activity.putExtra("selected_book" , selected_book);
 
-        startActivityForResult(chosen_manga_activity,0);
-        overridePendingTransition(0,0);
-        finish();
+        startActivity(chosen_manga_activity);
     }
 
 }

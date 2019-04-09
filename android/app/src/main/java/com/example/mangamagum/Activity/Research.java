@@ -2,7 +2,9 @@ package com.example.mangamagum.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,13 +13,21 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.mangamagum.Adapter.Library_Adapter;
 import com.example.mangamagum.Adapter.Research_adapter;
 import com.example.mangamagum.Model.Book;
+import com.example.mangamagum.Model.Chapitre;
 import com.example.mangamagum.Model.DataBase;
 import com.example.mangamagum.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 public class Research extends AppCompatActivity {
@@ -31,11 +41,12 @@ public class Research extends AppCompatActivity {
 
     private DataBase dataBase;
 
+    public ArrayList<Book> list_book;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_research);
-        dataBase = new DataBase(this);
 
 
         go_to_favorites = findViewById(R.id.go_to_favorite);
@@ -43,10 +54,7 @@ public class Research extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent favorite = new Intent(getApplicationContext(), Favorites.class);
-                startActivityForResult(favorite,0);
-                overridePendingTransition(0,0);
-//                startActivity(favorite);
-                finish();
+                startActivity(favorite);
             }
         });
 
@@ -55,12 +63,10 @@ public class Research extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent library = new Intent(getApplicationContext(), Library.class);
-                startActivityForResult(library,0);
-                overridePendingTransition(0,0);
-//                startActivity(library);
-                finish();
+                startActivity(library);
             }
         });
+
         //remove focus on edit text
 //        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
@@ -69,19 +75,31 @@ public class Research extends AppCompatActivity {
         result_recycler_view.setHasFixedSize(false);
         result_recycler_view.setLayoutManager(new GridLayoutManager(this,3));
 
-
-
+        Loading_data_research loading_data_research = new Loading_data_research(this,getApplicationContext());
+        loading_data_research.execute();
 
         search_bar = findViewById(R.id.search_bar);
         search_bar.addTextChangedListener(new TextWatcher() {
+
+            ArrayList<Book>to_display = new ArrayList<>();
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                init_fill_library(getApplicationContext());
+//                to_display.clear();
+
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                fill_research(getApplicationContext(), dataBase.search_bar_database(charSequence));
+                to_display.clear();
+                for(Book book_item : list_book){
+                    String item = book_item.getName().replaceAll("\\s+","").toUpperCase();
+                    charSequence = charSequence.toString().replaceAll("\\s+","").toUpperCase();
+                    if(item.contains(charSequence)){
+                        to_display.add(book_item);
+                    }
+                }
+                fill_research(getApplicationContext(), to_display);
+
             }
 
             @Override
@@ -96,68 +114,121 @@ public class Research extends AppCompatActivity {
 
 
 
-    public ArrayList<Book> init_fill_library(Context context){
-        final ArrayList<Book> arrayList_book = dataBase.get_all_manga();
+
+    public void fill_research(Context context, final ArrayList<Book> books){
+        final ArrayList<Book> arrayList_book = books;
 
         mAdapter = new Research_adapter(arrayList_book, context);
         ((Research_adapter) mAdapter).setOnItemClickListener(new Research_adapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                String id_book = arrayList_book.get(position).getId_book();
-                String manga_name = arrayList_book.get(position).getName();
-                String cover_link = arrayList_book.get(position).getCover_link();
 
                 Intent chosen_manga_activity = new Intent(getApplicationContext() , Chosen_manga.class);
 
-                chosen_manga_activity.putExtra("id_book" , id_book);
-                chosen_manga_activity.putExtra("manga_name" , manga_name);
-                chosen_manga_activity.putExtra("cover_link" , cover_link);
+                chosen_manga_activity.putExtra("selected_book" , books.get(position));
 
-                startActivityForResult(chosen_manga_activity,0);
-                overridePendingTransition(0,0);
 
-//                startActivity(chosen_manga_activity);
-                finish();
+                startActivity(chosen_manga_activity);
             }
         });
         result_recycler_view.setAdapter(mAdapter);
-        return arrayList_book;
-    }
-
-    public void fill_research(Context context, ArrayList<Book> books){
-        final ArrayList<Book> arrayList_book = books;
-
-        mAdapter = new Library_Adapter(arrayList_book, context);
-        ((Library_Adapter) mAdapter).setOnItemClickListener(new Library_Adapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                String id_book = arrayList_book.get(position).getId_book();
-                String manga_name = arrayList_book.get(position).getName();
-                String cover_link = arrayList_book.get(position).getCover_link();
-
-                Intent chosen_manga_activity = new Intent(getApplicationContext() , Chosen_manga.class);
-
-                chosen_manga_activity.putExtra("id_book" , id_book);
-                chosen_manga_activity.putExtra("manga_name" , manga_name);
-                chosen_manga_activity.putExtra("cover_link" , cover_link);
-
-                startActivityForResult(chosen_manga_activity,0);
-                overridePendingTransition(0,0);
-//                startActivity(chosen_manga_activity);
-                finish();
-            }
-        });
-        result_recycler_view.setAdapter(mAdapter);
-//        return arrayList_book;
     }
 
 
     @Override
     public void onBackPressed() {
         Intent library = new Intent(getApplicationContext() , Library.class);
-        startActivityForResult(library,0);
-        overridePendingTransition(0,0);
-//        startActivity(library);
-        finish();
+        startActivity(library);
+    }
+}
+
+
+
+
+
+class Loading_data_research extends AsyncTask<Void,Void,Void> {
+    private WeakReference<Research> activityReference;
+    Context context;
+
+    private ImageButton go_to_favorites;
+    private ImageButton go_to_search;
+
+
+    public RecyclerView manga_recycler_view;
+    public RecyclerView.Adapter mAdapter;
+
+    private Boolean internet_check;
+    private Boolean network_check;
+
+
+
+    public Loading_data_research(Research activity, Context context) {
+        this.activityReference = new WeakReference<Research>(activity);
+        this.context = context;
+    }
+
+    @Override
+    protected Void doInBackground(Void... voids) {
+        DatabaseReference reference;
+
+        //remplir la liste
+        reference = FirebaseDatabase.getInstance().getReference().child("manga");
+        reference.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String name ;
+                String cover_link ;
+                String id_book ;
+                String last_chapitre;
+                String description;
+                final Research activity = activityReference.get();
+
+
+                activity.list_book = new ArrayList<>();
+                Iterable<DataSnapshot> book = dataSnapshot.getChildren();
+
+                while (book.iterator().hasNext()){
+                    DataSnapshot iterator = book.iterator().next();
+
+                    ArrayList<Chapitre> list_chapitres;
+                    list_chapitres = new ArrayList<>();
+
+                    name = iterator.child("name").getValue().toString();
+                    cover_link = iterator.child("cover").getValue().toString();
+                    id_book = iterator.child("id").getValue().toString();
+                    last_chapitre = iterator.child("last_chapitre").getValue().toString();
+                    description = iterator.child("description").getValue().toString();
+
+                    Iterable<DataSnapshot> chapitres = iterator.child("list_page").getChildren();
+                    while (chapitres.iterator().hasNext()){
+
+                        DataSnapshot iterator2 = chapitres.iterator().next();
+                        String n = iterator2.child(iterator2.getKey()).getKey().toString();
+                        String[]m = n.split("__");
+                        String num_chapitre = m[1];
+
+                        ArrayList<String> list_pages = new ArrayList<>();
+
+                        Iterable<DataSnapshot> pages = iterator.child("list_page").child(n).getChildren();
+                        while (pages.iterator().hasNext()){
+                            DataSnapshot iterator3 = pages.iterator().next();
+                            list_pages.add(iterator3.getValue().toString());
+                        }
+                        list_chapitres.add(new Chapitre(num_chapitre, list_pages));
+                    }
+                    activity.list_book.add(new Book(name,cover_link,id_book,last_chapitre,list_chapitres, description));
+                }
+
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        return null;
     }
 }

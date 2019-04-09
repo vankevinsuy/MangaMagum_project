@@ -52,9 +52,7 @@ public class Favorites extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent library = new Intent(getApplicationContext(), Library.class);
-                startActivityForResult(library,0);
-                overridePendingTransition(0,0);
-                finish();
+                startActivity(library);
             }
         });
 
@@ -63,9 +61,7 @@ public class Favorites extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent search_layout = new Intent(getApplicationContext(), Research.class);
-                startActivityForResult(search_layout,0);
-                overridePendingTransition(0,0);
-                finish();
+                startActivity(search_layout);
             }
         });
 
@@ -76,8 +72,12 @@ public class Favorites extends AppCompatActivity {
         dataBase = new DataBase(this);
 //        Query_firebase query_firebase = new Query_firebase(getApplicationContext(),this);
 //        query_firebase.execute();
+
+
         Server_firebase_favorite server_firebase_favorite = new Server_firebase_favorite(getApplicationContext(),this);
         server_firebase_favorite.execute();
+
+
     }
 
 
@@ -100,20 +100,10 @@ public class Favorites extends AppCompatActivity {
         favorites_recycler_view.setAdapter(mAdapter);
     }
 
-    private void ShowMessage(String title, String message){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle(title);
-        builder.setMessage(message);
-        builder.show();
-    }
-
     @Override
     public void onBackPressed() {
         Intent library = new Intent(getApplicationContext() , Library.class);
-        startActivityForResult(library,0);
-        overridePendingTransition(0,0);
-        finish();
+        startActivity(library);
     }
 }
 
@@ -129,9 +119,6 @@ class Server_firebase_favorite {
     public String description;
     public DataBase dataBase;
 
-
-
-
     public DatabaseReference reference;
 
     public Server_firebase_favorite(Context context, Favorites activity) {
@@ -143,6 +130,7 @@ class Server_firebase_favorite {
 
         //remplir la liste
         reference = FirebaseDatabase.getInstance().getReference().child("manga");
+        Favorites activity = activityReference.get();
         reference.addValueEventListener(new ValueEventListener() {
 
             @Override
@@ -206,6 +194,7 @@ class Server_firebase_favorite {
 
             }
         });
+
     }
 }
 

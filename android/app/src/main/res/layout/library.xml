@@ -1,127 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Activity.Library"
-    android:background="#FFFF">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/main_layout"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/manga_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_marginBottom="8dp"
+        android:scrollbars="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/relativeLayout">
 
-        <RelativeLayout
-            android:id="@+id/header_layout"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/colorPrimary">
+    </android.support.v7.widget.RecyclerView>
 
-            <TextView
-                android:id="@+id/state"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textColor="@color/text_header"
-                android:text=""
-                android:layout_centerInParent="true"/>
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true">
 
-            <ImageButton
-                android:id="@+id/update_database"
-                android:layout_width="29dp"
-                android:layout_height="35dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="11dp"
-                android:background="@drawable/update_image"
-                android:contentDescription="update" />
-        </RelativeLayout>
+        <ImageButton
+            android:id="@+id/go_to_library_button"
+            android:layout_centerVertical="true"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_above="@id/textView_library"
+            android:layout_marginLeft="22dp"
+            android:background="@drawable/library_image" />
 
+        <TextView
+            android:id="@+id/textView_library"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="16.5dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/library" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/manga_recycler_view"
-            android:scrollbars="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/navigation_bar"
-            android:layout_below="@id/header_layout" />
+        <ImageButton
+            android:id="@+id/go_to_search_button"
+            android:layout_centerInParent="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_above="@id/textview_search"
+            android:background="@drawable/search_icon" />
 
-        <RelativeLayout
-            android:id="@+id/navigation_bar"
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_alignParentBottom="true">
+        <TextView
+            android:id="@+id/textview_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:text="@string/search"
 
-            <ImageButton
-                android:id="@+id/go_to_library_button"
-                android:layout_width="25dp"
-                android:layout_height="30dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="25dp"
-                android:layout_marginBottom="40dp"
-                android:background="@drawable/library_image" />
-
-            <TextView
-                android:id="@+id/textView_library"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="16.5dp"
-                android:layout_marginBottom="20dp"
-                android:text="@string/library" />
-
-            <ImageButton
-                android:id="@+id/go_to_search_button"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="40dp"
-                android:background="@drawable/search_icon" />
-
-            <TextView
-                android:id="@+id/textview_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="20dp"
-                android:text="@string/search"
-
-                />
-
-            <ImageButton
-                android:id="@+id/go_to_favorite"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="40dp"
-                android:background="@drawable/favorite_image" />
-
-            <TextView
-                android:id="@+id/textview_favorite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginEnd="13dp"
-                android:layout_marginBottom="20dp"
-                android:text="@string/favorite" />
+            />
 
 
-        </RelativeLayout>
+        <ImageButton
+            android:id="@+id/go_to_favorite"
+            android:layout_centerVertical="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_above="@id/textview_favorite"
+            android:background="@drawable/favorite_image" />
+
+        <TextView
+            android:id="@+id/textview_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16.5dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/favorite" />
 
     </RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+
+
+</RelativeLayout>

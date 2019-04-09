@@ -49,9 +49,7 @@ public class Chosen_manga extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent library = new Intent(getApplicationContext(), Library.class);
-                startActivityForResult(library,0);
-                overridePendingTransition(0,0);
-                finish();
+                startActivity(library);
             }
         });
 
@@ -60,9 +58,7 @@ public class Chosen_manga extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent favorites = new Intent(getApplicationContext(), Favorites.class);
-                startActivityForResult(favorites,0);
-                overridePendingTransition(0,0);
-                finish();
+                startActivity(favorites);
             }
         });
 
@@ -71,9 +67,7 @@ public class Chosen_manga extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent search_layout = new Intent(getApplicationContext(), Research.class);
-                startActivityForResult(search_layout,0);
-                overridePendingTransition(0,0);
-                finish();
+                startActivity(search_layout);
             }
         });
 
@@ -170,7 +164,6 @@ public class Chosen_manga extends AppCompatActivity {
                 reading_activity.putExtra("chapter_target" , chapter_target);
 
                 startActivity(reading_activity);
-                finish();
             }
         });
 
