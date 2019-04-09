@@ -81,5 +81,5 @@ Mail().send_report_to_admin("Server has finished to run")
 
 if platform.system() == "Linux":
     #turn off the server
-    cmdCommand = "sudo poweroff -h now"
+    cmdCommand = "sudo shutdown -h now"
     process = subprocess.Popen(cmdCommand.split(), stdout=subprocess.PIPE)
