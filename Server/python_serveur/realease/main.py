@@ -59,6 +59,9 @@ def launch():
 
     if what_to_do == "quit":
         sys.exit()
+    if what_to_do == "poweroff":
+        cmdCommand = "sudo poweroff -h now"
+        process = subprocess.Popen(cmdCommand.split(), stdout=subprocess.PIPE)
 
 
 
@@ -67,6 +70,7 @@ print("update the database : update")
 print("add new manga in database : add")
 print("force insertion of datas in databases : finsert")
 print("quit program : quit")
+print("turn off server : poweroff")
 
 launch()
 
@@ -77,5 +81,5 @@ Mail().send_report_to_admin("Server has finished to run")
 
 if platform.system() == "Linux":
     #turn off the server
-    cmdCommand = "sudo shutdown -h now"
+    cmdCommand = "sudo poweroff -h now"
     process = subprocess.Popen(cmdCommand.split(), stdout=subprocess.PIPE)
