@@ -38,6 +38,7 @@ for line in file :
         manga = ""
         cover = ""
         list_of_link = []
+        book_description =""
     if "--MANGA--" in line :
         manga = line[10:-1]
     if "--COVER--" in line :
@@ -47,7 +48,8 @@ for line in file :
     if "--FIN NEW--" in line:
         input_file_as_list_of_dict.append({"manga_name": manga,
                                            "cover_link": cover,
-                                           "list_of_link": list_of_link})
+                                           "list_of_link": list_of_link,
+                                           "description": book_description})
 
 # rewritting manga in case of a new link
 id_book = 0

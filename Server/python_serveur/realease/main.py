@@ -10,7 +10,7 @@ from server_functions.Mail import Mail
 
 def launch():
     import os
-
+    Mail().clear()
     if platform.system() == "Windows":
         path_output = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout"
 
@@ -47,6 +47,7 @@ def launch():
 
         else:
             from server_functions import update_content
+            Mail().add("ACTION : update")
             update_content
             return 1
 
@@ -59,9 +60,12 @@ def launch():
 
     if what_to_do == "quit":
         sys.exit()
+
     if what_to_do == "poweroff":
-        cmdCommand = "sudo poweroff -h now"
-        process = subprocess.Popen(cmdCommand.split(), stdout=subprocess.PIPE)
+        if platform.system() == "Linux":
+            #turn off the server
+            cmdCommand = "sudo shutdown -h now"
+            process = subprocess.Popen(cmdCommand.split(), stdout=subprocess.PIPE)
 
 
 
@@ -70,7 +74,7 @@ print("update the database : update")
 print("add new manga in database : add")
 print("force insertion of datas in databases : finsert")
 print("quit program : quit")
-print("turn off server : poweroff")
+print("turn off the server : poweroff")
 
 launch()
 

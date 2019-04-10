@@ -219,7 +219,7 @@ def get_last_id():
 
         last_id = 0
         for line in csv_reader :
-            last_id = int(line[-1])
+            last_id = int(line[-2])
     return last_id
 
 def add_new_manga() :
@@ -233,6 +233,7 @@ def add_new_manga() :
             manga = ""
             cover = ""
             list_of_link = []
+            book_description =""
         if "--MANGA--" in line:
             manga = line[10:-1]
         if "--COVER--" in line:
@@ -242,7 +243,8 @@ def add_new_manga() :
         if "--FIN NEW--" in line:
             input_file_as_list_of_dict.append({"manga_name":   manga,
                                                "cover_link":   cover,
-                                               "list_of_link": list_of_link})
+                                               "list_of_link": list_of_link,
+                                               "description": book_description})
 
     with open(input_file_path , 'a') as input_file :
         for item in input_file_as_list_of_dict :
@@ -251,11 +253,13 @@ def add_new_manga() :
             manga = item['manga_name']
             cover = item['cover_link']
             link = item['list_of_link']
+            desc = item['description']
 
             # adding data in input file
             input_file.write("\n---NEW---\n")
             input_file.write("--MANGA--:" + manga +"\n")
             input_file.write("--COVER--:" + cover +"\n")
+            input_file.write("--DESC-- :" + desc +"\n")
             for i in range(len(link)):
                 input_file.write("--LINK-- :" + link[i] +"\n")
             input_file.write("\n--FIN NEW--")
@@ -266,5 +270,6 @@ def add_new_manga() :
             write_page(item, id_book)
             gc.collect()
 
-    new_manga = open(path_new_manga,'w').close()
+    new_manga = open(path_new_manga,'w')
+    new_manga.close()
     insert_all()

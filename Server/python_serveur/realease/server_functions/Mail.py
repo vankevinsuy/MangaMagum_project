@@ -29,3 +29,7 @@ class Mail:
         mailserver.sendmail('vkubuntuserver@gmail.com', 'vkubuntuserver@gmail.com', msg.as_string())
         mailserver.quit()
         file = open("report.txt",'w')
+
+    def clear(self):
+        file = open("report.txt",'w')
+        file.close()

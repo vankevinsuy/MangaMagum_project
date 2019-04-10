@@ -1,6 +1,7 @@
 ---NEW---
 --MANGA--:Black Clover
 --COVER--:https://www.nautiljon.com/images/more/00/96/72069.jpg
+--DESC-- :Asta, a young orphan who was raised from birth after being abandoned at a church orphanage on the outskirts of the Clover Kingdom along with his fellow orphan, Yuno. While everyone is born with the ability to utilize Mana in the form of Magical Power (魔力 Maryoku), Asta is the only exception as he compensates through physical training. Conversely, Yuno was born as a prodigy with immense magical power and the talent to control wind magic. Motivated by a desire to become the next Wizard King, an authority figure second to the king of Clover Kingdom, the two youths developed a friendly rivalry, acquired grimoires with Yuno obtaining a four-leaf grimoire held by the kingdom's first Wizard King.
 --LINK-- :https://cdn.mangahub.io/file/imghub/black-clover/{}/{}.jpg
 --LINK-- :https://cdn.mangahub.io/file/imghub/black-clover/{}/{}.png
 --FIN NEW--
@@ -8,6 +9,7 @@
 ---NEW---
 --MANGA--:Death Note
 --COVER--:https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/1913ba64-f52f-4dfc-b544-c1a0bc12b19d/d1xmeas-dfba9f91-c8c4-40fc-8370-c44369865a01.jpg
+--DESC-- :In Tokyo, an intelligent yet disaffected high-school student named Light Yagami finds the "Death Note", a mysterious black notebook which can kill anyone as long as the user knows both the target's name and face. After verifying that the notebook works and initially being terrified of its god-like abilities, Light begins to consider the possibilities of the Death Note's abilities and sets out to create a utopian world without crime, killing numerous high-profile Japanese criminals, before eventually targeting international law-offenders around the world. Eventually, Light is visited by Ryuk, a Japanese god of death and the Death Note's previous owner, who dropped the notebook into the human world out of boredom. Ryuk, who is invisible to anyone who has not touched the Death Note, is amused by Light's actions and serves as Light's companion.
 --LINK-- :https://cdn.mangahub.io/file/imghub/death-note/{}/{}.jpg
 --LINK-- :https://cdn.mangahub.io/file/imghub/death-note/{}/{}.png
 --FIN NEW--
@@ -15,6 +17,7 @@
 ---NEW---
 --MANGA--:My Hero Academia
 --COVER--:https://cdn.shopify.com/s/files/1/0747/3829/products/mz1096_1024x1024.jpeg?v=1485014933
+--DESC-- :n a world where people with superpowers (known as "Quirks" (個性 Kosei)) are the norm, Izuku Midoriya has dreams of one day becoming a Hero, despite being bullied by his classmates for not having a Quirk. After being the only one to try and save his childhood friend Katsuki Bakugo from a villain, All Might, the world's greatest Hero, bestows upon him his own Quirk "One For All". The story follows Izuku's entrance into U.A. High School (雄英高校 Yūei Kōkō), a school that cultivates the next generation of superheroes.
 --LINK-- :https://cdn.mangahub.io/file/imghub/boku-no-hero-academia/{}/{}.jpg
 --LINK-- :https://cdn.mangahub.io/file/imghub/boku-no-hero-academia/{}/{}.png
 --FIN NEW--
@@ -22,6 +25,7 @@
 ---NEW---
 --MANGA--:One Punch Man
 --COVER--:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-SbmjrnooAVSd5hgT6E0ZV5-cJVdA2JXS0QEuozYvWLPFwEa5
+--DESC-- : powerful monsters and villains have been mysteriously appearing and causing disasters. To combat them, the world's government created a Hero Association that employs superheroes to stop the violent creatures and villains. Each of the Hero Association's superheroes are ranked from Class-C to Class-S. Saitama is an unranked hero, hailing from the metropolis of City-Z, who performs heroic deeds for his own entertainment. He has trained himself to the point where he can effortlessly defeat any opponent with a single punch.
 --LINK-- :https://cdn.mangahub.io/file/imghub/onepunch-man/{}/{}.jpg
 --LINK-- :https://cdn.mangahub.io/file/imghub/onepunch-man/{}/{}.png
 --FIN NEW--
@@ -29,6 +33,7 @@
 ---NEW---
 --MANGA--:Nanatsu no Taizai
 --COVER--:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0jtzI_YKV3K3slsmTZF8PseEMqZs7YgRAqXyHddXOAQDWAAl_
+--DESC-- :The Seven Deadly Sins were once an active group of knights in the region of Britannia (ブリタニア Buritania), who disbanded after they supposedly plotted to overthrow the Liones Kingdom (リオネス王国 Rionesu Ōkoku). Their supposed defeat came at the hands of the Holy Knights, but rumors continued to persist that they were still alive. Ten years later, the Holy Knights staged a coup d'état and captured the king, becoming the new, tyrannical rulers of the kingdom. The third princess, Elizabeth, then starts out on a journey to find the Seven Deadly Sins and enlist their help in taking back the kingdom from the Holy Knights.
 --LINK-- :https://cdn.mangahub.io/file/imghub/nanatsu-no-taizai/{}/{}.jpg
 --LINK-- :https://cdn.mangahub.io/file/imghub/nanatsu-no-taizai/{}/{}.png
 --FIN NEW--
@@ -36,6 +41,7 @@
 ---NEW---
 --MANGA--:Boruto
 --COVER--:https://dw9to29mmj727.cloudfront.net/properties/2016/1363-SeriesThumbnail_BorutoAnime_400x320_v2.jpg
+--DESC-- :Being the son of the Seventh Hokage Naruto Uzumaki, Boruto who felt angry over his father placing the village before that of his family. At that time, Boruto had become a member of a ninja team led by Naruto's protégé Konohamaru Sarutobi, along with Sarada Uchiha, the daughter of Sasuke and Sakura Uchiha, and Mitsuki, Orochimaru's artificial son. When Sasuke returns to the village to warn Naruto of an impending threat relating to deducing the motivations of Kaguya Ōtsutsuki, Boruto persuades the Uchiha to train him for the upcoming Chunin exam to impress his father.
 --LINK-- :https://cdn.mangahub.io/file/imghub/boruto-naruto-next-generations/{}/{}.jpg
 --LINK-- :https://cdn.mangahub.io/file/imghub/boruto-naruto-next-generations/{}/{}.png
 --FIN NEW--
@@ -43,6 +49,7 @@
 ---NEW---
 --MANGA--:Attack on Titan
 --COVER--:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvoovvtrjdU7LD1Lb2MdbWXKyBl_69rVQrKIkFV_6miNxnPJvI
+--DESC-- :Over 100 years before the beginning of the story on an alternate world, giant humanoid creatures called Titans (巨人 Kyojin) suddenly appeared and started devouring humans without remorse or reason; they completely ignore other wildlife. Nearly wiped out, what remains of humanity now resides within three enormous curtain walls: the outermost is Wall Maria (ウォール・マリア Wōru Maria); the middle wall is Wall Rose (ウォール・ローゼ Wōru Rōze, sometimes pronounced like rosé) and the innermost is Wall Sheena (ウォール・シーナ Wōru Shīna, alt. "Wall Sina"). Inside these walls, humanity has lived in uneasy peace for one hundred years, with many people growing up without ever having seen a Titan.
 --LINK-- :https://cdn.mangahub.io/file/imghub/attack-on-titan/{}/{}.jpg
 --LINK-- :https://cdn.mangahub.io/file/imghub/attack-on-titan/{}/{}.png
 --FIN NEW--

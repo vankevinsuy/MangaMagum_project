@@ -22,3 +22,11 @@
 --LINK-- :http://lelscanv.com/mangas/one-piece/{}/{}.png?v=en
 
 --FIN NEW--
+
+
+---NEW---
+--MANGA--:Naruto
+--COVER--:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYFxl5f5XsfVoTJbGeC2o77e44IxXB_tUvi7nAS9mSAnQC2ZTx
+--LINK-- :https://cdn.mangahub.io/file/imghub/naruto/{}/{}.jpg
+--LINK-- :https://cdn.mangahub.io/file/imghub/naruto/{}/{}.png
+--FIN NEW--

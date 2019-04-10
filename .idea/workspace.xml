@@ -3,13 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="1cd27e68-b84f-4657-a132-0e03b49e4497" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/python_serveur/dev/URL_Checker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/dev/server_functions/URL_Checker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/python_serveur/dev/insert_in_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/dev/server_functions/insert_in_db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/python_serveur/dev/insertion.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/python_serveur/dev/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/dev/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/python_serveur/dev/reload_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/dev/server_functions/reload_all.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/python_serveur/dev/update_content.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/dev/server_functions/update_content.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/python_serveur/dev/write_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/dev/server_functions/write_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/python_serveur/dev/outpout/manga.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/dev/outpout/manga.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/python_serveur/dev/server_functions/update_content.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/dev/server_functions/update_content.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/python_serveur/realease/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/realease/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/python_serveur/realease/new_manga.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/realease/new_manga.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/python_serveur/realease/outpout/hello.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/python_serveur/realease/outpout/manga.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/realease/outpout/manga.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/python_serveur/realease/report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/realease/report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/python_serveur/realease/server_functions/Mail.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/realease/server_functions/Mail.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/python_serveur/realease/server_functions/update_content.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/realease/server_functions/update_content.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/python_serveur/realease/server_functions/write_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server/python_serveur/realease/server_functions/write_data.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,41 +22,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/python_serveur/realease/server_functions/write_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="562">
+              <caret line="269" column="21" selection-start-line="269" selection-start-column="21" selection-end-line="269" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Server/python_serveur/dev/server_functions/write_data.py">
+        <entry file="file://$PROJECT_DIR$/Server/python_serveur/realease/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3980">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="204">
+              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/python_serveur/dev/server_functions/insert_in_db.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/python_serveur/dev/server_functions/reload_all.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="61" lean-forward="true" selection-start-line="1" selection-start-column="61" selection-end-line="1" selection-end-column="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/python_serveur/dev/server_functions/update_content.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="48" selection-start-column="48" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/python_serveur/dev/server_functions/URL_Checker.py">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -82,6 +66,8 @@
         <option value="$PROJECT_DIR$/Server/python_serveur/dev/server_functions/write_data.py" />
         <option value="$PROJECT_DIR$/Server/python_serveur/dev/server_functions/reload_all.py" />
         <option value="$PROJECT_DIR$/Server/python_serveur/dev/server_functions/update_content.py" />
+        <option value="$PROJECT_DIR$/Server/python_serveur/realease/server_functions/write_data.py" />
+        <option value="$PROJECT_DIR$/Server/python_serveur/realease/main.py" />
       </list>
     </option>
   </component>
@@ -123,15 +109,7 @@
               <item name="MangaMagum_project" type="462c0819:PsiDirectoryNode" />
               <item name="Server" type="462c0819:PsiDirectoryNode" />
               <item name="python_serveur" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MangaMagum_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MangaMagum_project" type="462c0819:PsiDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="python_serveur" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="server_functions" type="462c0819:PsiDirectoryNode" />
+              <item name="realease" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -204,7 +182,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22281879" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2261745" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -262,9 +240,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/python_serveur/dev/server_functions/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/python_serveur/dev/server_functions/__init__.py" />
     <entry file="file://$PROJECT_DIR$/Server/python_serveur/dev/add_new_manga.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -279,30 +255,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Server/python_serveur/dev/server_functions/write_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Server/python_serveur/dev/server_functions/insert_in_db.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/python_serveur/dev/server_functions/reload_all.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="61" lean-forward="true" selection-start-line="1" selection-start-column="61" selection-end-line="1" selection-end-column="61" />
+        <state>
+          <caret column="15" selection-start-column="15" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/python_serveur/dev/server_functions/update_content.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="48" selection-start-column="48" selection-end-column="48" />
+          <caret column="41" selection-start-column="41" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/python_serveur/dev/server_functions/URL_Checker.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/python_serveur/dev/server_functions/write_data.py">
+    <entry file="file://$PROJECT_DIR$/Server/python_serveur/realease/server_functions/write_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3980">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="562">
+          <caret line="269" column="21" selection-start-line="269" selection-start-column="21" selection-end-line="269" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/python_serveur/realease/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
         </state>
       </provider>
     </entry>
