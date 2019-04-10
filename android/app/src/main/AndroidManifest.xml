@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mangamagum">
+    package="com.wallaby.mangamagum">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,16 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.Research"></activity>
-        <activity android:name=".Activity.Favorites" />
+        <activity android:name="com.wallaby.mangamagum.Activity.Research"></activity>
+        <activity android:name="com.wallaby.mangamagum.Activity.Favorites" />
         <activity
-            android:name=".Activity.Reading"
+            android:name="com.wallaby.mangamagum.Activity.Reading"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activity.Chosen_manga"
+            android:name="com.wallaby.mangamagum.Activity.Chosen_manga"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activity.Library"
+            android:name="com.wallaby.mangamagum.Activity.Library"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

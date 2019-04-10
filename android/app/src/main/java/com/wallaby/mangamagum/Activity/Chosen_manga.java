@@ -1,6 +1,5 @@
-package com.example.mangamagum.Activity;
+package com.wallaby.mangamagum.Activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -12,9 +11,9 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.example.mangamagum.Model.Book;
-import com.example.mangamagum.Model.DataBase;
-import com.example.mangamagum.R;
+import com.wallaby.mangamagum.Model.Book;
+import com.wallaby.mangamagum.Model.DataBase;
+import com.wallaby.mangamagum.R;
 import com.squareup.picasso.Picasso;
 
 public class Chosen_manga extends AppCompatActivity {

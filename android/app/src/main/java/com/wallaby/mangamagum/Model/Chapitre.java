@@ -1,4 +1,4 @@
-package com.example.mangamagum.Model;
+package com.wallaby.mangamagum.Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;

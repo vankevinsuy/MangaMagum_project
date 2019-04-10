@@ -1,4 +1,4 @@
-package com.example.mangamagum.Adapter;
+package com.wallaby.mangamagum.Adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.mangamagum.Model.Book;
-import com.example.mangamagum.R;
+import com.wallaby.mangamagum.Model.Book;
+import com.wallaby.mangamagum.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

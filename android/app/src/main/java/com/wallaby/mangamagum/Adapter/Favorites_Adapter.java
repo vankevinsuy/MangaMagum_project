@@ -1,4 +1,4 @@
-package com.example.mangamagum.Adapter;
+package com.wallaby.mangamagum.Adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,42 +10,42 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.mangamagum.Model.Book;
-import com.example.mangamagum.R;
+import com.wallaby.mangamagum.Model.Book;
+import com.wallaby.mangamagum.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class Library_Adapter extends RecyclerView.Adapter<Library_Adapter.MyViewHolder> {
+public class Favorites_Adapter extends RecyclerView.Adapter<Favorites_Adapter.MyViewHolder> {
 
     private ArrayList<Book> bookArrayList;
     private Context mContext;
-    private OnItemClickListener mListener;
+    private Favorites_Adapter.OnItemClickListener mListener;
 
     public interface OnItemClickListener{
         void onItemClick(int position);
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener){
+    public void setOnItemClickListener(Favorites_Adapter.OnItemClickListener listener){
         mListener = listener;
     }
 
-    public Library_Adapter(ArrayList<Book> bookArrayList, Context mContext) {
+    public Favorites_Adapter(ArrayList<Book> bookArrayList, Context mContext) {
         this.bookArrayList = bookArrayList;
         this.mContext = mContext;
     }
 
     @NonNull
     @Override
-    public Library_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public Favorites_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view;
         LayoutInflater mInflater = LayoutInflater.from(mContext);
         view = mInflater.inflate(R.layout.card_view, viewGroup, false);
-        return new MyViewHolder(view, mListener);
+        return new Favorites_Adapter.MyViewHolder(view, mListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Library_Adapter.MyViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(@NonNull Favorites_Adapter.MyViewHolder myViewHolder, int i) {
         myViewHolder.book_title.setText(bookArrayList.get(i).getName());
         Picasso.with(this.mContext).load(this.bookArrayList.get(i).getCover_link()).into(myViewHolder.img_book_cover);
     }
@@ -62,7 +62,7 @@ public class Library_Adapter extends RecyclerView.Adapter<Library_Adapter.MyView
         ImageView img_book_cover;
         TextView book_title;
 
-        public MyViewHolder(final View itemView, final OnItemClickListener listener){
+        public MyViewHolder(final View itemView, final Favorites_Adapter.OnItemClickListener listener){
             super(itemView);
             cardView = (CardView) itemView.findViewById(R.id.cardview);
             img_book_cover = (ImageView)itemView.findViewById(R.id.book_img);
@@ -83,3 +83,4 @@ public class Library_Adapter extends RecyclerView.Adapter<Library_Adapter.MyView
     }
 
 }
+

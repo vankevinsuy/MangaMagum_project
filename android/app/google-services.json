@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:977957280079:android:d817940b01bcdcf2",
         "android_client_info": {
-          "package_name": "com.example.mangamagum"
+          "package_name": "com.wallaby.mangamagum"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "977957280079-4tspmlk3s4g27dtogj5ifdnaf3vstvgs.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.mangamagum",
+            "package_name": "com.wallaby.mangamagum",
             "certificate_hash": "e600e148e502642b54f8eac1ce2d601cfa2c34a1"
           }
         },

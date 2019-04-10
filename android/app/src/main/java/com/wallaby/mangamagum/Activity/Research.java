@@ -1,4 +1,4 @@
-package com.example.mangamagum.Activity;
+package com.wallaby.mangamagum.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,14 +13,12 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
-import com.example.mangamagum.Adapter.Library_Adapter;
-import com.example.mangamagum.Adapter.Research_adapter;
-import com.example.mangamagum.Model.Book;
-import com.example.mangamagum.Model.Chapitre;
-import com.example.mangamagum.Model.DataBase;
-import com.example.mangamagum.R;
+import com.wallaby.mangamagum.Adapter.Research_adapter;
+import com.wallaby.mangamagum.Model.Book;
+import com.wallaby.mangamagum.Model.Chapitre;
+import com.wallaby.mangamagum.Model.DataBase;
+import com.wallaby.mangamagum.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

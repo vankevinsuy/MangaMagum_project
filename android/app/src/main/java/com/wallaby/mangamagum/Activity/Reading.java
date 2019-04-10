@@ -1,4 +1,4 @@
-package com.example.mangamagum.Activity;
+package com.wallaby.mangamagum.Activity;
 
 import android.content.Intent;
 import android.graphics.Point;
@@ -8,13 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Display;
-import android.widget.Toast;
 
-import com.example.mangamagum.Adapter.Page_adapter;
-import com.example.mangamagum.Model.Book;
-import com.example.mangamagum.Model.Chapitre;
-import com.example.mangamagum.Model.DataBase;
-import com.example.mangamagum.R;
+import com.wallaby.mangamagum.Adapter.Page_adapter;
+import com.wallaby.mangamagum.Model.Book;
+import com.wallaby.mangamagum.Model.Chapitre;
+import com.wallaby.mangamagum.Model.DataBase;
+import com.wallaby.mangamagum.R;
 
 import java.util.ArrayList;
 

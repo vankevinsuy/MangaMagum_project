@@ -1,4 +1,4 @@
-package com.example.mangamagum;
+package com.wallaby.mangamagum;
 
 import org.junit.Test;
 

@@ -1,11 +1,9 @@
-package com.example.mangamagum.Activity;
+package com.wallaby.mangamagum.Activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.BadParcelableException;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,12 +11,11 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.mangamagum.Adapter.Favorites_Adapter;
-import com.example.mangamagum.Adapter.Library_Adapter;
-import com.example.mangamagum.Model.Book;
-import com.example.mangamagum.Model.Chapitre;
-import com.example.mangamagum.Model.DataBase;
-import com.example.mangamagum.R;
+import com.wallaby.mangamagum.Adapter.Favorites_Adapter;
+import com.wallaby.mangamagum.Model.Book;
+import com.wallaby.mangamagum.Model.Chapitre;
+import com.wallaby.mangamagum.Model.DataBase;
+import com.wallaby.mangamagum.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

@@ -1,4 +1,4 @@
-package com.example.mangamagum.Model;
+package com.wallaby.mangamagum.Model;
 
 import android.content.ContentValues;
 import android.content.Context;
