@@ -169,14 +169,7 @@ class Loading_data extends AsyncTask<Void,Void,Void>{
                         String[]m = n.split("__");
                         String num_chapitre = m[1];
 
-                        ArrayList<String> list_pages = new ArrayList<>();
-
-                        Iterable<DataSnapshot> pages = iterator.child("list_page").child(n).getChildren();
-                        while (pages.iterator().hasNext()){
-                            DataSnapshot iterator3 = pages.iterator().next();
-                            list_pages.add(iterator3.getValue().toString());
-                        }
-                        list_chapitres.add(new Chapitre(num_chapitre, list_pages));
+                        list_chapitres.add(new Chapitre(num_chapitre));
                     }
                     activity.list_book.add(new Book(name,cover_link,id_book,last_chapitre,list_chapitres, description));
                 }

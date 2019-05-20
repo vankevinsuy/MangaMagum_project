@@ -208,12 +208,12 @@ class Loading_data_research extends AsyncTask<Void,Void,Void> {
 
                         ArrayList<String> list_pages = new ArrayList<>();
 
-                        Iterable<DataSnapshot> pages = iterator.child("list_page").child(n).getChildren();
-                        while (pages.iterator().hasNext()){
-                            DataSnapshot iterator3 = pages.iterator().next();
-                            list_pages.add(iterator3.getValue().toString());
-                        }
-                        list_chapitres.add(new Chapitre(num_chapitre, list_pages));
+//                        Iterable<DataSnapshot> pages = iterator.child("list_page").child(n).getChildren();
+//                        while (pages.iterator().hasNext()){
+//                            DataSnapshot iterator3 = pages.iterator().next();
+//                            list_pages.add(iterator3.getValue().toString());
+//                        }
+                        list_chapitres.add(new Chapitre(num_chapitre));
                     }
                     activity.list_book.add(new Book(name,cover_link,id_book,last_chapitre,list_chapitres, description));
                 }
