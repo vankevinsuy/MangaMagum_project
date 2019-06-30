@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.github.chrisbanes.photoview.PhotoView;
+import com.github.chrisbanes.photoview.PhotoViewAttacher;
 import com.wallaby.mangamagum.R;
 
 import java.util.ArrayList;
@@ -20,6 +22,8 @@ public class Page_adapter extends RecyclerView.Adapter<Page_adapter.ViewHolder>{
     private Context context;
     private int width;
     private int height;
+    PhotoViewAttacher mAttacher;
+
 
     public Page_adapter(ArrayList<String> list_urls, Context context, int width, int height) {
         this.List_urls = list_urls;
@@ -60,15 +64,19 @@ public class Page_adapter extends RecyclerView.Adapter<Page_adapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView imageView;
+        public PhotoView imageView;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            imageView = (ImageView) itemView.findViewById(R.id.page_content);
+            imageView = (PhotoView) itemView.findViewById(R.id.page_content);
+            mAttacher = new PhotoViewAttacher(imageView);
+            mAttacher.update();
+
         }
 
-        public ImageView getImageView() {
+        public PhotoView getImageView() {
             return imageView;
         }
     }

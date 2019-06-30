@@ -14,37 +14,23 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.wallaby.mangamagum.Adapter.Library_Adapter;
-import com.wallaby.mangamagum.Model.Book;
-import com.wallaby.mangamagum.Model.Chapitre;
-import com.wallaby.mangamagum.Model.DataBase;
-import com.wallaby.mangamagum.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.wallaby.mangamagum.Adapter.Library_Adapter;
+import com.wallaby.mangamagum.Model.Book;
+import com.wallaby.mangamagum.Model.Chapitre;
+import com.wallaby.mangamagum.Model.DataBase;
+import com.wallaby.mangamagum.R;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 public class Library extends AppCompatActivity {
 
-    private ImageButton go_to_favorites;
-    private ImageButton go_to_search;
-
-
-    public RecyclerView manga_recycler_view;
-    public RecyclerView.Adapter mAdapter;
-
-    private Context context;
-    private Library activity;
-    private DataBase dataBase;
-    private Boolean internet_check;
-    private Boolean network_check;
-
     public ArrayList<Book> list_book;
-
 
 
     @Override
@@ -108,18 +94,13 @@ public class Library extends AppCompatActivity {
 
 
 class Loading_data extends AsyncTask<Void,Void,Void>{
-    private WeakReference<Library> activityReference;
+    public RecyclerView manga_recycler_view;
+    public RecyclerView.Adapter mAdapter;
     Context context;
-
+    private WeakReference<Library> activityReference;
     private ImageButton go_to_favorites;
     private ImageButton go_to_search;
 
-
-    public RecyclerView manga_recycler_view;
-    public RecyclerView.Adapter mAdapter;
-
-    private Boolean internet_check;
-    private Boolean network_check;
 
 
 
@@ -219,11 +200,11 @@ class Loading_data extends AsyncTask<Void,Void,Void>{
             }
 
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    }
-                });
+            }
+        });
 
         return null;
     }

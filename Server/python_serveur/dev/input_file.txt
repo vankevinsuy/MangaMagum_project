@@ -1,7 +1,0 @@
----NEW---
---MANGA--:koisuru michiru ojou sama
---COVER--:https://cdn.mangahub.io/file/imghub/koisuru-michiru-ojou-sama/1/1.jpg
---LINK-- :https://cdn.mangahub.io/file/imghub/koisuru-michiru-ojou-sama/{}/{}.jpg
---LINK-- :https://cdn.mangahub.io/file/imghub/koisuru-michiru-ojou-sama/{}/{}.png
---DESC-- :inconnu
---FIN NEW--

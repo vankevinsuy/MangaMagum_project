@@ -24,13 +24,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:indeterminate="true"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Icon made by Smashicons from www.flaticon.com"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints"
-        android:textSize="10dp"/>
-
 
 </android.support.constraint.ConstraintLayout>

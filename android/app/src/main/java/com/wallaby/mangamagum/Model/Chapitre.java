@@ -80,20 +80,4 @@ public class Chapitre implements Serializable {
 
         return list_pages;
     }
-
-
-
-
-//    public String getPages_as_list(){
-//        String res ="[";
-//
-//
-//        for(String link : getPages()){
-//            res = res + '"' + link + '"' +',';
-//        }
-//        res = res.substring(0,res.length()-1);
-//        res = res + ']';
-//
-//        return res;
-//    }
 }

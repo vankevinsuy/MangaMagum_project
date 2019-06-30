@@ -33,10 +33,9 @@ public class Reading extends AppCompatActivity {
 
     public int chapter;
     public Book selected_book;
-    public DatabaseReference reference;
 
 
-    private DataBase dataBase;
+    DataBase dataBase;
 
 
     public RecyclerView mRecyclerView;
@@ -67,28 +66,6 @@ public class Reading extends AppCompatActivity {
 
         Loading_data_reading loading_data = new Loading_data_reading(this , getApplicationContext());
         loading_data.execute();
-
-
-//        for(Chapitre chapitre : selected_book.getList_chapitre()){
-//            if(Integer.parseInt(chapitre.getNum_chapitre()) == chapter){
-//                this.list_urls = chapitre.getPages(selected_book.getId_book(), chapter, getApplicationContext());
-//            }
-//        }
-//
-//        ArrayList<String> corected_list = new ArrayList<>();
-//        for(String link : this.list_urls){
-//            corected_list.add(link.replaceAll("\\s+",""));
-//        }
-//
-//
-//
-//        mRecyclerView = findViewById(R.id.page_recycler_view);
-//        mRecyclerView.setHasFixedSize(false);
-//        LinearLayoutManager manager = new LinearLayoutManager(this.getApplicationContext(), LinearLayoutManager.VERTICAL, false);
-//        mRecyclerView.setLayoutManager(manager);
-//        mAdapter = new Page_adapter(corected_list, this.getApplicationContext(), width,height);
-//        mRecyclerView.setAdapter(mAdapter);
-
     }
 
 

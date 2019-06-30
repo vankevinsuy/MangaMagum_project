@@ -1,19 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2627b6d3-267a-4f8d-bcf1-1d4b513fcb36" name="Default Changelist" comment="">
+    <list default="true" id="045dc52b-23da-4e08-ab7b-bda880ca0f20" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dev.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input_file.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_manga.txt" beforeDir="false" afterPath="$PROJECT_DIR$/new_manga.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outpout/manga.csv" beforeDir="false" afterPath="$PROJECT_DIR$/outpout/manga.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_functions/insert_in_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_functions/insert_in_db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_functions/reload_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_functions/reload_all.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_functions/update_content.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_functions/update_content.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_functions/write_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_functions/write_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../android/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input_file.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_manga.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/outpout/chapters.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/outpout/manga.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/outpout/pages.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_functions/Mail.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_functions/URL_Checker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_functions/insert_in_db.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_functions/reload_all.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_functions/turnoff.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_functions/update_content.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_functions/write_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../realease/input_file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../realease/input_file.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../realease/new_manga.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../realease/new_manga.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../realease/outpout/chapters.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../realease/outpout/chapters.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../realease/outpout/pages.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../realease/outpout/pages.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../android/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../android/app/src/main/java/com/wallaby/mangamagum/Activity/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../android/app/src/main/java/com/wallaby/mangamagum/Activity/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../android/app/src/main/java/com/wallaby/mangamagum/Activity/Reading.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../android/app/src/main/java/com/wallaby/mangamagum/Activity/Reading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../android/app/src/main/java/com/wallaby/mangamagum/Adapter/Page_adapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../android/app/src/main/java/com/wallaby/mangamagum/Adapter/Page_adapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../android/app/src/main/java/com/wallaby/mangamagum/Model/Chapitre.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../android/app/src/main/java/com/wallaby/mangamagum/Model/Chapitre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../android/app/src/main/res/layout/no_internet_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../android/app/src/main/res/layout/no_internet_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../android/app/src/main/res/layout/page_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../android/app/src/main/res/layout/page_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../android/app/src/main/res/layout/splash_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../android/app/src/main/res/layout/splash_screen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../android/build.gradle" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,67 +40,22 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-567">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/write_manga.py" />
-        <option value="$PROJECT_DIR$/outpout/insert_in_db.py" />
-        <option value="$PROJECT_DIR$/URL_Checker.py" />
-        <option value="$PROJECT_DIR$/windows/main.py" />
-        <option value="$PROJECT_DIR$/windows/write_data.py" />
-        <option value="$PROJECT_DIR$/windows/insert_in_db.py" />
-        <option value="$PROJECT_DIR$/linux/write_data.py" />
-        <option value="$PROJECT_DIR$/linux/main.py" />
-        <option value="$PROJECT_DIR$/linux/insert_in_db.py" />
-        <option value="$PROJECT_DIR$/insert_in_db.py" />
-        <option value="$PROJECT_DIR$/write_data.py" />
-        <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/outpout/chapters.csv" />
-        <option value="$PROJECT_DIR$/reload_all.py" />
-        <option value="$PROJECT_DIR$/update_content.py" />
-        <option value="$PROJECT_DIR$/input_file.txt" />
-        <option value="$PROJECT_DIR$/server_functions/Mail.py" />
-        <option value="$PROJECT_DIR$/main.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
-    <option name="y" value="100" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="y" value="-10" />
+    <option name="width" value="1939" />
+    <option name="height" value="1049" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -89,36 +63,21 @@
               <item name="dev" type="b2602c69:ProjectViewProjectNode" />
               <item name="dev" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="outpout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dev" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="server_functions" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\MangaMagum_project\Server\python_serveur\dev\linux" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\MangaMagum_project\Server\python_serveur\dev\windows" />
-      <recent name="D:\MangaMagum_project\Server\python_serveur\dev" />
-    </key>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+      </console-settings>
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -132,87 +91,36 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="dev" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="dev" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.test" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\vanke\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2627b6d3-267a-4f8d-bcf1-1d4b513fcb36" name="Default Changelist" comment="" />
-      <created>1547501430450</created>
+      <changelist id="045dc52b-23da-4e08-ab7b-bda880ca0f20" name="Default Changelist" comment="" />
+      <created>1561817743925</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1547501430450</updated>
+      <updated>1561817743925</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16380544" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25302014" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.35783133" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007153" side_tool="true" weight="0.35783133" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32937366" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -220,130 +128,30 @@
       <window_info anchor="right" id="R Packages" order="4" />
     </layout>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>172</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>187</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>226</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>227</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>228</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>229</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>163</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/windows/write_data.py</url>
-          <line>225</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/urllib3/_collections.py" />
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/urllib3/poolmanager.py" />
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/urllib3/request.py" />
-    <entry file="file://$PROJECT_DIR$/windows/outpout/manga.csv" />
-    <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/urllib3/request.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/urllib3/poolmanager.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/urllib3/_collections.py" />
-    <entry file="file://$PROJECT_DIR$/windows/outpout/chapters.csv" />
-    <entry file="file://$PROJECT_DIR$/windows/main.py" />
-    <entry file="file://$PROJECT_DIR$/windows/URL_Checker.py" />
-    <entry file="file://$PROJECT_DIR$/windows/insert_in_db.py" />
-    <entry file="file://$PROJECT_DIR$/linux/outpout/manga.csv" />
-    <entry file="file://$PROJECT_DIR$/linux/insert_in_db.py" />
-    <entry file="file://$PROJECT_DIR$/linux/URL_Checker.py" />
-    <entry file="file://$PROJECT_DIR$/linux/write_data.py" />
-    <entry file="file://$PROJECT_DIR$/linux/main.py" />
-    <entry file="file://$PROJECT_DIR$/URL_Checker.py" />
-    <entry file="file://$PROJECT_DIR$/macos/write_data.py" />
-    <entry file="file://$PROJECT_DIR$/windows/input_file.txt" />
-    <entry file="file://$PROJECT_DIR$/outpout/sdv" />
-    <entry file="file://$PROJECT_DIR$/windows/write_data.py" />
-    <entry file="file://$PROJECT_DIR$/insert_in_db.py" />
-    <entry file="file://$PROJECT_DIR$/outpout/manga.csv" />
-    <entry file="file://$PROJECT_DIR$/outpout/chapters.csv" />
-    <entry file="file://$PROJECT_DIR$/outpout/pages.csv" />
-    <entry file="file://$PROJECT_DIR$/test.py" />
-    <entry file="file://$PROJECT_DIR$/write_data.py" />
-    <entry file="file://$PROJECT_DIR$/update_content.py" />
-    <entry file="file://$PROJECT_DIR$/reload_all.py" />
-    <entry file="file://$PROJECT_DIR$/input_file.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server_functions/Mail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="11" selection-start-column="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///anaconda3/lib/python3.7/site-packages/firebase/firebase.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file:///anaconda3/lib/python3.7/site-packages/firebase/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server_functions/insert_in_db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server_functions/update_content.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-567">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+  <component name="masterDetails">
+    <states>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
