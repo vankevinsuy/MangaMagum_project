@@ -6,9 +6,9 @@ def insert_all():
 
 
     if platform.system() == "Windows":
-        path_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout\\manga.csv"
-        path_chapter = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout\\chapters.csv"
-        path_page = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout\\pages.csv"
+        path_manga = "outpout\\manga.csv"
+        path_chapter = "outpout\\chapters.csv"
+        path_page = "outpout\\pages.csv"
 
 
     if platform.system() == "Darwin":

@@ -8,10 +8,10 @@ from server_functions.Mail import Mail
 print("######### RELOADING ALL ############")
 
 if platform.system() == "Windows":
-    path_manga = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout\\manga.csv"
-    path_chapter = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout\\chapters.csv"
-    path_page = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout\\pages.csv"
-    input_file_path = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\input_file.txt"
+    path_manga = "outpout\\manga.csv"
+    path_chapter = "outpout\\chapters.csv"
+    path_page = "outpout\\pages.csv"
+    input_file_path = "input_file.txt"
 
 if platform.system() == "Darwin":
     path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"

@@ -1,0 +1,10 @@
+ADDED MANGA : 
+      Black Clover id : 0   last chapter : 213
+      Death Note id : 1   last chapter : 112
+      My Hero Academia id : 2   last chapter : 237
+      One Punch Man id : 3   last chapter : 117
+      Nanatsu no Taizai id : 4   last chapter : 320
+      Boruto id : 5   last chapter : 37
+      Attack on Titan id : 6   last chapter : 121
+ACTION : update
+EXECUTION TIME  : 2004.0471830368042

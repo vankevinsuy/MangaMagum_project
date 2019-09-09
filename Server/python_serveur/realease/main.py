@@ -12,7 +12,7 @@ def launch():
     import os
     Mail().clear()
     if platform.system() == "Windows":
-        path_output = "D:\\MangaMagum_project\\Server\\python_serveur\\realease\\outpout"
+        path_output = "outpout"
 
     if platform.system() == "Darwin":
         path_output = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout"
@@ -81,7 +81,7 @@ launch()
 end = time.time()
 print(end - start)
 Mail().add("EXECUTION TIME  : " + str(end - start))
-Mail().send_report_to_admin("Server has finished to run")
+# Mail().send_report_to_admin("Server has finished to run")
 
 if platform.system() == "Linux":
     #turn off the server
