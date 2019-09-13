@@ -1,7 +1,7 @@
 import time
 
 start = time.time()
-import platform
+
 import sys
 import subprocess
 from server_functions.write_data import *
@@ -11,14 +11,8 @@ from server_functions.Mail import Mail
 def launch():
     import os
     Mail().clear()
-    if platform.system() == "Windows":
-        path_output = "dev\\outpout"
+    path_output = "outpout"
 
-    if platform.system() == "Darwin":
-        path_output = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout"
-
-    if platform.system() == "Linux":
-        path_output = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout"
 
     what_to_do = input("what to do ? ")
 

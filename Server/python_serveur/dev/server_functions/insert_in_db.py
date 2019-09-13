@@ -1,26 +1,13 @@
 def insert_all():
     import csv
-    import platform
     from firebase import firebase
     from server_functions.Mail import Mail
 
-    if platform.system() == "Windows":
-        path_manga = "outpout\\manga.csv"
-        path_chapter = "outpout\\chapters.csv"
-        path_page = "outpout\\pages.csv"
-        input_file_path = "input_file.txt"
+    path_manga = "outpout/manga.csv"
+    path_chapter = "outpout/chapters.csv"
+    path_page = "outpout/pages.csv"
+    input_file_path = "input_file.txt"
 
-
-    if platform.system() == "Darwin":
-        path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
-        path_chapter = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv"
-        path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
-
-
-    if platform.system() == "Linux":
-        path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
-        path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv"
-        path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
 
     try:
         print("######### FIREBASE DATABASE INSERTION #########")

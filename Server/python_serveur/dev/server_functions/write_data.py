@@ -4,32 +4,13 @@ import csv
 import numpy as np
 from server_functions.URL_Checker import *
 from server_functions.insert_in_db import insert_all
-import platform
 import time
 import gc
 
-if platform.system() == "Windows":
-    path_manga = "outpout\\manga.csv"
-    path_chapter = "outpout\\chapters.csv"
-    path_page = "outpout\\pages.csv"
-    input_file_path = "input_file.txt"
-
-
-if os == "Darwin":
-    path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
-    path_chapter = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv"
-    path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
-    path_new_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/new_manga.txt"
-    input_file_path = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/realease/input_file.txt"
-
-
-if os == "Linux":
-    path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/manga.csv"
-    path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/chapters.csv"
-    path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/outpout/pages.csv"
-    path_new_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/new_manga.txt"
-    input_file_path = "/home/vankevin/MangaMagum_project/Server/python_serveur/realease/input_file.txt"
-
+path_manga = "outpout/manga.csv"
+path_chapter = "outpout/chapters.csv"
+path_page = "outpout/pages.csv"
+input_file_path = "input_file.txt"
 
 
 #function for manga
@@ -58,7 +39,7 @@ def write_chapter(dictionnary, id_book):
 
     list_chapitre = []
 
-    for it in range(1,chapitre_max+1):
+    for it in range(0,chapitre_max+1):
         list_chapitre.append(it)
 
     with open(path_chapter,'a') as chapter_csv:

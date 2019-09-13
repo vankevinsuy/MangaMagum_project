@@ -7,25 +7,10 @@ from server_functions.Mail import Mail
 
 print("######### RELOADING ALL ############")
 
-if platform.system() == "Windows":
-    path_manga = "outpout\\manga.csv"
-    path_chapter = "outpout\\chapters.csv"
-    path_page = "outpout\\pages.csv"
-    input_file_path = "input_file.txt"
-
-if platform.system() == "Darwin":
-    path_manga = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
-    path_chapter = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
-    path_page = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
-    input_file_path = "/Users/vankevinsuy/Documents/MangaMagum_project/Server/dev/realease/input_file.txt"
-
-
-
-if platform.system() == "Linux":
-    path_manga = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/manga.csv"
-    path_chapter = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/chapters.csv"
-    path_page = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/outpout/pages.csv"
-    input_file_path = "/home/vankevin/MangaMagum_project/Server/python_serveur/dev/input_file.txt"
+path_manga = "outpout/manga.csv"
+path_chapter = "outpout/chapters.csv"
+path_page = "outpout/pages.csv"
+input_file_path = "input_file.txt"
 
 
 if os.path.exists(path_manga):
