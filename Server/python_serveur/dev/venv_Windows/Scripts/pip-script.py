@@ -1,4 +1,4 @@
-#!C:\Users\vanke\Documents\MangaMagum_project\Server\python_serveur\dev\venv\Scripts\python.exe
+#!C:\Users\vanke\Documents\MangaMagum_project\Server\python_serveur\dev\venv_Windows\Scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'pip==19.0.3','console_scripts','pip'
 __requires__ = 'pip==19.0.3'
 import re

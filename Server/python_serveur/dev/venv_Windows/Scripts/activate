@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\vanke\Documents\MangaMagum_project\Server\python_serveur\dev\venv"
+VIRTUAL_ENV="C:\Users\vanke\Documents\MangaMagum_project\Server\python_serveur\dev\venv_Windows"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

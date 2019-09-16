@@ -31,7 +31,7 @@ def insert_all():
                     list_page = {}
 
                     for line in csv_reader_manga :
-                        # print(line)
+                        print(line)
 
                         manga_name = line[0]
                         cover = line[1]
@@ -43,9 +43,11 @@ def insert_all():
                             id_book_line2 = int(line2[0])
                             if id_book == id_book_line2 :
                                 last_chapter = int(line2[1][1:-1].split(',')[-1])
-                        # print(id_book)
-                        # print(last_chapter)
-                        for chapitre in range(1,last_chapter+1):
+                                first_chapter = int(line2[1][1:-1].split(',')[0])
+                        print("id_book : " + id_book)
+                        print("last_chapter : "+last_chapter)
+                        print("last_chapter : " + first_chapter)
+                        for chapitre in range(first_chapter,last_chapter+1):
                             for line3 in csv_reader_page :
                                 if len(line3) != 0:
                                     id_book_line3 = int(line3[0])
