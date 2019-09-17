@@ -203,6 +203,7 @@ def get_last_id():
     return last_id
 
 def add_new_manga() :
+    path_new_manga = "new_manga.txt"
     # read the file which have the new mangas to add
     file = open(path_new_manga, 'r').readlines()
     input_file_as_list_of_dict = []

@@ -57,12 +57,13 @@ for item in input_file_as_list_of_dict:
             chapters = line[1][1:-1].split(',')
             our_last_chapter = int(chapters[-1])
             last_chapter = int(chapters[-1])
+            first_chapter = int(chapters[0])
 
             if id_book == id :
                 l_chapter = []
                 last_chapter = update_last_chapter(last_chapter, list_of_link)
                 print("last_chapter = " + str(last_chapter))
-                for it in range(1, last_chapter+1):
+                for it in range(first_chapter, last_chapter+1):
                     l_chapter.append(it)
                     if it > our_last_chapter:
                         chapter_for_page.append(it)

@@ -44,9 +44,10 @@ def insert_all():
                             if id_book == id_book_line2 :
                                 last_chapter = int(line2[1][1:-1].split(',')[-1])
                                 first_chapter = int(line2[1][1:-1].split(',')[0])
-                        print("id_book : " + id_book)
-                        print("last_chapter : "+last_chapter)
-                        print("last_chapter : " + first_chapter)
+
+                        # print("id_book : " + str(id_book))
+                        # print("last_chapter : "+ str(last_chapter))
+                        # print("last_chapter : " + str(first_chapter))
                         for chapitre in range(first_chapter,last_chapter+1):
                             for line3 in csv_reader_page :
                                 if len(line3) != 0:
