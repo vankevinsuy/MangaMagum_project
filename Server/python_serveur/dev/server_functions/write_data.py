@@ -30,16 +30,21 @@ def write_manga(dictionnary,id_book):
 
 
 #functions for chapter
-def write_chapter(dictionnary, id_book):
+def write_chapter(dictionnary, id_book, from_chap=0):
     list_of__base_link = dictionnary["list_of_link"]
 
-    chapitre_max = max_chapter_dicoto(list_of__base_link,1,1000,1000)
-    print(dictionnary["manga_name"]+" chapitre max = " + str(chapitre_max))
-    print('')
+    if(from_chap == 0):
+        chapitre_max = max_chapter_dicoto(list_of__base_link, 1, 1000, 1000)
+        print(dictionnary["manga_name"] + " chapitre max = " + str(chapitre_max))
+        print('')
+    else:
+        chapitre_max = max_chapter_dicoto(list_of__base_link, from_chap, 1000, 1000)
+        print(dictionnary["manga_name"] + " chapitre max = " + str(chapitre_max))
+        print('')
 
     list_chapitre = []
 
-    for it in range(0,chapitre_max+1):
+    for it in range(from_chap,chapitre_max+1):
         list_chapitre.append(it)
 
     with open(path_chapter,'a') as chapter_csv:
@@ -215,10 +220,13 @@ def add_new_manga() :
             cover = ""
             list_of_link = []
             book_description =""
+            from_chap = 0
         if "--MANGA--" in line:
             manga = line[10:-1]
         if "--COVER--" in line:
             cover = line[10:-1]
+        if "--FROM--" in line:
+            from_chap = int(line[10:-1])
         if "--LINK--" in line:
             list_of_link.append(line[10:-1])
         if "--FIN NEW--" in line:
@@ -247,7 +255,7 @@ def add_new_manga() :
 
             id_book = get_last_id()+1
             write_manga(item, id_book)
-            write_chapter(item, id_book)
+            write_chapter(item, id_book, from_chap)
             write_page(item, id_book)
             gc.collect()
 

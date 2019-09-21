@@ -9,3 +9,32 @@
 --LINK-- :https://byemanga.com/wp-content/uploads/Solo-Leveling-0{}-{}.jpg
 --LINK-- :https://byemanga.com/wp-content/uploads/Solo-Leveling-0{}-{}.png
 --FIN NEW--
+
+---NEW---
+--MANGA--:One Piece
+--COVER--:https://www.nautiljon.com/images/anime/00/60/one_piece_6.jpg
+--DESC-- :
+--LINK-- :https://byemanga.com/wp-content/uploads/One-Piece-{}-{}.png
+--LINK-- :https://byemanga.com/wp-content/uploads/One-Piece-{}-{}.jpg
+
+--FIN NEW--
+
+---NEW---
+--MANGA--:My Hero Academia
+--COVER--:https://cdn.shopify.com/s/files/1/0747/3829/products/mz1096_1024x1024.jpeg?v=1485014933
+--DESC-- :
+--LINK-- :https://byemanga.com/wp-content/uploads/My-Hero-Academia-{}-{}.png
+--LINK-- :https://byemanga.com/wp-content/uploads/My-Hero-Academia-{}-{}.jpg
+
+--FIN NEW--
+
+---NEW---
+--MANGA--:One Punch Man
+--COVER--:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-SbmjrnooAVSd5hgT6E0ZV5-cJVdA2JXS0QEuozYvWLPFwEa5
+--DESC-- :
+--LINK-- :https://byemanga.com/wp-content/uploads/2019/05/One-Punch-Man-{}-{}.png
+--LINK-- :https://byemanga.com/wp-content/uploads/2019/05/One-Punch-Man-{}-{}.jpg
+--LINK-- :https://byemanga.com/wp-content/uploads/One-Punch-Man-{}-{}.png
+--LINK-- :https://byemanga.com/wp-content/uploads/One-Punch-Man-{}-{}.jpg
+
+--FIN NEW--

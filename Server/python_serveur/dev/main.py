@@ -47,6 +47,7 @@ def launch():
 
     if what_to_do == "add":
         add_new_manga()
+        open("new_manga.txt", 'w')
         Mail().add("ACTION : add manga")
 
     if what_to_do == "finsert":
