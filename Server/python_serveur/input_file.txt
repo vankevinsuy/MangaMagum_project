@@ -48,3 +48,14 @@
 --LINK-- :https://byemanga.com/wp-content/uploads/Dr.-Stone-{}-{}.jpg
 
 --FIN NEW--
+
+---NEW---
+--MANGA--:Kimetsu No Yaiba
+--COVER--:https://i1.wp.com/lesitedujapon.com/wp-content/uploads/Demon-slayer-key-visual.jpg?resize=618%2C822&ssl=1
+--DESC-- :
+--LINK-- :https://byemanga.com/wp-content/uploads/Kimetsu-No-Yaiba-{}-{}.jpg
+--LINK-- :https://byemanga.com/wp-content/uploads/Kimetsu-No-Yaiba-{}-{}.png
+--LINK-- :https://byemanga.com/wp-content/uploads/Kimetsu-no-Yaiba-{}-{}.jpg
+--LINK-- :https://byemanga.com/wp-content/uploads/Kimetsu-no-Yaiba-{}-{}.png
+
+--FIN NEW--

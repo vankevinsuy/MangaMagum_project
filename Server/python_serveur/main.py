@@ -42,7 +42,8 @@ def launch():
         else:
             from server_functions import update_content
             Mail().add("ACTION : update")
-            update_content
+            for it in range(10):
+                update_content
             return 1
 
     if what_to_do == "add":
