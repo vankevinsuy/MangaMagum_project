@@ -1,6 +1,5 @@
 from server_functions.write_data import *
 from server_functions.insert_in_db import insert_all
-import platform
 import os
 
 print("########### UPDATE CONTENT ##########")
