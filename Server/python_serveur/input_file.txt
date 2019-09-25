@@ -38,3 +38,13 @@
 --LINK-- :https://byemanga.com/wp-content/uploads/One-Punch-Man-{}-{}.jpg
 
 --FIN NEW--
+
+
+---NEW---
+--MANGA--:Dr Stone
+--COVER--:http://www.lazonemanga.fr/wp-content/uploads/2019/07/dr-stone.jpg
+--DESC-- :
+--LINK-- :https://byemanga.com/wp-content/uploads/Dr.-Stone-{}-{}.png
+--LINK-- :https://byemanga.com/wp-content/uploads/Dr.-Stone-{}-{}.jpg
+
+--FIN NEW--

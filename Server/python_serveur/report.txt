@@ -3,4 +3,5 @@ ADDED MANGA :
       One Piece id : 1   last chapter : 952
       My Hero Academia id : 2   last chapter : 238
       One Punch Man id : 3   last chapter : 113
+      Dr Stone id : 4   last chapter : 116
 ACTION : update
