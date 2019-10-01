@@ -25,10 +25,13 @@ for line in file :
         cover = ""
         list_of_link = []
         book_description =""
+
     if "--MANGA--" in line :
         manga = line[10:-1]
     if "--COVER--" in line :
         cover = line[10:-1]
+    if "--DESC--" in line :
+        book_description = line[10:-1]
     if "--LINK--" in line:
         list_of_link.append(line[10:-1])
     if "--FIN NEW--" in line:

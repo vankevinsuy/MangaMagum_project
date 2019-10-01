@@ -5,4 +5,5 @@ ADDED MANGA :
       One Punch Man id : 3   last chapter : 113
       Dr Stone id : 4   last chapter : 116
       Kimetsu No Yaiba id : 5   last chapter : 169
-ACTION : update
+      Nanatsu-no-taizai id : 6   last chapter : 276
+ACTION : add manga

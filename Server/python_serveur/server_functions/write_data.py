@@ -221,10 +221,13 @@ def add_new_manga() :
             list_of_link = []
             book_description =""
             from_chap = 0
+
         if "--MANGA--" in line:
             manga = line[10:-1]
         if "--COVER--" in line:
             cover = line[10:-1]
+        if "--DESC--" in line :
+            book_description = line[10:-1]
         if "--FROM--" in line:
             from_chap = int(line[10:-1])
         if "--LINK--" in line:
@@ -234,53 +237,30 @@ def add_new_manga() :
                                                "cover_link":   cover,
                                                "list_of_link": list_of_link,
                                                "description": book_description})
-            with open(input_file_path, 'a') as input_file:
-                for item in input_file_as_list_of_dict:
-                    input_file.write("\n")
 
-                    manga = item['manga_name']
-                    cover = item['cover_link']
-                    link = item['list_of_link']
-                    desc = item['description']
+    with open(input_file_path , 'a') as input_file :
+        for item in input_file_as_list_of_dict :
+         input_file.write("\n")
 
-                    # adding data in input file
-                    input_file.write("\n---NEW---\n")
-                    input_file.write("--MANGA--:" + manga + "\n")
-                    input_file.write("--COVER--:" + cover + "\n")
-                    input_file.write("--DESC-- :" + desc + "\n")
-                    for i in range(len(link)):
-                        input_file.write("--LINK-- :" + link[i] + "\n")
-                    input_file.write("\n--FIN NEW--")
+         manga = item['manga_name']
+         cover = item['cover_link']
+         link = item['list_of_link']
+         desc = item['description']
 
-                    id_book = get_last_id() + 1
-                    write_manga(item, id_book)
-                    write_chapter(item, id_book, from_chap)
-                    write_page(item, id_book)
-                    gc.collect()
+         # adding data in input file
+         input_file.write("\n---NEW---\n")
+         input_file.write("--MANGA--:" + manga +"\n")
+         input_file.write("--COVER--:" + cover +"\n")
+         input_file.write("--DESC-- :" + desc +"\n")
+         for i in range(len(link)):
+             input_file.write("--LINK-- :" + link[i] +"\n")
+         input_file.write("\n--FIN NEW--")
 
-    # with open(input_file_path , 'a') as input_file :
-    #     for item in input_file_as_list_of_dict :
-    #         input_file.write("\n")
-    #
-    #         manga = item['manga_name']
-    #         cover = item['cover_link']
-    #         link = item['list_of_link']
-    #         desc = item['description']
-    #
-    #         # adding data in input file
-    #         input_file.write("\n---NEW---\n")
-    #         input_file.write("--MANGA--:" + manga +"\n")
-    #         input_file.write("--COVER--:" + cover +"\n")
-    #         input_file.write("--DESC-- :" + desc +"\n")
-    #         for i in range(len(link)):
-    #             input_file.write("--LINK-- :" + link[i] +"\n")
-    #         input_file.write("\n--FIN NEW--")
-    #
-    #         id_book = get_last_id()+1
-    #         write_manga(item, id_book)
-    #         write_chapter(item, id_book, from_chap)
-    #         write_page(item, id_book)
-    #         gc.collect()
+         id_book = get_last_id()+1
+         write_manga(item, id_book)
+         write_chapter(item, id_book, from_chap)
+         write_page(item, id_book)
+         gc.collect()
 
     # effacer le contenu du fichier
     new_manga = open(path_new_manga,'w')
